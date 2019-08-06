@@ -1,0 +1,54 @@
+<center>
+    <h1 style="font-size:40px; color: White">Inspecting plants</h1>
+</center>
+<h3 style="color:white">Past inspections </h3>
+
+<h3>Report on the plant's state</h3>
+    <div>
+        <p>Current temperature: {{temperature}}</p>
+        <p>Current humidity: {{humidity}}</p>
+    </div>
+</h3>
+
+<table id="past measurements">
+    <thead>
+        <tr>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Time</th>
+            <th>Worker name</th>
+            <th>Plant state</th>
+            <th>Workers assessment</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+    </tbody>
+</table>
+
+<form method="POST" action="/tempandhums">
+  <div>
+    <label for="worker_name">Worker's name</label>
+    <input type="text" id="worker_name" name="worker_name">
+  </div>
+  <div>
+    <label for="workers_assessment">Assessment of the plant</label> 
+    <textarea id="workers_assesment" name="workers_assessment"></textarea>
+  </div>
+  <div>
+    <p>State of the plant: </p>
+    <label for="state"></label>
+      <select id="state" form="state">
+        <option value="1">1 - Quite dead</option>
+        <option value="2">2 - Dying</option>
+        <option value="3">3 - Fine</option>
+        <option value="4">4 - Well</option>
+        <option value="5">5 - Very well</option>
+      </select>
+    </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+  {{#if errMessage}}
+    <p style="color: red; text-align: center">Error: {{ errMessage }}</p>
+  {{/if}}
+</form>

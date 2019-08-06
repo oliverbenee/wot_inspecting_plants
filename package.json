@@ -1,0 +1,26 @@
+{
+  "name": "assignment-five-inspecting-plants",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Oliver Benée",
+  "license": "ISC",
+  "description": "Assignment 5 - Re-Exam - Inspecting Plants",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chart.js": "^2.7.3",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.24.0",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.au.dk:au617191/assignment-5.git"
+  }
+}
