@@ -17,10 +17,16 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, '../views'))
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
+/* May not be necessary */
 app.use((request, response, next) => {
   console.log(request.url)
   next()
 })
+/* End of may not be necessary */
 
 app.use(express.static(path.join(__dirname, '../public')))
 
