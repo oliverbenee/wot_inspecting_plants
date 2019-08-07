@@ -1,12 +1,15 @@
 'use strict';
-
+//  Import temperature and humidity database
 const Tempandhums = require('../db/db').Tempandhums;
 //  Import the needed j package for the sensor
 const sensorTH = require('node-dht-sensor');
 //  11 is the model number for our sensor, 12 is the GPIO we connect to on the Pi
 sensorTH.initialize(11, 12);
+//  Import needed package for GPIO to function properly. 
+const Gpio = require('onoff').Gpio // #A
+
 //  An LED added to the RPI, GPIO port 4 is used.
-const led = new Gpio(4, 'out')
+const led = new Gpio(4, 'out');
 
 /*
   Reads sensor values. Readout contains two values:
