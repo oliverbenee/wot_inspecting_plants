@@ -1,5 +1,5 @@
 {
-  "name": "assignment-five-inspecting-plants",
+  "name": "assignment-four-a-room-sensing-web-site",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,22 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Oliver Benée",
+  "author": "Nijithaan Selvaratnam",
   "license": "ISC",
-  "description": "Assignment 5 - Re-Exam - Inspecting Plants",
+  "description": "Assignment 3",
   "dependencies": {
     "body-parser": "^1.18.2",
     "chart.js": "^2.7.3",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "moment": "^2.24.0",
-    "node-dht-sensor": "^0.0.33",
-    "onoff": "^1.2.0",
     "mysql": "^2.16.0"
   },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git@gitlab.au.dk:au617191/assignment-5.git"
+    "url": "git@gitlab.au.dk:rainbow-dash/assignment-four-a-room-sensing-web-site.git"
   }
 }
