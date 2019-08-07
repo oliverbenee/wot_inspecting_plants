@@ -5,10 +5,6 @@ const myChartCtx = document.querySelector('#myChart')
 const temperature = []
 const humidity = []
 const time = []
-const worker_name = []
-const worker_id = []
-const state = []
-const workers_assessment = []
 
 /* Fetches all the data for the chart */
 fetch('/data', {
@@ -61,11 +57,8 @@ function makeMyData (data) {
     temperature.push(c.temperature)
     humidity.push(c.humidity)
     time.push(c.time)
-    worker_name.push(c.worker_name)
-    worker_id.push(c.worker_id)
-    workers_assessment.push(c.workers_assessment)
   }
-  return { temperature, humidity, time, worker_name, worker_id, workers_assessment }
+  return { temperature, humidity, time }
 }
 
 function updateMyChart (data) {
@@ -77,9 +70,6 @@ function updateMyChart (data) {
       temperature.shift()
       humidity.shift()
       time.shift()
-      worker_name.shift()
-      worker_id.shift()
-      workers_assessment.shift()
     }
   }
   myChartTH.update(300)
