@@ -9,7 +9,13 @@
     alias4(((helper = (helper = helpers.humidity || (depth0 != null ? depth0.humidity : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'humidity', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
     alias4(((helper = (helper = helpers.time || (depth0 != null ? depth0.time : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'time', 'hash': {}, 'data': data }) : helper))) +
-    '</td>\r\n </tr>\r\n'
+    '</td>\r\n <td>' +
+    alias4(((helper = (helper = helpers.worker_name || (depth0 != null ? depth0.worker_name : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'worker_name', 'hash': {}, 'data': data }) : helper))) +
+    '</td>\r\n <td>' +
+    alias4(((helper = (helper = helpers.state || (depth0 != null ? depth0.state : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'state', 'hash': {}, 'data': data }) : helper))) +
+    '</td>\r\n <td>' +
+    alias4(((helper = (helper = helpers.workers_assessment || (depth0 != null ? depth0.workers_assessment : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'workers_assessment', 'hash': {}, 'data': data }) : helper))) +
+    '</td>\r\n </tr>\r\n';
   },
   'compiler': [7, '>= 4.0.0'],
   'main': function (container, depth0, helpers, partials, data) {
