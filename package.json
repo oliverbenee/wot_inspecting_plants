@@ -10,15 +10,16 @@
   "author": "Oliver Benee",
   "license": "ISC",
   "description": "Assignment 5",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "chart.js": "^2.7.3",
-    "express": "^4.16.2",
-    "express-handlebars": "^3.0.0",
+  "dependencies": {    
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.8.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
     "moment": "^2.24.0",
-    "mysql": "^2.16.0",
+    "mysql": "github:mysqljs/mysql",
+    "mysql-server": "^1.0.5",
+    "node-dht-sensor": "^0.3.0",
     "onoff": "^1.2.0",
-    "node-dht-sensor": "^0.0.33"
   },
   "devDependencies": {},
   "repository": {
