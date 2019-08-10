@@ -1,13 +1,10 @@
-'use strict';
+'use strict'
 /* global fetch Handlebars */
-const myTable = document.querySelector('#myTable');
-const myChartCtx = document.querySelector('#myChart');
-const temperature = [];
-const humidity = [];
-const time = [];
-const worker_name = [];
-const state = [];
-const workers_assessment = [];
+const myTable = document.querySelector('#myTable')
+const myChartCtx = document.querySelector('#myChart')
+const temperature = []
+const humidity = []
+const time = []
 
 /* Fetches all the data for the chart */
 fetch('/data', {
@@ -16,9 +13,9 @@ fetch('/data', {
     'Accept': 'application/json'
   } }).then((response) => {
   response.json().then((data) => {
-    makeMyChart(data);
-  });
-});
+    makeMyChart(data)
+  })
+})
 
 /* Fetches all the data for the table */
 fetch('/dataT', {
@@ -27,9 +24,9 @@ fetch('/dataT', {
     'Accept': 'application/json'
   } }).then((response) => {
   response.json().then((data) => {
-    myTable.innerHTML = Handlebars.templates.data({ tempandhums: data });
-  });
-});
+    myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
+  })
+})
 
 /* create an interval to update the table and the chart every 10 second */
 setInterval(() => {
@@ -39,9 +36,9 @@ setInterval(() => {
       'Accept': 'application/json'
     } }).then((response) => {
     response.json().then((data) => {
-      updateMyChart(data);
-    });
-  });
+      updateMyChart(data)
+    })
+  })
 
   fetch('/dataT', {
     method: 'get',
@@ -49,44 +46,38 @@ setInterval(() => {
       'Accept': 'application/json'
     } }).then((response) => {
     response.json().then((data) => {
-      myTable.innerHTML = Handlebars.templates.data({ tempandhums: data });
-    });
-  });
-}, 10000);
+      myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
+    })
+  })
+}, 10000)
 
 /* code for the table data */
 function makeMyData (data) {
   for (let c of data) {
-    temperature.push(c.temperature);
-    humidity.push(c.humidity);
-    time.push(c.time);
-    worker_name.push(c.worker_name);
-    state.push(c.state);
-    workers_assessment.push(c.workers_assessment);
+    temperature.push(c.temperature)
+    humidity.push(c.humidity)
+    time.push(c.time)
   }
-  return { temperature, humidity, time, worker_name, state, workers_assessment };
+  return { temperature, humidity, time }
 }
 
 function updateMyChart (data) {
   for (let c of data) {
-    temperature.push(c.temperature);
-    humidity.push(c.humidity);
-    time.push(c.time);
-    worker_name.push(c.worker_name);
-    state.push(c.state);
-    workers_assessment.push(c.workers_assessment);
+    temperature.push(c.temperature)
+    humidity.push(c.humidity)
+    time.push(c.time)
     if (temperature.length >= 10) {
-      temperature.shift();
-      humidity.shift();
-      time.shift();
+      temperature.shift()
+      humidity.shift()
+      time.shift()
     }
   }
-  myChartTH.update(300);
+  myChartTH.update(300)
 }
 
 /* Code for the chart */
 function makeMyChart (data) {
-  const myData = makeMyData(data);
+  const myData = makeMyData(data)
   const myChart = new Chart(myChartCtx, {
     type: 'line',
     data: {
@@ -158,6 +149,6 @@ function makeMyChart (data) {
         }]
       }
     }
-  });
-  window.myChartTH = myChart;
+  })
+  window.myChartTH = myChart
 }
