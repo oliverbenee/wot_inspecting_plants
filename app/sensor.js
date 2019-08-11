@@ -51,3 +51,5 @@ process.on('SIGINT', () => {
   console.log('Bye, bye!');
   process.exit();
 });
+
+module.exports.tah = tempandhumsData;
