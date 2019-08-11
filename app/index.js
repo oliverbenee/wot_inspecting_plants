@@ -40,7 +40,7 @@ app.post('/homePage', (request, response, next) => {
     temperature: Tempandhums.temperature,
     humidity: Tempandhums.humidity
   };
-  tempandhums.insert(tempandhums, err => {
+  Tempandhums.insert(tempandhums, err => {
     if (err) {
       response.render('data', {
         worker_name: tempandhums.worker_name,
