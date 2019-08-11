@@ -34,11 +34,11 @@ app.use(express.static(path.join(__dirname, '../public')))
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/homePage', (request, response, next) => {
   const tempandhums = {
-    worker_name: request.body.worker_name,
-    workers_assessment: request.body.workers_assessment,
-    state: request.body.state,
     temperature: Tempandhums.temperature,
-    humidity: Tempandhums.humidity
+    humidity: Tempandhums.humidity,
+    worker_name: request.body.worker_name,
+    state: request.body.state,
+    workers_assessment: request.body.workers_assessment
   };
   Tempandhums.insert(tempandhums, err => {
     if (err) {
