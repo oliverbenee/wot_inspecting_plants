@@ -63,7 +63,8 @@ class Tempandhums {
     const sql = 'INSERT INTO tempandhums(temperature, humidity, worker_name, workers_assessment, state) VALUES (?, ?, ?, ?, ?)'
     pool.getConnection((err, connection) => {
       if (err) throw err;
-      connection.query(sql, [tah.worker_name, tah.workers_assessment], (err, results, fields) => {
+      //All 5 values must be here, otherwise a "BAD FIELD ERROR" is thrown
+      connection.query(sql, [tah.temperature, tah.humidity, tah.worker_name, tah.state, tah.workers_assessment], (err, results, fields) => {
         callback(err, results);
         connection.release();
       });
