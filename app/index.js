@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, '../public')))
 
 
 /* Creates a new resource and throws an error message if there is one. */
-app.post('/homePage', (request, response, next) => {
+app.post('/home', (request, response, next) => {
   const tempandhums = {
     worker_name: request.body.worker_name,
     workers_assessment: request.body.workers_assessment,
@@ -60,7 +60,7 @@ app.get('/', (request, response, next) => {
 })
 
 app.get('/home', (request, response, next) => {
-  response.render('homePage')
+  response.render('home')
 })
 
 app.get('/data', (request, response, next) => {
