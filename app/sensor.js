@@ -42,6 +42,7 @@ function read () {
     }, 1000);
   }
   console.log('LED blinks twice to signal, that data has been stored.');
+  module.exports.tah = tempandhumsData;
 }
 
 
@@ -52,4 +53,3 @@ process.on('SIGINT', () => {
   process.exit();
 });
 
-module.exports.tah = tempandhumsData;
