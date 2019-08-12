@@ -43,7 +43,7 @@ function read () {
   }
 
   // Export temperature and humidity data
-  module.exports.tah = tempandhumsData;
+  module.exports.tempandhumsData = tempandhumsData;
 
   console.log('LED blinks twice to signal, that data has been stored.');
 }

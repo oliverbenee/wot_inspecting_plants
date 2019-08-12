@@ -80,10 +80,11 @@ class Tempandhums {
     if (!tah.workers_assessment) {
       return callback(new Error('Please specify the state.'))
     }
+    Tempandhums.read();
     pool.getConnection((err, connection) => {
       if (err) throw err;
       const sql = `INSERT INTO tempandhums(temperature, humidity, worker_name, state, workers_assessment) VALUES (?, ?, ?, ?, ?)`;
-      connection.query(sql, [tah.temperature, tah.humidity, tah.worker_name, tah.state, tah.workers_assessment], (err, results, fields) => {
+      connection.query(sql, [tempandhumsData.temperature, tempandhumsData.humidity, tah.worker_name, tah.state, tah.workers_assessment], (err, results, fields) => {
         if (err) throw err;
         connection.release();
       });
