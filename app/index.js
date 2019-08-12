@@ -42,8 +42,8 @@ app.get('/home', (request, response, next) => {
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
   const tempandhums = {
-    temperature: Tempandhums.temperature,
-    humidity: Tempandhums.humidity,
+    temperature: Tempandhums.tah.temperature,
+    humidity: Tempandhums.tah.humidity,
     worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
@@ -51,8 +51,8 @@ app.post('/home', (request, response, next) => {
   Tempandhums.insert(tempandhums, err => {
     if (err) {
       response.render('data', {
-        temperature: tempandhums.temperature, // Should make value not null
-        humidity: tempandhums.humidity,       // Should make value not null
+        // temperature: tempandhums.temperature,
+        // humidity: tempandhums.humidity,
         worker_name: tempandhums.worker_name,
         workers_assessment: tempandhums.workers_assessment,
         state: tempandhums.state,
