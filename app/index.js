@@ -63,7 +63,7 @@ app.get('/', (request, response, next) => {
 
 /* Redirects from homepage to home*/
 app.get('/homePage', (request, response, next) => {
-  response.render('homePage')
+  response.redirect('/home')
 })
 
 app.get('/home', (request, response, next) => {
