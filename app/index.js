@@ -30,6 +30,14 @@ app.use((request, response, next) => {
 
 app.use(express.static(path.join(__dirname, '../public')))
 
+/* Retrieves the state of the resource */
+aapp.get('/', (request, response, next) => {
+  response.redirect('/home')
+})
+
+app.get('/home', (request, response, next) => {
+  response.render('home')
+})
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
@@ -55,20 +63,6 @@ app.post('/home', (request, response, next) => {
     }
   });
 });
-
-/* Retrieves the state of the resource */
-app.get('/', (request, response, next) => {
-  response.redirect('/home')
-})
-
-/* Redirects from homepage to home*/
-app.get('/homePage', (request, response, next) => {
-  response.redirect('/home')
-})
-
-app.get('/home', (request, response, next) => {
-  response.render('homePage')
-})
 
 app.get('/data', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
