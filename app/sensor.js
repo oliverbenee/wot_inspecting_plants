@@ -45,6 +45,9 @@ function read () {
   // Export temperature and humidity data
   module.exports.tempandhumsData = tempandhumsData;
 
+  // Insert temperature and humidity data - maybe needs to be deleted.
+  Tempandhums.insert(tempandhumsData);
+
   console.log('LED blinks twice to signal, that data has been stored.');
 }
 
