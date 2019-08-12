@@ -31,7 +31,7 @@ app.use((request, response, next) => {
 app.use(express.static(path.join(__dirname, '../public')))
 
 /* Retrieves the state of the resource */
-aapp.get('/', (request, response, next) => {
+app.get('/', (request, response, next) => {
   response.redirect('/home')
 })
 
