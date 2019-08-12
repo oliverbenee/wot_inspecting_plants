@@ -42,9 +42,10 @@ function read () {
     }, 1000);
   }
   console.log('LED blinks twice to signal, that data has been stored.');
-  module.exports.tah = tempandhumsData;
 }
 
+// Export temperature and humidity daya
+module.exports.tah = tempandhumsData;
 
 //  Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
