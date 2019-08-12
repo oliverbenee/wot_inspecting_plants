@@ -5,6 +5,12 @@
  p {
      width: 100%;
      font-family: Arial, Helvetica, sans-serif;
-     
  }
 
+ /**
+  * Body
+  */
+
+body {
+    background-image: url("https://samvirke.dk/sites/default/files/styles/image_component_large/public/migrated/dr/drivhusplanter_0.jpg.jpeg?itok=b5_oVIzs");
+}
