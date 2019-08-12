@@ -43,6 +43,8 @@ app.post('/homePage', (request, response, next) => {
   Tempandhums.insert(tempandhums, err => {
     if (err) {
       response.render('data', {
+        temperature: tempandhums.temperature, // Should make value not null
+        humidity: tempandhums.humidity,       // Should make value not null
         worker_name: tempandhums.worker_name,
         workers_assessment: tempandhums.workers_assessment,
         state: tempandhums.state,
