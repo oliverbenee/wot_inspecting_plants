@@ -74,12 +74,6 @@ class Tempandhums {
 
   /* Creates a function, where we can insert our mesuarments */
   static insert (tah) {
-    if (!tah.temperature) {
-      return callback(new Error('No temperature recorded.'))
-    }
-    if (!tah.humidity) {
-      return callback(new Error('No humidity recorded.'))
-    }
     if (!tah.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
