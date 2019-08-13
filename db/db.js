@@ -12,7 +12,7 @@ pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
     `CREATE TABLE IF NOT EXISTS tempandhums
-          (temperature FLOAT(4,2), humidity FLOAT(4,2), worker_name TEXT, state INT, workers_assessment TEXT)`, (err) => {
+          (temperature FLOAT(4,2) DEFAULT 0.0, humidity FLOAT(4,2) DEFAULT 0.0, worker_name TEXT, state INT, workers_assessment TEXT)`, (err) => {
       if (err) throw err;
     });
   connection.release();
@@ -73,7 +73,7 @@ class Tempandhums {
   */
 
   /* Creates a function, where we can insert our mesuarments */
-  static insert (tah) {
+  static insert (tah, callback) {
     if (!tah.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
