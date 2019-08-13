@@ -42,7 +42,7 @@ app.get('/home', (request, response, next) => {
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
   const tempandhums = {
-    temperature: Tempandhums.tempandhumsData.temperature,     //Tempandhums.tempandhumsData.temperature
+    temperature: sensor.tempandhumsData.temperature,     //Tempandhums.tempandhumsData.temperature
     humidity: sensor.tempandhumsdata.humidity,           //Tempandhums.tempandhumsData.humidity
     worker_name: 'mynameisjeff',                              //request.body.worker_name,
     state: 2,                                                 //request.body.state,
