@@ -4,7 +4,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
-const tempandhumsData = require('./sensor').tempandhumsData
+const tempandhumsData = require('./sensor')
 
 const app = express()
 const port = 3000
@@ -46,8 +46,8 @@ app.post('/home', (request, response, next) => {
   // tilføjede read() her d. 13/8-2019 klokken 16:23 - HJALP IKKE
   // read();
   const tempandhums = {
-    temperature: tempandhumsData.temperature,
-    humidity: tempandhumsData.humidity,
+    temperature: 65.2,
+    humidity: 10.6,
     worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
@@ -91,7 +91,7 @@ app.post('/home', (request, response, next) => {
       // worker_name: 'mynameisjeff',                              //request.body.worker_name,
       // state: 2,                                                 //request.body.state,
       // workers_assessment: 'the plant looks good'  
-    };
+  };
   Tempandhums.insert(tempandhums, err => {
     if (err) {
       response.render('data', {
