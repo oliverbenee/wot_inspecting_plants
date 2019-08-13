@@ -4,7 +4,7 @@ const express = require('express') //Ensure, that express is available
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
-const tempandhumsData = require('./sensor')
+const sensor = require('./sensor')
 
 const app = express()     // Define app using express
 const port = 3000         //set port for server
@@ -45,12 +45,12 @@ app.get('/home', (request, response, next) => {
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
   // tilføjede read() her d. 13/8-2019 klokken 16:23 - HJALP IKKE
-  // read();
+  tempandhumsData.read();
   const tempandhums = {
-    temperature: 65.2,
-    humidity: 10.6,
+    temperature: sensor.tempandhumsData.temperature,
+    humidity: sensor.tempandhumsData.humidity,
     worker_name: request.body.worker_name,
-    state: 2,
+    state: request.body.state,
     workers_assessment: request.body.workers_assessment
       // fandt temperature og humidity således d. 13/8-2019 klokken 10:30
       // temperature: sensor.tempandhumsData.temperature,
