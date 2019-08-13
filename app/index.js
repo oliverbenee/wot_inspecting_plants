@@ -1,13 +1,13 @@
 'use strict'
 const path = require('path')
-const express = require('express')
+const express = require('express') //Ensure, that express is available
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
 const tempandhumsData = require('./sensor')
 
-const app = express()
-const port = 3000
+const app = express()     // Define app using express
+const port = 3000         //set port for server
 
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
@@ -17,6 +17,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, '../views'))
 
+// Configure app to use bodyParser - allows data from POST to be fetched.
 app.use(bodyParser.urlencoded({
   extended: true
 }))
@@ -156,6 +157,8 @@ app.use((err, req, res, next) => {
   console.log(err)
   res.status(500).send(err.toString())
 })
+
+// Server started. Link to server is generated. 
 
 app.listen(port, (err) => {
   if (err) return console.error(`An error has occured: ${err}`)
