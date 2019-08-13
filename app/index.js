@@ -128,6 +128,7 @@ app.get('/home', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
+  read();
   const tempandhums = {
     temperature: tempandhumsData.temperature,     //Tempandhums.tempandhumsData.temperature
     humidity: tempandhumsdata.humidity,           //Tempandhums.tempandhumsData.humidity
