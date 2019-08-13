@@ -73,7 +73,7 @@ class Tempandhums {
   */
 
   /* Creates a function, where we can insert our mesuarments */
-  static insert (tah) {
+  static insert (tah, callback) {
     if (!tah.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
