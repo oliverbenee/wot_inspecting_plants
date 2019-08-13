@@ -40,6 +40,7 @@ function read () {
   };
   console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
  'humidity: ' + readout.humidity.toFixed(2) + '%')
+  // Insert temperature and humidity data into the databazz
   Tempandhums.insert(tempandhumsData)
   //  An LED on the RPI will blink twice for confirmation.
   for (let i = 0; i <= 2; i++){
