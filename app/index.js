@@ -4,7 +4,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
-require('./sensor')
+const sensor = require('./sensor')
 
 const app = express()
 const port = 3000
@@ -42,8 +42,8 @@ app.get('/home', (request, response, next) => {
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
   const tempandhums = {
-    temperature: Tempandhums.tah.temperature,     // FEJL HER - LÆSER IKKE FRA DEN KORREKTE
-    humidity: Tempandhums.tah.humidity,           // FEJL HER - LÆSER IKKE FRA DEN KORREKTE
+    temperature: sensor.tempandhumsData.temperature,     // Burde lige nu kræve den rigtige?
+    humidity: sensor.tempandhumsData.humidity,           // Burde lige nu kræve den rigtige?
     worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
