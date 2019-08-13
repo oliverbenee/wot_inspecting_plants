@@ -3,8 +3,8 @@ const path = require('path')
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const Tempandhums = require('../db/db')
 const sensor = require('./sensor')
- 
 
 const app = express()
 const port = 3000
