@@ -3,8 +3,24 @@ const path = require('path')
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const Tempandhums = require('../db/db').Tempandhums
-const sensor = require('./sensor')
+
+/**
+ * Sensor requirements
+ */
+//  Import temperature and humidity database
+const Tempandhums = require('../db/db').Tempandhums;
+//  Import the needed j package for the sensor
+const sensorTH = require('node-dht-sensor');
+//  11 is the model number for our sensor, 12 is the GPIO we connect to on the Pi
+sensorTH.initialize(11, 12);
+//  Import needed package for GPIO to function properly. 
+const Gpio = require('onoff').Gpio // #A
+
+//  An LED added to the RPI, GPIO port 4 is used.
+const led = new Gpio(4, 'out');
+
+
+
 
 const app = express()
 const port = 3000
@@ -42,11 +58,11 @@ app.get('/home', (request, response, next) => {
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
   const tempandhums = {
-    temperature: Tempandhums.tempandhumsData.temperature,     //Tempandhums.tempandhumsData.temperature
-    humidity: sensor.tempandhumsdata.humidity,           //Tempandhums.tempandhumsData.humidity
-    worker_name: 'mynameisjeff',                              //request.body.worker_name,
-    state: 2,                                                 //request.body.state,
-    workers_assessment: 'the plant looks good'                //request.body.workers_assessment
+    temperature: readout.temperature.toFixed(2),        //Tempandhums.tempandhumsData.temperature
+    humidity: readout.humidity.toFixed(2),              //Tempandhums.tempandhumsData.humidity
+    worker_name: 'mynameisjeff',                        //request.body.worker_name,
+    state: 2,                                           //request.body.state,
+    workers_assessment: 'the plant looks good'          //request.body.workers_assessment
   };
   Tempandhums.insert(tempandhums, err => {
     if (err) {
