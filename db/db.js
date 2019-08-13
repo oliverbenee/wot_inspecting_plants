@@ -14,7 +14,7 @@ pool.getConnection((err, connection) => {
     // Forces temperature and humidity to be 0.0 per default if no other value is specified. from 10.55am aug-13-2019
     // Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
     `CREATE TABLE IF NOT EXISTS tempandhums
-          (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, temperature FLOAT(4,2) DEFAULT 0.0, humidity FLOAT(4,2) DEFAULT 0.0, worker_name TEXT, state INT, workers_assessment TEXT)`, (err) => {
+          (temperature FLOAT(4,2) DEFAULT 0.0, humidity FLOAT(4,2) DEFAULT 0.0, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, worker_name TEXT, state INT, workers_assessment TEXT)`, (err) => {
       if (err) throw err
     })
   connection.release()
