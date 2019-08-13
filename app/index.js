@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const Tempandhums = require('../db/db').Tempandhums
+const Tempandhums = require('../db/db').tempandhumsData
 const sensor = require('./sensor')
 
 const app = express()
@@ -42,8 +42,8 @@ app.get('/home', (request, response, next) => {
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
   const tempandhums = {
-    temperature: sensor.tempandhumsData.temperature,
-    humidity: sensor.tempandhumsData.humidity,
+    temperature: tempandhumsData.temperature,
+    humidity: tempandhumsData.humidity,
     worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
