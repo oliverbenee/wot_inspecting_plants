@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 /**
  * Sensor requirements
  */
+
 //  Import temperature and humidity database
 const Tempandhums = require('../db/db').Tempandhums;
 //  Import the needed j package for the sensor
@@ -20,7 +21,10 @@ const Gpio = require('onoff').Gpio // #A
 const led = new Gpio(4, 'out');
 
 
-
+ /**
+  * END OF CODE REQUIREMENTS FOR SENSOR.
+  */
+ 
 
 const app = express()
 const port = 3000
@@ -36,6 +40,73 @@ app.set('views', path.join(__dirname, '../views'))
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+
+
+
+
+
+
+
+
+/**
+ * CODE REQUIREMENTS FOR SENSOR.
+ */
+
+/*
+  Reads sensor values. Readout contains two values:
+    - temperature
+    - humidity
+  
+  Temperature and humidity is stored as a constant "tempandhumsData".
+  Values are printed to the terminal to be read.
+  For confirmation, an LED connected to the RPI blinks twice. This LED is connected to pin 4.
+*/
+
+function read () {
+  //  read the sensor values
+  let readout = sensorTH.read();
+  //  readout contains two values: temperature and humidity, which will be used
+  const tempandhumsData = {
+    temperature: readout.temperature.toFixed(2),
+    humidity: readout.humidity.toFixed(2),
+  };
+  console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
+ 'humidity: ' + readout.humidity.toFixed(2) + '%');
+  
+  //  An LED on the RPI will blink twice for confirmation.
+  for (let i = 0; i <= 2; i++){
+    const interval = setInterval(() => {
+      led.writeSync(1);
+    }, 1000);
+    const interval1 = setInterval(() => {
+      led.writeSync(0);
+    }, 1000);
+  }
+  // Insert temperature and humidity data - maybe needs to be deleted.
+  Tempandhums.insert(tempandhumsData);
+
+  console.log('LED blinks twice to signal, that data has been stored.');
+}
+
+//  Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
+process.on('SIGINT', () => {
+  clearInterval(interval);
+  console.log('Bye, bye!');
+  process.exit();
+});
+
+/**
+ * END OF CODE REQUIREMENTS FOR SENSOR.
+ */
+
+
+
+
+
+
+
+
+
 
 /* May not be necessary */
 app.use((request, response, next) => {
@@ -57,6 +128,7 @@ app.get('/home', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
+  read();
   const tempandhums = {
     temperature: readout.temperature.toFixed(2),        //Tempandhums.tempandhumsData.temperature
     humidity: readout.humidity.toFixed(2),              //Tempandhums.tempandhumsData.humidity

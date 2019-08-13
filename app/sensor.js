@@ -51,8 +51,6 @@ function read () {
   console.log('LED blinks twice to signal, that data has been stored.');
 }
 
-module.exports.tempandhumsData = tempandhumsData;
-
 //  Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
   clearInterval(interval);
