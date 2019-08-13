@@ -74,6 +74,7 @@ function read () {
  'humidity: ' + readout.humidity.toFixed(2) + '%');
   
   //  An LED on the RPI will blink twice for confirmation.
+  console.log('LED blinks twice to signal, that data has been stored.');
   for (let i = 0; i <= 2; i++){
     const interval = setInterval(() => {
       led.writeSync(1);
@@ -82,10 +83,6 @@ function read () {
       led.writeSync(0);
     }, 1000);
   }
-  // Insert temperature and humidity data - maybe needs to be deleted.
-  Tempandhums.insert(tempandhumsData);
-
-  console.log('LED blinks twice to signal, that data has been stored.');
 }
 
 //  Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
@@ -98,15 +95,6 @@ process.on('SIGINT', () => {
 /**
  * END OF CODE REQUIREMENTS FOR SENSOR.
  */
-
-
-
-
-
-
-
-
-
 
 /* May not be necessary */
 app.use((request, response, next) => {
@@ -130,8 +118,8 @@ app.get('/home', (request, response, next) => {
 app.post('/home', (request, response, next) => {
   read();
   const tempandhums = {
-    temperature: readout.temperature.toFixed(2),        //Tempandhums.tempandhumsData.temperature
-    humidity: readout.humidity.toFixed(2),              //Tempandhums.tempandhumsData.humidity
+    temperature: tempandhumsData.temperature,        //Tempandhums.tempandhumsData.temperature
+    humidity: tempandhumsData.humidity,              //Tempandhums.tempandhumsData.humidity
     worker_name: 'mynameisjeff',                        //request.body.worker_name,
     state: 2,                                           //request.body.state,
     workers_assessment: 'the plant looks good'          //request.body.workers_assessment
