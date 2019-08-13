@@ -49,7 +49,7 @@ app.post('/home', (request, response, next) => {
     temperature: 65.2,
     humidity: 10.6,
     worker_name: request.body.worker_name,
-    state: request.body.state,
+    state: 2,
     workers_assessment: request.body.workers_assessment
       // fandt temperature og humidity således d. 13/8-2019 klokken 10:30
       // temperature: sensor.tempandhumsData.temperature,
