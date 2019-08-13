@@ -41,7 +41,7 @@ app.get('/home', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
-  read();
+  sensor.read();
   const tempandhums = {
     temperature: tempandhumsData.temperature,        //Tempandhums.tempandhumsData.temperature
     humidity: tempandhumsData.humidity,              //Tempandhums.tempandhumsData.humidity
