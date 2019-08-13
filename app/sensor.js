@@ -1,15 +1,24 @@
-'use strict';
-//  Import temperature and humidity database
-const Tempandhums = require('../db/db').Tempandhums;
-//  Import the needed j package for the sensor
-const sensorTH = require('node-dht-sensor');
-//  11 is the model number for our sensor, 12 is the GPIO we connect to on the Pi
-sensorTH.initialize(11, 12);
-//  Import needed package for GPIO to function properly. 
-const Gpio = require('onoff').Gpio // #A
+'use strict'
+/**
+ * All necessary packages will be imported:
+ */
 
-//  An LED added to the RPI, GPIO port 4 is used.
-const led = new Gpio(4, 'out');
+//  Import database for data to be sent to. 
+const Tempandhums = require('../db/db').Tempandhums
+//  Import needed package for the DHT sensor to function properly.
+const sensorTH = require('node-dht-sensor')
+//  Import needed package for GPIO to allow blinking LEDs. 
+const Gpio = require('onoff').Gpio
+
+/**
+ * Set pins and functionality of sensors.
+ */
+
+//  The DHT sensor has the model number 11, and is connected to GPIO pin 12 on our Raspberry Pi.
+sensorTH.initialize(11, 12)
+//  The LED added to our Raspberry Pi, and is connected to GPIO pin 4 on our Raspberry Pi.
+const led = new Gpio(4, 'out')
+
 
 /*
   Reads sensor values. Readout contains two values:
@@ -23,15 +32,15 @@ const led = new Gpio(4, 'out');
 
 function read () {
   //  read the sensor values
-  let readout = sensorTH.read();
+  let readout = sensorTH.read()
   //  readout contains two values: temperature and humidity, which will be used
   const tempandhumsData = {
     temperature: readout.temperature.toFixed(2),
-    humidity: readout.humidity.toFixed(2),
+    humidity: readout.humidity.toFixed(2)
   };
   console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
- 'humidity: ' + readout.humidity.toFixed(2) + '%');
-  
+ 'humidity: ' + readout.humidity.toFixed(2) + '%')
+  Tempandhums.insert(tempandhumsData)
   //  An LED on the RPI will blink twice for confirmation.
   for (let i = 0; i <= 2; i++){
     const interval = setInterval(() => {
@@ -40,18 +49,13 @@ function read () {
     const interval1 = setInterval(() => {
       led.writeSync(0);
     }, 1000);
+    console.log('LED blinks twice to signal, that data has been stored.');
   }
-
-  // Insert temperature and humidity data - maybe needs to be deleted.
-  Tempandhums.insert(tempandhumsData);
-
-  console.log('LED blinks twice to signal, that data has been stored.');
 }
 
-//  Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
+// Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
-  clearInterval(interval);
-  console.log('Bye, bye!');
-  process.exit();
+  clearInterval(interval)
+  console.log('Bye Bye!')
+  process.exit()
 });
-
