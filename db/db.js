@@ -74,12 +74,6 @@ class Tempandhums {
 
   /* Creates a function, where we can insert our mesuarments */
   static insert (tah, callback) {
-    if (!tah.worker_name) {
-      return callback(new Error('Please type in a name.'))
-    }
-    if (!tah.workers_assessment) {
-      return callback(new Error('Please specify the state.'))
-    }
     pool.getConnection((err, connection) => {
       if (err) throw err;
       const sql = `INSERT INTO tempandhums(temperature, humidity, worker_name, state, workers_assessment) VALUES (?, ?, ?, ?, ?)`;
