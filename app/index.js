@@ -45,7 +45,7 @@ app.post('/home', (request, response, next) => {
     temperature: 65.2,         // Burde lige nu kræve den rigtige?
     humidity: 10.6,           // Burde lige nu kræve den rigtige?
     worker_name: request.body.worker_name,
-    state: request.body.state,
+    state: 2, //request.body.state,
     workers_assessment: request.body.workers_assessment
   };
   Tempandhums.insert(tempandhums, err => {
