@@ -43,7 +43,7 @@ app.get('/home', (request, response, next) => {
 app.post('/home', (request, response, next) => {
   const tempandhums = {
     temperature: 65.2,         // Burde lige nu kræve den rigtige?
-    humidity: 100.0,           // Burde lige nu kræve den rigtige?
+    humidity: 10.6,           // Burde lige nu kræve den rigtige?
     worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
