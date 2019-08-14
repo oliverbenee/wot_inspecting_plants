@@ -32,27 +32,25 @@ fetch('/dataT', {
 })
 
 /* Update table and chart */
-setInterval(() => {          //Interval will update the chart every 10 seconds. Used for testing.
-  fetch('/dataC', {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json'
-    } }).then((response) => {
-    response.json().then((data) => {
-      updateMyChart(data)
-    })
+fetch('/dataC', {
+  method: 'get',
+  headers: {
+    'Accept': 'application/json'
+  } }).then((response) => {
+  response.json().then((data) => {
+    updateMyChart(data)
   })
+})
 
-  fetch('/dataT', {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json'
-    } }).then((response) => {
-    response.json().then((data) => {
-      myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
-    })
+fetch('/dataT', {
+  method: 'get',
+  headers: {
+    'Accept': 'application/json'
+  } }).then((response) => {
+  response.json().then((data) => {
+    myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
   })
-}, 10000)
+})
 
 /* code for the table data */
 function makeMyData (data) {
