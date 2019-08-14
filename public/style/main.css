@@ -12,5 +12,20 @@
   */
 
 body {
-    background-color: green;
-}
+    background-image:linear-gradient(#2d45a5,#458baf);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial;
+  }
+
+/**
+ *  Table design
+ */
+
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    color:white;
+  }
