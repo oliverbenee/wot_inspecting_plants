@@ -45,11 +45,11 @@ app.get('/home', (request, response, next) => {
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
   const tempandhums = {
-    temperature: 12.5,                                      // Problem, der skal løses: Hvordan referer jeg til sensoren?
-    humidity: 60,                                           // Problem, der skal løses: Hvordan referer jeg til sensoren?
-    worker_name:"georg",                                    //request.body.worker_name ???
-    state: request.body.state,                              //request.body.state ???
-    workers_assessment:"plant is pretty"                    //request.body.workers_assessment
+    temperature: 12.5,                                                     // Problem, der skal løses: Hvordan referer jeg til sensoren?
+    humidity: 60,                                                          // Problem, der skal løses: Hvordan referer jeg til sensoren?
+    worker_name:request.body.worker_name,                                  //request.body.worker_name ???
+    state: request.body.state,                                             //request.body.state ???
+    workers_assessment: request.body.workers_assessment                    //request.body.workers_assessment
   };
   Tempandhums.insert(tempandhums, err => {
     if (err) {
