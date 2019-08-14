@@ -84,7 +84,7 @@ function updateMyChart (data) {
       workers_assessment.shift()
     }
   }
-  myChartTH.update()
+  myChartTH.update(300) //Previously had no value
 }
 
 /* Code for the chart */
@@ -121,7 +121,7 @@ function makeMyChart (data) {
       },
       title: {
         display: true,
-        text: 'Updates every 10 seconds',
+        text: 'Review past inspections - updates when new data is posted.',
         fontColor: 'black'
       },
       tooltips: {
@@ -155,7 +155,7 @@ function makeMyChart (data) {
             fontColor: 'black'
           },
           gridLines: {
-            color: 'black'
+            color: 'white'
           }
         }]
       }
