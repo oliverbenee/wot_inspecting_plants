@@ -48,7 +48,7 @@ app.post('/home', (request, response, next) => {
     temperature: 12.2,                  // Problem, der skal løses: Hvordan referer jeg til sensoren?
     humidity: 12.3,                     // Problem, der skal løses: Hvordan referer jeg til sensoren?
     worker_name: request.body.worker_name,
-    state: 2,
+    state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
   Tempandhums.insert(tempandhums, err => {
