@@ -6,8 +6,8 @@ const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
 const sensor = require('./sensor') //Allow sensor methods to be used.
 
-const app = express()     // Define app using express
-const port = 3000         //set port for server
+const app = express() // Define app using express
+const port = 3000 //set port for server
 
 // Configure app to use express-hbs to tackle viewing pages.
 app.engine('.hbs', exphbs({

@@ -8,9 +8,9 @@ const pool = mysql.createPool({
 })
 
 /* Creates a table called tempandhums if it doesn't exist in our database  */
-    // Forces temperature and humidity to be 0.0 per default if no other value is specified. from 10.55am aug-13-2019
-    // Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
-    // gør det rigtige, hvis der kun bruges temperature, humidity og time
+// Forces temperature and humidity to be 0.0 per default if no other value is specified. from 10.55am aug-13-2019
+// Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
+// gør det rigtige, hvis der kun bruges temperature, humidity og time
 pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
@@ -23,7 +23,7 @@ pool.getConnection((err, connection) => {
 
 /* Selects all from the tempandhums table in reverse cronological order and has limit on 10 */
 class Tempandhums {
-  static all (callback) {
+  static all(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
       connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 10', (err, results, fields) => {
@@ -34,7 +34,7 @@ class Tempandhums {
   }
 
   /* Selects all from the tempandhums table in reverse cronological order and has limit on 1 */
-  static getLChart (callback) {
+  static getLChart(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
       connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 1', (err, results, fields) => {
@@ -45,7 +45,7 @@ class Tempandhums {
   }
 
   /* Selects all from the tempandhums table in reverse cronological order and has limit on 5 */
-  static getLTable (callback) {
+  static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
       connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 5', (err, results, fields) => {
@@ -56,7 +56,7 @@ class Tempandhums {
   }
 
   /* Creates a function, where we can insert our measurements. If certain attributes contain no information, an error mesasage is produced. */
-  static insert (tah, callback) {
+  static insert(tah, callback) {
     // Previously used callback as paramater, but that has been removed. 
     if (!tah.worker_name) {
       return callback(new Error('Please type in a name.'))
@@ -78,7 +78,7 @@ class Tempandhums {
   }
 
   /* Creates a function, where we request our mesuarments */
-  static request (date, callback) {
+  static request(date, callback) {
     let requestM = moment(date).format('YYYY-MM-DD HH:mm:ss')
     pool.getConnection((err, connection) => {
       if (err) throw err

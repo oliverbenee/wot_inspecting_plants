@@ -27,7 +27,7 @@ const led = new Gpio(4, 'out')
   For confirmation, an LED connected to the RPI blinks twice. This LED is connected to pin 4.
 */
 
-exports.read = function read () {
+exports.read = function read() {
   //  read the sensor values
   let readout = sensorTH.read()
   //  readout contains two values: temperature and humidity, which will be used
@@ -36,9 +36,9 @@ exports.read = function read () {
     humidity: readout.humidity.toFixed(2)
   };
   console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
- 'humidity: ' + readout.humidity.toFixed(2) + '%')
+    'humidity: ' + readout.humidity.toFixed(2) + '%')
   //  An LED on the RPI will blink twice for confirmation.
-  for (let i = 0; i <= 2; i++){
+  for (let i = 0; i <= 2; i++) {
     const interval = setInterval(() => {
       led.writeSync(1);
     }, 1000);
@@ -52,7 +52,9 @@ exports.read = function read () {
 
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
-  if(interval){clearInterval(interval)}
+  if (interval) {
+    clearInterval(interval)
+  }
   console.log('Closing program. Returning to console.')
   process.exit()
 });
