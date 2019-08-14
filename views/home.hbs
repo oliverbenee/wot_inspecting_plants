@@ -1,23 +1,11 @@
 <center>
     <h1 style="font-size:40px">Inspecting plants</h1>
+    <h3>A web page for viewing the temperature and humidity of plants.</h3>
 </center>
 
-<h3>Past inspections </h3>
-<table id="past measurements">
-    <thead>
-        <tr>
-            <th>Temperature</th>
-            <th>Humidity</th>
-            <th>Time</th>
-            <th>Worker name</th>
-            <th>Plant state</th>
-            <th>Workers assessment</th>
-        </tr>
-    </thead>
-    <tbody id="myTable">
-    </tbody>
-</table>
+<a href="./inspections.hbs">Review all inspections</a>
 
+<h1> Commit plant inspection </h1>
 <form method="POST" action="/home">
   <div>
     <label for="worker_name">Worker's name</label>
