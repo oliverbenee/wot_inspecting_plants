@@ -32,6 +32,7 @@ fetch('/dataT', {
 })
 
 /* Update table and chart */
+// setInterval(() => {          //Interval will update the chart every 10 seconds. Used for testing. 
   fetch('/dataC', {
     method: 'get',
     headers: {
@@ -51,6 +52,7 @@ fetch('/dataT', {
       myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
     })
   })
+// }, 10000)                    //Interval will update the chart every 10 seconds. Used for testing. 
 
 /* code for the table data */
 function makeMyData (data) {
