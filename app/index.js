@@ -43,7 +43,7 @@ app.get('/inspection', (request, response, next) => {
 })
 
 /* Creates a new resource and throws an error message if there is one. */
-app.post('/home', (request, response, next) => {
+app.post('/inspection', (request, response, next) => {
   const tempandhums = {
     temperature: 12.5,                                                     // Problem, der skal løses: Hvordan referer jeg til sensoren?
     humidity: 60,                                                          // Problem, der skal løses: Hvordan referer jeg til sensoren?
