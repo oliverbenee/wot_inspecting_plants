@@ -38,18 +38,10 @@ exports.read = function read() {
   console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
     'humidity: ' + readout.humidity.toFixed(2) + '%')
   //  An LED on the RPI will blink twice for confirmation.
-    const interval = setTimeout(() => {
-      led.writeSync(1);
-    }, 10000);
-    const interval1 = setTimeout(() => {
-      led.writeSync(0);
-    }, 10000);
-    const interval2 = setTimeout(() => {
-      led.writeSync(1);
-    }, 10000);
-    const interval3 = setTimeout(() => {
-      led.writeSync(0);
-    }, 10000);
+    setTimeout(function(){ led.writeSync(1); }, 2000);
+    setTimeout(function(){ led.writeSync(0); }, 4000);
+    setTimeout(function(){ led.writeSync(1); }, 6000);
+    setTimeout(function(){ led.writeSync(0); }, 8000);
   console.log('LED blinks twice to signal, that data has been stored.');
   return tempandhumsData;
 }
