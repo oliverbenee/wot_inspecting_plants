@@ -31,8 +31,7 @@ fetch('/dataT', {
   })
 })
 
-/* create an interval to update the table and the chart every 10 second */
-setInterval(() => {
+/* Update table and chart */
   fetch('/dataC', {
     method: 'get',
     headers: {
@@ -52,7 +51,6 @@ setInterval(() => {
       myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
     })
   })
-}, 10000)
 
 /* code for the table data */
 function makeMyData (data) {

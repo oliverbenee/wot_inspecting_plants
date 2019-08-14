@@ -94,8 +94,6 @@ app.get('/data', (request, response, next) => {
   }
 })
 
-/**
-
 // Update chart
 app.get('/dataC', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
@@ -117,8 +115,6 @@ app.get('/dataT', (request, response, next) => {
     })
   }
 })
-
-*/
 
 app.get('/requestM', (request, response, next) => {
   Tempandhums.request(request.query.date, (err, data) => {
