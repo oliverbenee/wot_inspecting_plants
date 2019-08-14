@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
 const sensor = require('./sensor') //Allow sensor methods to be used.
+const chartstuff = require('../public/js/main')
 
 const app = express() // Define app using express
 const port = 3000 //set port for server
@@ -78,6 +79,7 @@ app.post('/inspection', (request, response, next) => {
       response.redirect('/inspection');
     }
   });
+  chartstuff.updateMyChart();
 });
 
 /**

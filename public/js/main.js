@@ -32,7 +32,8 @@ fetch('/dataT', {
 })
 
 /* Update table and chart */
-// setInterval(() => {          //Interval will update the chart every 10 seconds. Used for testing. 
+// setInterval(() => {          //Interval will update the chart every 10 seconds. Used for testing.
+function updateMyData () {      // Remove line if can't be reached by index.js
   fetch('/dataC', {
     method: 'get',
     headers: {
@@ -52,6 +53,7 @@ fetch('/dataT', {
       myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
     })
   })
+} // remove line if can't be reached by index.js
 // }, 10000)                    //Interval will update the chart every 10 seconds. Used for testing. 
 
 /* code for the table data */
