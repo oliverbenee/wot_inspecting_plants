@@ -12,9 +12,9 @@ const Gpio = require('onoff').Gpio
  * Set pins and functionality of sensors.
  */
 
-//  DHT sensor. model no 11, GPIO 12.
+//  The DHT sensor has the model number 11, and is connected to GPIO pin 12 on our Raspberry Pi.
 sensorTH.initialize(11, 12)
-//  LED. GPIO 4.
+//  The LED added to our Raspberry Pi, and is connected to GPIO pin 4 on our Raspberry Pi.
 const led = new Gpio(4, 'out')
 
 /*
@@ -24,7 +24,7 @@ const led = new Gpio(4, 'out')
   
   Temperature and humidity is stored as a constant "tempandhumsData".
   Values are printed to the terminal to be read.
-  For confirmation, an LED connected to the RPI blinks twice.
+  For confirmation, an LED connected to the RPI blinks twice. This LED is connected to pin 4.
 */
 
 exports.read = function read() {
