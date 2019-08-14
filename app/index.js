@@ -44,7 +44,7 @@ app.get('/inspection', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/inspection', (request, response, next) => {
-  const thdata = sensor.read();
+  const thdata = read();
   const tempandhums = {
     temperature: thdata.temperature,                                                     // Problem, der skal løses: Hvordan referer jeg til sensoren?
     humidity: thdata.humidity,                                                          // Problem, der skal løses: Hvordan referer jeg til sensoren?
