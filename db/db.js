@@ -8,13 +8,13 @@ const pool = mysql.createPool({
 })
 
 /* Creates a table called tempandhums if it doesn't exist in our database  */
+    // Forces temperature and humidity to be 0.0 per default if no other value is specified. from 10.55am aug-13-2019
+    // Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
 pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
-    // Forces temperature and humidity to be 0.0 per default if no other value is specified. from 10.55am aug-13-2019
-    // Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
     `CREATE TABLE IF NOT EXISTS tempandhums
-          (temperature FLOAT(4,2) DEFAULT 0.0, humidity FLOAT(4,2) DEFAULT 0.0, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, worker_name TEXT, state INT, workers_assessment TEXT)`, (err) => {
+      (temperature FLOAT(4,2) NOT NULL, humidity FLOAT(4,2) NOT NULL, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, worker_name TEXT, state INT, workers_assessment TEXT NOT NULL)`, (err) => {
       if (err) throw err
     })
   connection.release()
