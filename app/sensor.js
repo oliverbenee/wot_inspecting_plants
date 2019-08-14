@@ -38,16 +38,16 @@ exports.read = function read() {
   console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
     'humidity: ' + readout.humidity.toFixed(2) + '%')
   //  An LED on the RPI will blink twice for confirmation.
-    const interval = setInterval(() => {
+    const interval = setTimeout(() => {
       led.writeSync(1);
     }, 1000);
-    const interval1 = setInterval(() => {
+    const interval1 = setTimeout(() => {
       led.writeSync(0);
     }, 1000);
-    const interval2 = setInterval(() => {
+    const interval2 = setTimeout(() => {
       led.writeSync(1);
     }, 1000);
-    const interval3 = setInterval(() => {
+    const interval3 = setTimeout(() => {
       led.writeSync(0);
     }, 1000);
   console.log('LED blinks twice to signal, that data has been stored.');
@@ -57,7 +57,16 @@ exports.read = function read() {
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
   if (interval) {
-    clearInterval(interval)
+    clearTimeout(interval);
+  }
+  if (interval1) {
+    clearTimeout(interval1);
+  }
+  if (interval2) {
+    clearTimeout(interval2);
+  }
+  if (interval3) {
+    clearTimeout(interval3);
   }
   console.log('Closing program. Returning to console.')
   process.exit()
