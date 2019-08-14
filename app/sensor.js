@@ -17,7 +17,6 @@ sensorTH.initialize(11, 12)
 //  The LED added to our Raspberry Pi, and is connected to GPIO pin 4 on our Raspberry Pi.
 const led = new Gpio(4, 'out')
 
-
 /*
   Reads sensor values. Readout contains two values:
     - temperature
@@ -28,7 +27,7 @@ const led = new Gpio(4, 'out')
   For confirmation, an LED connected to the RPI blinks twice. This LED is connected to pin 4.
 */
 
-function read () {
+exports.read = function read () {
   //  read the sensor values
   let readout = sensorTH.read()
   //  readout contains two values: temperature and humidity, which will be used
