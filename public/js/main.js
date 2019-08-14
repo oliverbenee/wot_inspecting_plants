@@ -84,7 +84,7 @@ function updateMyChart (data) {
       workers_assessment.shift()
     }
   }
-  myChartTH.update(300)
+  myChartTH.update()
 }
 
 /* Code for the chart */
