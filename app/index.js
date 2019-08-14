@@ -47,9 +47,9 @@ app.post('/home', (request, response, next) => {
   const tempandhums = {
     temperature: 12.5,                                      // Problem, der skal løses: Hvordan referer jeg til sensoren?
     humidity: 60,                                           // Problem, der skal løses: Hvordan referer jeg til sensoren?
-    worker_name:  georg,                                    //request.body.worker_name ???
-    state: 2,                                               //request.body.state ???
-    workers_assessment:  the plant looks pretty             //request.body.workers_assessment
+    worker_name:"georg",                                    //request.body.worker_name ???
+    state: request.body.state,                              //request.body.state ???
+    workers_assessment:"plant is pretty"                    //request.body.workers_assessment
   };
   Tempandhums.insert(tempandhums, err => {
     if (err) {
