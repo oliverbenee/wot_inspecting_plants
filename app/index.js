@@ -9,6 +9,7 @@ const sensor = require('./sensor') //Allow sensor methods to be used.
 const app = express()     // Define app using express
 const port = 3000         //set port for server
 
+// Configure app to use express-hbs to tackle viewing pages.
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
@@ -29,15 +30,21 @@ app.use((request, response, next) => {
 
 app.use(express.static(path.join(__dirname, '../public')))
 
-/* Retrieves the state of the resource */
+/* 
+ * Retrieves the correct page to serve
+ */
+
+// Redirect from / to /home
 app.get('/', (request, response, next) => {
   response.redirect('/home')
 })
 
+// If directed to /home, render home.hbs
 app.get('/home', (request, response, next) => {
   response.render('home')
 })
 
+// If directed to /inspection, render inspection.hbs
 app.get('/inspection', (request, response, next) => {
   response.render('inspection')
 })
@@ -87,6 +94,7 @@ app.get('/data', (request, response, next) => {
   }
 })
 
+// Update chart
 app.get('/dataC', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     Tempandhums.getLChart((err, data) => {
@@ -97,6 +105,7 @@ app.get('/dataC', (request, response, next) => {
   }
 })
 
+// Update chart
 app.get('/dataT', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     Tempandhums.getLTable((err, data) => {
@@ -115,12 +124,13 @@ app.get('/requestM', (request, response, next) => {
   })
 })
 
+// If an error is produced, send it to the console.
 app.use((err, req, res, next) => {
   console.log(err)
   res.status(500).send(err.toString())
 })
 
-// Server started. Link to server is generated. 
+// Server started. Link to server is generated. Alert the user of how they can terminate the program and sensors... By producing an error...
 
 app.listen(port, (err) => {
   if (err) return console.error(`An error has occured: ${err}`)
