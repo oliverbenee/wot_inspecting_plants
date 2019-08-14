@@ -45,8 +45,8 @@ exports.read = function read () {
     const interval1 = setInterval(() => {
       led.writeSync(0);
     }, 1000);
-    console.log('LED blinks twice to signal, that data has been stored.');
   }
+  console.log('LED blinks twice to signal, that data has been stored.');
   return tempandhumsData;
 }
 

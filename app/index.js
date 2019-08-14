@@ -54,7 +54,9 @@ app.post('/inspection', (request, response, next) => {
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
+  // use insert method from db.js to enter data into the database.
   Tempandhums.insert(tempandhums, err => {
+    // if the data is not posted, render the data, so the user may try again. 
     if (err) {
       response.render('data', {
         temperature: tempandhums.temperature,
@@ -65,7 +67,8 @@ app.post('/inspection', (request, response, next) => {
         errMessage: err.message
       });
     } else {
-      response.redirect('/data');
+      // if data is successfully sent, redirect to inspection table
+      response.redirect('/inspection');
     }
   });
 });
