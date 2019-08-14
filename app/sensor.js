@@ -52,7 +52,7 @@ exports.read = function read () {
 
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
-  clearInterval(interval)
+  if(interval != null) {clearInterval(interval)}
   console.log('Bye Bye!')
   process.exit()
 });
