@@ -40,16 +40,16 @@ exports.read = function read() {
   //  An LED on the RPI will blink twice for confirmation.
     const interval = setTimeout(() => {
       led.writeSync(1);
-    }, 1000);
+    }, 10000);
     const interval1 = setTimeout(() => {
       led.writeSync(0);
-    }, 1000);
+    }, 10000);
     const interval2 = setTimeout(() => {
       led.writeSync(1);
-    }, 1000);
+    }, 10000);
     const interval3 = setTimeout(() => {
       led.writeSync(0);
-    }, 1000);
+    }, 10000);
   console.log('LED blinks twice to signal, that data has been stored.');
   return tempandhumsData;
 }
