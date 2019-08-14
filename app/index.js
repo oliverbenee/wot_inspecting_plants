@@ -38,9 +38,9 @@ app.get('/home', (request, response, next) => {
   response.render('home')
 })
 
-/** 
- * AL KODE FØR DETTE I INDEX.JS ER OK!!!!! 
-*/
+app.get('/inspection', (request, response, next) => {
+  response.rendor('inspections')
+})
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
