@@ -35,7 +35,7 @@ exports.read = function read() {
     temperature: readout.temperature.toFixed(2),
     humidity: readout.humidity.toFixed(2)
   };
-  console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
+  console.log('temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
     'humidity: ' + readout.humidity.toFixed(2) + '%')
   //  An LED on the RPI will blink twice for confirmation.
     setTimeout(function(){ led.writeSync(1); }, 1000);
