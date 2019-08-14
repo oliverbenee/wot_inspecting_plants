@@ -119,7 +119,7 @@ function makeMyChart (data) {
       },
       title: {
         display: true,
-        text: 'Review past inspections - updates when new data is posted.',
+        text: 'Review past inspections.',
         fontColor: 'black'
       },
       tooltips: {
