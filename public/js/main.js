@@ -5,6 +5,9 @@ const myChartCtx = document.querySelector('#myChart')
 const temperature = []
 const humidity = []
 const time = []
+const worker_name = []
+const state = []
+const workers_assessment = []
 
 /* Fetches all the data for the chart */
 fetch('/data', {
@@ -57,8 +60,11 @@ function makeMyData (data) {
     temperature.push(c.temperature)
     humidity.push(c.humidity)
     time.push(c.time)
+    worker_name.push(c.worker_name)
+    state.push(c.state)
+    workers_assessment.push(c.workers_assessment)
   }
-  return { temperature, humidity, time }
+  return { temperature, humidity, time, worker_name, state, workers_assessment }
 }
 
 function updateMyChart (data) {
@@ -66,10 +72,16 @@ function updateMyChart (data) {
     temperature.push(c.temperature)
     humidity.push(c.humidity)
     time.push(c.time)
+    worker_name.push(c.worker_name)
+    state.push(c.state)
+    workers_assessment.push(c.workers_assessment)
     if (temperature.length >= 10) {
       temperature.shift()
       humidity.shift()
       time.shift()
+      worker_name.shift()
+      state.shift()
+      workers_assessment.shift()
     }
   }
   myChartTH.update(300)
@@ -95,7 +107,6 @@ function makeMyChart (data) {
         borderColor: 'black',
         fill: false
       }]
-
     },
     options: {
       responsive: true,
@@ -105,13 +116,13 @@ function makeMyChart (data) {
       onResize: null,
       legend: {
         labels: {
-          fontColor: 'white'
+          fontColor: 'black'
         }
       },
       title: {
         display: true,
         text: 'Updates every 10 seconds',
-        fontColor: 'white'
+        fontColor: 'black'
       },
       tooltips: {
         mode: 'index',
@@ -124,27 +135,27 @@ function makeMyChart (data) {
       scales: {
         xAxes: [{
           ticks: {
-            fontColor: 'white'
+            fontColor: 'black'
           },
           display: true,
           scaleLabel: {
             display: true,
             labelString: 'Time',
-            fontColor: 'white'
+            fontColor: 'black'
           }
         }],
         yAxes: [{
           ticks: {
-            fontColor: 'white'
+            fontColor: 'black'
           },
           display: true,
           scaleLabel: {
             display: true,
             labelString: 'Degrees and Percentages',
-            fontColor: 'white'
+            fontColor: 'black'
           },
           gridLines: {
-            color: 'white'
+            color: 'black'
           }
         }]
       }
