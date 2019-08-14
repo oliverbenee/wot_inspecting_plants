@@ -39,7 +39,7 @@ app.get('/home', (request, response, next) => {
 })
 
 app.get('/inspection', (request, response, next) => {
-  response.render('inspections')
+  response.render('inspection')
 })
 
 /* Creates a new resource and throws an error message if there is one. */
