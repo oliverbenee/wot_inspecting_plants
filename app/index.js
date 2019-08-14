@@ -4,7 +4,7 @@ const express = require('express') //Ensure, that express is available
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
-const sensor = require('./sensor')
+const sensor = require('./sensor') //Allow sensor methods to be used.
 
 const app = express()     // Define app using express
 const port = 3000         //set port for server
@@ -44,13 +44,15 @@ app.get('/inspection', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/inspection', (request, response, next) => {
+  // FIND SENSOR DATA
   const thdata = sensor.read();
+  // data to be posted to server.
   const tempandhums = {
-    temperature: thdata.temperature,                                                     // Problem, der skal løses: Hvordan referer jeg til sensoren?
-    humidity: thdata.humidity,                                                          // Problem, der skal løses: Hvordan referer jeg til sensoren?
-    worker_name: request.body.worker_name,                                                      //request.body.worker_name ???
-    state: request.body.state,                                                              //request.body.state ???
-    workers_assessment: request.body.workers_assessment                                                //request.body.workers_assessment
+    temperature: thdata.temperature,
+    humidity: thdata.humidity,
+    worker_name: request.body.worker_name,
+    state: request.body.state,
+    workers_assessment: request.body.workers_assessment
   };
   Tempandhums.insert(tempandhums, err => {
     if (err) {
