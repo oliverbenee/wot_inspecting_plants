@@ -3,8 +3,6 @@
  * All necessary packages will be imported:
  */
 
-//  Import database for data to be sent to. 
-const Tempandhums = require('../db/db').Tempandhums
 //  Import needed package for the DHT sensor to function properly.
 const sensorTH = require('node-dht-sensor')
 //  Import needed package for GPIO to allow blinking LEDs. 
@@ -40,8 +38,6 @@ function read () {
   };
   console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
  'humidity: ' + readout.humidity.toFixed(2) + '%')
-  // Insert temperature and humidity data into the databazz
-  Tempandhums.insert(tempandhumsData)
   //  An LED on the RPI will blink twice for confirmation.
   for (let i = 0; i <= 2; i++){
     const interval = setInterval(() => {
@@ -52,6 +48,7 @@ function read () {
     }, 1000);
     console.log('LED blinks twice to signal, that data has been stored.');
   }
+  return tempandhumsData;
 }
 
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
