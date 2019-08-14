@@ -1,6 +1,6 @@
 <center>
-    <h1 style="font-size:40px">Inspecting plants</h1>
-    <h3>A web page for viewing the temperature and humidity of plants.</h3>
+  <h1 style="font-size:40px">Inspecting plants</h1>
+  <h3>A web page for viewing the temperature and humidity of plants.</h3>
 </center>
 
 <a href="inspection">Review all inspections</a>
@@ -12,25 +12,25 @@
     <input type="text" id="worker_name" name="worker_name">
   </div>
   <div>
-    <label for="workers_assessment">Assessment of the plant</label> 
+    <label for="workers_assessment">Assessment of the plant</label>
     <textarea id="workers_assessment" name="workers_assessment"></textarea>
   </div>
   <div>
     <p>State of the plant: </p>
     <label for="state"></label>
-      <select id="state" name="state">
-        <option disabled selected value> -- select an option -- </option>
-        <option value= 1>1 - Quite dead</option>
-        <option value= 2>2 - Dying</option>
-        <option value= 3>3 - Fine</option>
-        <option value= 4>4 - Well</option>
-        <option value= 5>5 - Very well</option>
-      </select>
-    </div>
+    <select id="state" name="state">
+      <option disabled selected value> -- select an option -- </option>
+      <option value=1>1 - Quite dead</option>
+      <option value=2>2 - Dying</option>
+      <option value=3>3 - Fine</option>
+      <option value=4>4 - Well</option>
+      <option value=5>5 - Very well</option>
+    </select>
+  </div>
   <div>
     <button type="submit">Submit</button>
   </div>
   {{#if errMessage}}
-    <p style="color: red; text-align: center">Error: {{ errMessage }}</p>
+  <p style="color: red; text-align: center">Error: {{ errMessage }}</p>
   {{/if}}
 </form>
