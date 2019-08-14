@@ -44,62 +44,18 @@ app.get('/home', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/home', (request, response, next) => {
-  // tilføjede read() her d. 13/8-2019 klokken 16:23 - HJALP IKKE
-  tempandhumsData.read();
   const tempandhums = {
-    temperature: sensor.tempandhumsData.temperature,
-    humidity: sensor.tempandhumsData.humidity,
+    temperature: 12.2,                  // Problem, der skal løses: Hvordan referer jeg til sensoren?
+    humidity: 12.3,                     // Problem, der skal løses: Hvordan referer jeg til sensoren?
     worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
-      // fandt temperature og humidity således d. 13/8-2019 klokken 10:30
-      // temperature: sensor.tempandhumsData.temperature,
-      // humidity: sensor.tempandhumsData.humidity,
-    
-      // fandt temperature og humidity således d. 13/8-2019 klokken 10:59
-      // temperature: 65.2,         // Burde lige nu kræve den rigtige?
-      // humidity: 10.6,           // Burde lige nu kræve den rigtige?
-
-      // fandt temperature og humidity således d. 13/8-2019 klokken 14:38
-      // temperature: 65.2,
-      // humidity: 10.6,
-      // worker_name: 'mynameisjeff',
-      // state: 2,
-      //workers_assessment: 'the plant looks good'
-
-      // Commit d. 13/08-2019 klokken 12:46 fandt temp/hum således:
-      // const tempandhums = {
-      //   temperature: Tempandhums.tempandhumsData.temperature,     //Tempandhums.tempandhumsData.temperature
-      //   humidity: Tempandhums.tempandhumsdata.humidity,           //Tempandhums.tempandhumsData.humidity
-      //   temperature: sensor.tempandhumsData.temperature,          //Tempandhums.tempandhumsData.temperature
-      //   humidity: sensor.tempandhumsdata.humidity,                //Tempandhums.tempandhumsData.humidity
-      //   worker_name: 'mynameisjeff',                              //request.body.worker_name,
-      //   state: 2,                                                 //request.body.state,
-      //   workers_assessment: 'the plant looks good'                //request.body.workers_assessment
-      // };
-  
-
-      // fandt temperature og humidity således d. 13/8-2019 klokken 14:46
-      // temperature: sensor.tempandhumsData.temperature,
-      // humidity: sensor.tempandhumsdata.humidity,
-      // worker_name: 'mynameisjeff',
-      // state: 2,
-      // workers_assessment: 'the plant looks pretty good'
-
-      // en forrig commit fandt temperature og humidity således: ----  9485f981 d. 13/8-2019 klokken 14:43
-      // temperature: Tempandhums.tempandhumsData.temperature,     //Tempandhums.tempandhumsData.temperature
-      // humidity: Tempandhums.tempandhumsdata.humidity,           //Tempandhums.tempandhumsData.humidity
-      // worker_name: 'mynameisjeff',                              //request.body.worker_name,
-      // state: 2,                                                 //request.body.state,
-      // workers_assessment: 'the plant looks good'  
   };
   Tempandhums.insert(tempandhums, err => {
     if (err) {
       response.render('data', {
-        // tilføjet 10:33 d. 13/8-2019. Lod ikke til at give det rigtige.
         temperature: tempandhums.temperature,
         humidity: tempandhums.humidity,
-        // slut relevans til 10:33 d. 13/8-2019.
         worker_name: tempandhums.worker_name,
         workers_assessment: tempandhums.workers_assessment,
         state: tempandhums.state,
