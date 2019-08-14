@@ -10,11 +10,12 @@ const pool = mysql.createPool({
 /* Creates a table called tempandhums if it doesn't exist in our database  */
     // Forces temperature and humidity to be 0.0 per default if no other value is specified. from 10.55am aug-13-2019
     // Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
+    // gør det rigtige, hvis der kun bruges temperature, humidity og time
 pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
     `CREATE TABLE IF NOT EXISTS tempandhums
-      (temperature FLOAT(4,2) NOT NULL, humidity FLOAT(4,2) NOT NULL, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, worker_name TEXT NOT NULL, workers_assessment TEXT NOT NULL)`, (err) => {
+      (temperature FLOAT(4,2) NOT NULL, humidity FLOAT(4,2) NOT NULL, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, worker_name TEXT NOT NULL, state INT, workers_assessment TEXT NOT NULL)`, (err) => {
       if (err) throw err
     })
   connection.release()
@@ -65,10 +66,11 @@ class Tempandhums {
     }
     pool.getConnection((err, connection) => {
       if (err) throw err
+      // GØR DET RIGTIGE, HVIS DER KUN BRUGES tah.temperature og tah.humidity
       // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
       // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om worker_name
-      const sql = 'INSERT INTO tempandhums(temperature, humidity) VALUES (?, ?)'
-      connection.query(sql, [tah.temperature, tah.humidity /**, tah.worker_name, tah.state, tah.workers_assessment*/], (err, results, fields) => {
+      const sql = 'INSERT INTO tempandhums(temperature, humidity, worker_name, state, workers_assessment) VALUES (?, ?, ?, ?, ?)'
+      connection.query(sql, [tah.temperature, tah.humidity, tah.worker_name, tah.state, tah.workers_assessment], (err, results, fields) => {
         if (err) throw err
         connection.release()
       })
