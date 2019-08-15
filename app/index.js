@@ -69,9 +69,8 @@ app.post('/inspection', (request, response, next) => {
         errMessage: err.message
       });
     } else {
-      // if data is successfully sent, redirect to inspection table and render it. 
+      // if data is successfully sent, redirect to inspection table. 
       response.redirect('/inspection');
-      response.render('/inspection');
     }
   });
 });
