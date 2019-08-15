@@ -15,13 +15,13 @@ pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
     `CREATE TABLE IF NOT EXISTS tempandhums
-      (temperature FLOAT(4,2) NOT NULL, humidity FLOAT(4,2) NOT NULL, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY)`, (err) => {
+      (temperature FLOAT(4,2) NOT NULL, humidity FLOAT(4,2) NOT NULL, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, worker_name TEXT NOT NULL)`, (err) => {
       if (err) throw err
     })
   connection.release()
 })
 
-/* Selects all from the tempandhums table in reverse cronological order and has limit on 10 */
+/* Selects all from the tempandhums table in reverse chronological order and has limit on 10 */
 class Tempandhums {
   static all(callback) {
     pool.getConnection((err, connection) => {
@@ -33,7 +33,7 @@ class Tempandhums {
     })
   }
 
-  /* Selects all from the tempandhums table in reverse cronological order and has limit on 1 */
+  /* Selects all from the tempandhums table in reverse chronological order and has limit on 1 */
   static getLChart(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
@@ -44,7 +44,7 @@ class Tempandhums {
     })
   }
 
-  /* Selects all from the tempandhums table in reverse cronological order and has limit on 5 */
+  /* Selects all from the tempandhums table in reverse chronological order and has limit on 5 */
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
@@ -69,7 +69,7 @@ class Tempandhums {
       // GØR DET RIGTIGE, HVIS DER KUN BRUGES tah.temperature og tah.humidity
       // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
       // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om worker_name
-      const sql = 'INSERT INTO tempandhums(temperature, humidity) VALUES (?, ?)'
+      const sql = 'INSERT INTO tempandhums(temperature, humidity, worker_name) VALUES (?, ?, ?)'
       connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
         if (err) throw err
         connection.release()
@@ -77,7 +77,7 @@ class Tempandhums {
     })
   }
 
-  /* Creates a function, where we request our mesuarments */
+  /* Creates a function, where we request our measurements */
   static request(date, callback) {
     let requestM = moment(date).format('YYYY-MM-DD HH:mm:ss')
     pool.getConnection((err, connection) => {
