@@ -76,6 +76,7 @@ app.post('/inspection', (request, response, next) => {
     } else {
       // if data is successfully sent, redirect to inspection table
       response.redirect('/inspection');
+      response.render('inspection');
     }
   });
 });
