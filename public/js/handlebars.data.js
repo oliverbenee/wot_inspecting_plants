@@ -10,7 +10,7 @@
     '</td>\r\n <td>' +
     alias4(((helper = (helper = helpers.time || (depth0 != null ? depth0.time : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'time', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
-    alias4(((helper = (helper = helpers.worker_name || (depth0 != null ? depth0.worker_name : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'worker_name', 'hash': {}, 'data': data }) : helper))) +
+    alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'name', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
     alias4(((helper = (helper = helpers.state || (depth0 != null ? depth0.state : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'state', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +

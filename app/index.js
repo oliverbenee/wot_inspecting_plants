@@ -52,7 +52,7 @@ app.post('/inspection', (request, response, next) => {
   const tempandhums = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
-    worker_name: request.body.worker_name,
+    name: request.body.name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
@@ -63,14 +63,15 @@ app.post('/inspection', (request, response, next) => {
       response.render('data', {
         temperature: tempandhums.temperature,
         humidity: tempandhums.humidity,
-        worker_name: tempandhums.worker_name,
+        name: tempandhums.name,
         workers_assessment: tempandhums.workers_assessment,
         state: tempandhums.state,
         errMessage: err.message
       });
     } else {
-      // if data is successfully sent, redirect to inspection table
+      // if data is successfully sent, redirect to inspection table and render it. 
       response.redirect('/inspection');
+      response.render('/inspection');
     }
   });
 });
