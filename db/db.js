@@ -66,7 +66,7 @@ class Tempandhums {
     }
     pool.getConnection((err, connection) => {
       if (err) throw err
-      // GØR DET RIGTIGE, HVIS DER KUN BRUGES tah.temperature og tah.humidity
+      // GØR DET RIGTIGE, HVIS DER KUN BRUGES tah.temperature og tah.humidity.
       // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
       // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om worker_name
       const sql = 'INSERT INTO tempandhums(temperature, humidity, worker_name) VALUES (?, ?, ?)'
