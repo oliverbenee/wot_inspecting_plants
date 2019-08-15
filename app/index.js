@@ -52,7 +52,7 @@ app.post('/inspection', (request, response, next) => {
   const tempandhums = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
-    name: request.body.name,
+    worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
@@ -63,7 +63,7 @@ app.post('/inspection', (request, response, next) => {
       response.render('data', {
         temperature: tempandhums.temperature,
         humidity: tempandhums.humidity,
-        name: tempandhums.name,
+        worker_name: tempandhums.worker_name,
         workers_assessment: tempandhums.workers_assessment,
         state: tempandhums.state,
         errMessage: err.message
