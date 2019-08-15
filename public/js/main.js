@@ -73,7 +73,7 @@ function updateMyChart (data) {
     name.push(c.name)
     state.push(c.state)
     workers_assessment.push(c.workers_assessment)
-    if (temperature.length >= 10) {
+    if (temperature.length >= 5) {
       temperature.shift()
       humidity.shift()
       time.shift()
