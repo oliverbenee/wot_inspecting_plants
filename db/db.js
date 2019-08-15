@@ -15,7 +15,7 @@ pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
     `CREATE TABLE IF NOT EXISTS tempandhums
-      (temperature FLOAT(4,2) NOT NULL, humidity FLOAT(4,2) NOT NULL, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, worker_name TEXT NOT NULL)`, (err) => {
+      (temperature FLOAT(4,2) NOT NULL, humidity FLOAT(4,2) NOT NULL, time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, name TEXT NOT NULL)`, (err) => {
       if (err) throw err
     })
   connection.release()
@@ -69,7 +69,7 @@ class Tempandhums {
       // GØR DET RIGTIGE, HVIS DER KUN BRUGES tah.temperature og tah.humidity
       // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
       // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om worker_name
-      const sql = 'INSERT INTO tempandhums(temperature, humidity, worker_name) VALUES (?, ?, ?)'
+      const sql = 'INSERT INTO tempandhums(temperature, humidity, name) VALUES (?, ?, ?)'
       connection.query(sql, [tah.temperature, tah.humidity, "GEORG"], (err, results, fields) => {
         if (err) throw err
         connection.release()
