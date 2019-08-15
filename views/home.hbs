@@ -13,16 +13,20 @@
 <form method="POST" action="/inspection">
   <div>
     <label for="name">Worker's name</label>
-    <input type="text" id="name" name="name">
+  </div>
+  <div>
+    <input type="text" id="name" name="name" required>
   </div>
   <div>
     <label for="workers_assessment">Assessment of the plant</label>
-    <textarea id="workers_assessment" name="workers_assessment"></textarea>
+  </div>
+  <div>
+    <textarea id="workers_assessment" name="workers_assessment" required></textarea>
   </div>
   <div>
     <p>State of the plant: </p>
     <label for="state"></label>
-    <select id="state" name="state">
+    <select id="state" name="state" required>
       <option disabled selected value> -- select an option -- </option>
       <option value=1>1 - Quite dead</option>
       <option value=2>2 - Dying</option>
@@ -35,6 +39,6 @@
     <button type="submit">Submit</button>
   </div>
   {{#if errMessage}}
-  <p style="color: red; text-align: center">Error: {{ errMessage }}</p>
+  <p style="color: rgb(255, 0, 0); text-align: center">Error: {{ errMessage }}</p>
   {{/if}}
 </form>
