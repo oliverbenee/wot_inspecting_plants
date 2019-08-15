@@ -44,11 +44,6 @@ app.get('/home', (request, response, next) => {
   response.render('home')
 })
 
-// If directed to /inspection, render inspection.hbs
-app.get('/inspection', (request, response, next) => {
-  response.render('inspection')
-})
-
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/inspection', (request, response, next) => {
   // FIND SENSOR DATA
@@ -76,10 +71,14 @@ app.post('/inspection', (request, response, next) => {
     } else {
       // if data is successfully sent, redirect to inspection table
       response.redirect('/inspection');
-      response.render('inspection');
     }
   });
 });
+
+// If directed to /inspection, render inspection.hbs
+app.get('/inspection', (request, response, next) => {
+  response.render('inspection')
+})
 
 /**
  * AL KODE EFTER DETTE I INDEX.JS ER OK!!!!!
