@@ -74,7 +74,7 @@ class Tempandhums {
         if (err) throw err
         connection.release()
       })
-      console.log('data was inserted into the database.')
+      console.log('Data was inserted into the mysql database!')
     })
   }
 

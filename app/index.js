@@ -66,7 +66,6 @@ app.post('/inspection', (request, response, next) => {
   console.log('---------------------------------------------------------');
   // use insert method from db.js to enter data into the database.
   Tempandhums.insert(tempandhums, err => {
-  console.log('inserting data into the database...')
     // if the data is not posted, render the data, so the user may try again. 
     if (err) {
       response.render('data', {
@@ -80,9 +79,9 @@ app.post('/inspection', (request, response, next) => {
     } else {
       // if data is successfully sent, redirect to inspection table. 
       response.redirect('/inspection');
-      console.log('successfully posted data to database.')
     }
   });
+  console.log('Finished inserting data. You may now render a new page.')
 });
 
 // If directed to /inspection, render inspection.hbs
