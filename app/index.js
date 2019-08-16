@@ -51,16 +51,16 @@ app.post('/inspection', (request, response, next) => {
   const tempandhums = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
-    name: request.body.name,
+    worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
   // Show data to be sent in terminal
   console.log('---------------------------------------------------------');
-  console.log('|trying to post the following data to inspection table: | ');
+  console.log('|trying to post the following data to inspection table:');
   console.log('|temperature: ' + tempandhums.temperature + 'C');
   console.log('|humidity: ' + tempandhums.humidity + '%');
-  console.log('|name: ' + tempandhums.name);
+  console.log('|worker_name: ' + tempandhums.worker_name);
   console.log('|state: ' + tempandhums.state);
   console.log('|workers_assessment: ' + tempandhums.workers_assessment);
   console.log('---------------------------------------------------------');
@@ -71,7 +71,7 @@ app.post('/inspection', (request, response, next) => {
       response.render('data', {
         temperature: tempandhums.temperature,
         humidity: tempandhums.humidity,
-        name: tempandhums.name,
+        worker_name: tempandhums.worker_name,
         workers_assessment: tempandhums.workers_assessment,
         state: tempandhums.state,
         errMessage: err.message
