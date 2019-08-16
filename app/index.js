@@ -55,7 +55,7 @@ app.post('/inspection', (request, response, next) => {
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
-  console.log('trying to post the following data to inspection table: ' + tempandhums);
+  console.log('trying to post the following data to inspection table: ' + tempandhums.temperature);
   // use insert method from db.js to enter data into the database.
   Tempandhums.insert(tempandhums, err => {
     // if the data is not posted, render the data, so the user may try again. 
