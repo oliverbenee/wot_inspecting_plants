@@ -90,6 +90,7 @@ app.get('/inspection', (request, response, next) => {
   })
 })
 
+/**
 app.get('/inspection', (request, response, next) => {
   Tempandhums.all((err, tempandhums) => {
     if (err) return next(err)
@@ -98,6 +99,8 @@ app.get('/inspection', (request, response, next) => {
     })
   })
 })
+
+*/
 
 /**
  * AL KODE EFTER DETTE I INDEX.JS ER OK!!!!!
