@@ -65,7 +65,7 @@ app.post('/inspection', (request, response, next) => {
   console.log('|workers_assessment: ' + tempandhums.workers_assessment);
   console.log('---------------------------------------------------------');
   // use insert method from db.js to enter data into the database.
-  Tempandhums.insert(tempandhums, err => {
+  Tempandhums.insert(inspection, err => {
     console.log('inserting data into the database...')
     // if the data is not posted, render the data, so the user may try again. 
     if (err) {

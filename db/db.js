@@ -21,7 +21,7 @@ pool.getConnection((err, connection) => {
   connection.release()
 })
 
-/* Selects all from the tempandhums table in reverse chronological order and has limit on 10 */
+/* Selects all from the table in reverse chronological order and has limit on 10 */
 class Tempandhums {
   static all(callback) {
     pool.getConnection((err, connection) => {
@@ -33,7 +33,7 @@ class Tempandhums {
     })
   }
 
-  /* Selects all from the tempandhums table in reverse chronological order and has limit on 1 */
+  /* Selects all from the table in reverse chronological order and has limit on 1 */
   static getLChart(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
@@ -44,7 +44,7 @@ class Tempandhums {
     })
   }
 
-  /* Selects all from the tempandhums table in reverse chronological order and has limit on 5 */
+  /* Selects all from the table in reverse chronological order and has limit on 5 */
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
