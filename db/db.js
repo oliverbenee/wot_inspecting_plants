@@ -18,7 +18,8 @@ pool.getConnection((err, connection) => {
       (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, 
         temperature FLOAT(4,2) NOT NULL, 
         humidity FLOAT(4,2) NOT NULL, 
-        worker_name TEXT NOT NULL, state INT, 
+        worker_name TEXT NOT NULL, 
+        state INT, 
         workers_assessment TEXT NOT NULL)`, (err) => {
       if (err) throw err
     })
