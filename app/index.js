@@ -81,7 +81,8 @@ app.post('/inspection', (request, response, next) => {
       response.redirect('/inspection');
     }
   });
-  console.log('Finished inserting data. You may now render a new page.')
+  console.log('Finished inserting data. Now redirection to inspection page...')
+  response.redirect('/inspection');
 });
 
 // If directed to /inspection, render inspection.hbs
