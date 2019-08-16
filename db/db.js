@@ -74,7 +74,7 @@ class Tempandhums {
       // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
       // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om name
       const sql = "INSERT INTO tempandhums(temperature, humidity, state) VALUES (?, ?, ?)"
-      connection.query(sql, [tah.temperature, tah.humidity, 2000], (err, results, fields) => {
+      connection.query(sql, [tah.temperature, tah.humidity, '2000'], (err, results, fields) => {
         if (err) throw err
         connection.release()
       })
