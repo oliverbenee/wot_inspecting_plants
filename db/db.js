@@ -14,7 +14,7 @@ const pool = mysql.createPool({
 pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
-    `CREATE TABLE IF NOT EXISTS inspections
+    `CREATE TABLE IF NOT EXISTS tempandhums
       (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, worker_name TEXT NOT NULL)`, (err) => {
       if (err) throw err
     })
@@ -26,7 +26,7 @@ class Tempandhums {
   static all(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM inspections ORDER BY time DESC LIMIT 10', (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 10', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -37,7 +37,7 @@ class Tempandhums {
   static getLChart(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM inspections ORDER BY time DESC LIMIT 1', (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 1', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -48,7 +48,7 @@ class Tempandhums {
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM inspections ORDER BY time DESC LIMIT 5', (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 5', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -56,12 +56,12 @@ class Tempandhums {
   }
 
   /* Creates a function, where we can insert our measurements. If certain attributes contain no information, an error mesasage is produced. */
-  static insert(ins, callback) {
+  static insert(tah, callback) {
     // Previously used callback as paramater, but that has been removed. 
-    if (!ins.worker_name) {
+    if (!tah.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
-    if (!ins.workers_assessment) {
+    if (!tah.workers_assessment) {
       return callback(new Error('Please specify the state.'))
     }
     pool.getConnection((err, connection) => {
@@ -69,8 +69,8 @@ class Tempandhums {
       // GØR DET RIGTIGE, HVIS DER KUN BRUGES ins.temperature og ins.humidity
       // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
       // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om name
-      const sql = 'INSERT INTO inspections(worker_name) VALUES (?)'
-      connection.query(sql, [ins.worker_name], (err, results, fields) => {
+      const sql = 'INSERT INTO tempandhums(worker_name) VALUES (?)'
+      connection.query(sql, [tah.worker_name], (err, results, fields) => {
         if (err) throw err
         connection.release()
       })
@@ -83,7 +83,7 @@ class Tempandhums {
     let requestM = moment(date).format('YYYY-MM-DD HH:mm:ss')
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM inspection WHERE time >= ?', [requestM], (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums WHERE time >= ?', [requestM], (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -92,4 +92,4 @@ class Tempandhums {
 }
 
 module.exports = pool
-module.exports.Inspection = Inspection
+module.exports.Tempandhums = Tempandhums
