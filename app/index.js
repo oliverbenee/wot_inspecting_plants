@@ -86,6 +86,7 @@ app.post('/inspection', (request, response, next) => {
 
 // If directed to /inspection, render inspection.hbs
 app.get('/inspection', (request, response, next) => {
+  console.log('rendering inspection page...')
   response.render('inspection', {
   })
 })
