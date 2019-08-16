@@ -46,6 +46,7 @@ app.get('/home', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/inspection', (request, response, next) => {
+  console.log('now posting data... please wait.')
   const thdata = sensor.read();
   // data to be posted to server.
   const tempandhums = {
@@ -72,6 +73,7 @@ app.post('/inspection', (request, response, next) => {
       response.redirect('/inspection');
     }
   });
+  console.log('finished posting data!')
 });
 
 // If directed to /inspection, render inspection.hbs
