@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express') //Ensure, that express is available
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const Inspection = require('../db/db').Inspection
+const Tempandhums = require('../db/db').Tempandhums
 const sensor = require('./sensor') //Allow sensor methods to be used.
 
 const app = express() // Define app using express
@@ -48,7 +48,7 @@ app.get('/home', (request, response, next) => {
 app.post('/inspection', (request, response, next) => {
   const thdata = sensor.read();
   // data to be posted to server.
-  const inspection = {
+  const tempandhums = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
     worker_name: request.body.worker_name,
@@ -57,24 +57,24 @@ app.post('/inspection', (request, response, next) => {
   };
   // Show data to be sent in terminal
   console.log('---------------------------------------------------------');
-  console.log('|trying to post the following data to inspection table:');
-  console.log('|temperature: ' + inspection.temperature + 'C');
-  console.log('|humidity: ' + inspection.humidity + '%');
-  console.log('|worker_name: ' + inspection.worker_name);
-  console.log('|state: ' + inspection.state);
-  console.log('|workers_assessment: ' + inspection.workers_assessment);
+  console.log('|trying to post the following data to the table:');
+  console.log('|temperature: ' + tempandhums.temperature + 'C');
+  console.log('|humidity: ' + tempandhums.humidity + '%');
+  console.log('|worker_name: ' + tempandhums.worker_name);
+  console.log('|state: ' + tempandhums.state);
+  console.log('|workers_assessment: ' + tempandhums.workers_assessment);
   console.log('---------------------------------------------------------');
   // use insert method from db.js to enter data into the database.
-  Tempandhums.insert(inspection, err => {
+  Tempandhums.insert(tempandhums, err => {
     console.log('inserting data into the database...')
     // if the data is not posted, render the data, so the user may try again. 
     if (err) {
       response.render('data', {
-        temperature: inspection.temperature,
-        humidity: inspection.humidity,
-        worker_name: inspection.worker_name,
-        workers_assessment: inspection.workers_assessment,
-        state: inspection.state,
+        temperature: tempandhums.temperature,
+        humidity: tempandhums.humidity,
+        worker_name: tempandhums.worker_name,
+        workers_assessment: tempandhums.workers_assessment,
+        state: tempandhums.state,
         errMessage: err.message
       });
     } else {
@@ -92,10 +92,10 @@ app.get('/inspection', (request, response, next) => {
 */
 
 app.get('/inspection', (request, response, next) => {
-  Inspection.all((err, inspection) => {
+  Tempandhums.all((err, tempandhums) => {
     if (err) return next(err)
     response.render('inspection', {
-      inspection: inspection
+      tempandhums: tempandhums
     })
   })
 })
@@ -106,7 +106,7 @@ app.get('/inspection', (request, response, next) => {
 
 app.get('/data', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Inspection.all((err, data) => {
+    Tempandhums.all((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))
@@ -117,7 +117,7 @@ app.get('/data', (request, response, next) => {
 // Update chart
 app.get('/dataC', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Inspection.getLChart((err, data) => {
+    Tempandhums.getLChart((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))
@@ -128,7 +128,7 @@ app.get('/dataC', (request, response, next) => {
 // Update chart
 app.get('/dataT', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Inspection.getLTable((err, data) => {
+    Tempandhums.getLTable((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))
@@ -137,7 +137,7 @@ app.get('/dataT', (request, response, next) => {
 })
 
 app.get('/requestM', (request, response, next) => {
-  Inspection.request(request.query.date, (err, data) => {
+  Tempandhums.request(request.query.date, (err, data) => {
     if (err) return next(err)
     response.contentType('application/json')
     response.end(JSON.stringify(data))
