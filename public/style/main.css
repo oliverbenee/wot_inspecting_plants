@@ -33,3 +33,7 @@ td {
   position: relative;
   display: block;
 }
+
+li {
+  display: inline;
+}
