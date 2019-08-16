@@ -8,7 +8,7 @@ p {
 }
 
 /**
-  * Background wallpaper
+  * Background design
   */
 
 body {
@@ -20,7 +20,7 @@ body {
 }
 
 /**
- *  Table design
+ * Table design
  */
 
 table,
@@ -29,11 +29,23 @@ td {
   border-collapse: collapse;
 }
 
+/**
+ *  Header
+ */
+
 #header {
   position: relative;
   display: block;
   text-align: center;
 }
+
+.header-title {
+  text-align: center;
+}
+
+/**
+ * Navigation bar
+ */
 
 ul {
   margin: 0;
@@ -43,6 +55,16 @@ li {
   display: inline;
 }
 
-.header-title {
-  text-align: center;
+/**
+ * Form
+ */
+
+form {
+  /* Center the form onto the page itself */
+  margin: 0 auto;
+  width: 66%;
+  /* Ensures the outline of the form is visible. */
+  padding: 1em;
+  background-color: rgba(2, 2, 2, 0.5);
+  border-radius: 1em;
 }
