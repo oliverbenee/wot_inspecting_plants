@@ -81,7 +81,7 @@ app.post('/inspection', (request, response, next) => {
       response.redirect('/inspection');
     }
   });
-  console.log('Finished inserting data. Now redirection to inspection page...')
+  console.log('Finished inserting data. Now redirecting to inspection page...')
   response.redirect('/inspection');
 });
 
