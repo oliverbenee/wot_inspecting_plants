@@ -20,17 +20,6 @@ fetch('/data', {
   })
 })
 
-/* Fetches all the data for the table */
-fetch('/dataT', {
-  method: 'get',
-  headers: {
-    'Accept': 'application/json'
-  } }).then((response) => {
-  response.json().then((data) => {
-    myTable.innerHTML = Handlebars.templates.data({ inspection: data })
-  })
-})
-
 /* Update table and chart */
 fetch('/dataT', {
   method: 'get',
