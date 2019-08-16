@@ -51,6 +51,9 @@ app.post('/inspection', (request, response, next) => {
   const tempandhums = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
+    worker_name: request.body.worker_name,
+    state: request.body.state,
+    workers_assessment: request.body.workers_assessment
   };
   // Show data to be sent in terminal
   console.log('---------------------------------------------------------');
