@@ -46,8 +46,6 @@ app.get('/home', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/inspection', (request, response, next) => {
-  // FIND SENSOR DATA
-  console.log('read sensor data')
   const thdata = sensor.read();
   // data to be posted to server.
   const tempandhums = {
