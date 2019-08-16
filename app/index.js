@@ -51,9 +51,6 @@ app.post('/inspection', (request, response, next) => {
   const tempandhums = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
-    worker_name: request.body.worker_name,
-    state: request.body.state,
-    workers_assessment: request.body.workers_assessment
   };
   // Show data to be sent in terminal
   console.log('---------------------------------------------------------');
@@ -66,7 +63,7 @@ app.post('/inspection', (request, response, next) => {
   console.log('---------------------------------------------------------');
   // use insert method from db.js to enter data into the database.
   Tempandhums.insert(tempandhums, err => {
-    console.log('inserting data into the database...')
+  console.log('inserting data into the database...')
     // if the data is not posted, render the data, so the user may try again. 
     if (err) {
       response.render('data', {
