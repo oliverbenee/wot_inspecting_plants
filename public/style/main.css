@@ -35,12 +35,11 @@ td {
 }
 
 ul {
-  margin: 15%;
+  margin: 0;
 }
 
 li {
   display: inline;
-  padding: 6px;
 }
 
 .header-title {
