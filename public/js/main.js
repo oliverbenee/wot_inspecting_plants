@@ -114,10 +114,6 @@ function makeMyChart (data) {
       tooltips: {
         mode: 'index',
         intersect: false
-        callbacks: {
-          afterBody: function(t, d) {
-             return myData.worker_name;  // Shows a string of whom made the inspection
-          }
       },
       hover: {
         mode: 'nearest',
