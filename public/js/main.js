@@ -32,27 +32,25 @@ fetch('/dataT', {
 })
 
 /* Update table and chart */
-function fetchNewData() {
-  fetch('/dataC', {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json'
-    } }).then((response) => {
-    response.json().then((data) => {
-      updateMyChart(data)
-    })
+fetch('/dataT', {
+  method: 'get',
+  headers: {
+    'Accept': 'application/json'
+  } }).then((response) => {
+  response.json().then((data) => {
+    myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
   })
+})
 
-  fetch('/dataT', {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json'
-    } }).then((response) => {
-    response.json().then((data) => {
-      myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
-    })
+fetch('/dataC', {
+  method: 'get',
+  headers: {
+    'Accept': 'application/json'
+  } }).then((response) => {
+  response.json().then((data) => {
+    updateMyChart(data)
   })
-}
+})
 
 /* code for the table data */
 function makeMyData (data) {
