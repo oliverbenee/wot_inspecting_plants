@@ -46,7 +46,6 @@ app.get('/home', (request, response, next) => {
 
 /* Creates a new resource and throws an error message if there is one. */
 app.post('/inspection', (request, response, next) => {
-  console.log('now posting data... please wait.')
   const thdata = sensor.read();
   // data to be posted to server.
   const tempandhums = {
@@ -56,6 +55,7 @@ app.post('/inspection', (request, response, next) => {
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
+  console.log('trying to post the following data to inspection table: ' + tempandhums);
   // use insert method from db.js to enter data into the database.
   Tempandhums.insert(tempandhums, err => {
     // if the data is not posted, render the data, so the user may try again. 
@@ -73,7 +73,6 @@ app.post('/inspection', (request, response, next) => {
       response.redirect('/inspection');
     }
   });
-  console.log('finished posting data!')
 });
 
 // If directed to /inspection, render inspection.hbs
