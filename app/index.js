@@ -83,9 +83,20 @@ app.post('/inspection', (request, response, next) => {
   });
 });
 
+/** -- SAFEGUARDED FOR POTENTIAL LATER USE.
 // If directed to /inspection, render inspection.hbs
 app.get('/inspection', (request, response, next) => {
   response.render('inspection')
+})
+*/
+
+app.get('/inspection', (request, response, next) => {
+  Tempandhums.all((err, inspection) => {
+    if (err) return next(err)
+    response.render('inspection', {
+      inspection: inspection
+    })
+  })
 })
 
 /**
