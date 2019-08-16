@@ -14,16 +14,8 @@
     <textarea id="workers_assessment" name="workers_assessment" required></textarea>
   </div>
   <div>
-    <p>State of the plant: </p>
-    <label for="state"></label>
-    <select id="state" name="state" required>
-      <option disabled selected value> -- select an option -- </option>
-      <option value='1'>1 - Quite dead</option>
-      <option value='2'>2 - Dying</option>
-      <option value='3'>3 - Fine</option>
-      <option value='4'>4 - Well</option>
-      <option value='5'>5 - Very well</option>
-    </select>
+    <label for="state">INT_STATE</label>
+    <input type="number" id="state" name="state">
   </div>
   <div>
     <input type="submit" value="Submit">
