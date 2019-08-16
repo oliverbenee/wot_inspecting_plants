@@ -28,3 +28,8 @@ th,
 td {
   border-collapse: collapse;
 }
+
+#navigation-main {
+  position: relative;
+  display: block;
+}
