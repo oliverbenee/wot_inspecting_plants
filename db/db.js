@@ -37,7 +37,7 @@ class Tempandhums {
   static all(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 10', (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY time DESC LIMIT 10', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -48,7 +48,7 @@ class Tempandhums {
   static getLChart(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 1', (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY time DESC LIMIT 1', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -59,7 +59,7 @@ class Tempandhums {
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums ORDER BY time DESC LIMIT 5', (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY time DESC LIMIT 5', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
