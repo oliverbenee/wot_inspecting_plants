@@ -94,10 +94,10 @@ class Tempandhums {
 
   static insertworker(worker, callback) {
     // Previously used callback as paramater, but that has been removed. 
-    if (!tah.worker_name) {
+    if (!worker.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
-    if (!tah.workers_assessment) {
+    if (!worker.workers_assessment) {
       return callback(new Error('Please specify the state.'))
     }
     pool.getConnection((err, connection) => {
