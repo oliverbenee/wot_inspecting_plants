@@ -83,7 +83,7 @@ app.post('/inspection', (request, response, next) => {
     }
     */
   });
-  Tempandhums.insertworker(workers, err => {
+  Workers.insertworker(workers, err => {
     // if the data is not posted, render the data, so the user may try again. 
     if (err) {
       response.render('data', {

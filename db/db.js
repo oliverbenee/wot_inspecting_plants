@@ -95,7 +95,7 @@ class Tempandhums {
   }
 }
 
-class Worker {
+class Workers {
   /** Selects all from workers in reverse chronological order and has limit on 10 */
   static all(callback) {
     pool.getConnection((err, connection) => {
@@ -153,4 +153,4 @@ class Worker {
 
 module.exports = pool
 module.exports.Tempandhums = Tempandhums
-module.exports.Worker = Worker
+module.exports.Workers = Workers
