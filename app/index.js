@@ -149,6 +149,7 @@ app.get('/dataT', (request, response, next) => {
     Tempandhums.getLTable((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
+      response.end(JSON.stringify(data))
     })
   }
 })
