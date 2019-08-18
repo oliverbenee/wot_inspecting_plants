@@ -19,7 +19,7 @@ pool.getConnection((err, connection) => {
         temperature FLOAT(4,2) NOT NULL, 
         humidity FLOAT(4,2) NOT NULL, 
         worker_name TEXT NOT NULL, 
-        state INT, 
+        state FLOAT(4,2) NOT NULL, 
         workers_assessment TEXT NOT NULL)`, (err) => {
       if (err) throw err
     })
