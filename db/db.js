@@ -103,7 +103,7 @@ class Tempandhums {
     pool.getConnection((err, connection) => {
       if (err) throw err
       const sql = 'INSERT INTO workers(worker_name, state, workers_assessment) VALUES (?, ?, ?)'
-      connection.query(sql, [tah.worker_name, tah.state, tah.workers_assessment], (err, results, fields) => {
+      connection.query(sql, [worker.worker_name, worker.state, worker.workers_assessment], (err, results, fields) => {
         if (err) throw err
         connection.release()
       })
