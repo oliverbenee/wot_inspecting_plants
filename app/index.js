@@ -120,10 +120,6 @@ app.get('/inspection', (request, response, next) => {
 
 */
 
-/**
- * AL KODE EFTER DETTE I INDEX.JS ER OK!!!!!
- */
-
 app.get('/data', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     Tempandhums.all((err, data) => {

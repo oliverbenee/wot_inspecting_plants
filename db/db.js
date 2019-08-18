@@ -92,6 +92,54 @@ class Tempandhums {
     })
   }
 
+  /* Creates a function, where we request our measurements */
+  static request(date, callback) {
+    let requestM = moment(date).format('YYYY-MM-DD HH:mm:ss')
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      connection.query('SELECT * FROM tempandhums WHERE time >= ?', [requestM], (err, results, fields) => {
+        callback(err, results)
+        connection.release()
+      })
+    })
+  }
+}
+
+class Worker {
+  /** Selects all from workers in reverse chronological order and has limit on 10 */
+  static all(callback) {
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      connection.query('SELECT * FROM workers ORDER BY time DESC LIMIT 10', (err, results, fields) => {
+        callback(err, results)
+        connection.release()
+      })
+    })
+  }
+
+  /* Selects all from the table in reverse chronological order and has limit on 1 */
+  static getLChart(callback) {
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      connection.query('SELECT * FROM workers ORDER BY time DESC LIMIT 1', (err, results, fields) => {
+        callback(err, results)
+        connection.release()
+      })
+    })
+  }
+
+  /* Selects all from the table in reverse chronological order and has limit on 5 */
+  static getLTable(callback) {
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      connection.query('SELECT * FROM workers ORDER BY time DESC LIMIT 5', (err, results, fields) => {
+        callback(err, results)
+        connection.release()
+      })
+    })
+  }
+
+  /* Creates a new worker to be inserted into the database. */
   static insertworker(worker, callback) {
     // Previously used callback as paramater, but that has been removed. 
     if (!worker.worker_name) {
@@ -110,19 +158,9 @@ class Tempandhums {
       console.log('Worker name, state and workers assessment was recorded.')
     })
   }
-
-  /* Creates a function, where we request our measurements */
-  static request(date, callback) {
-    let requestM = moment(date).format('YYYY-MM-DD HH:mm:ss')
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      connection.query('SELECT * FROM tempandhums WHERE time >= ?', [requestM], (err, results, fields) => {
-        callback(err, results)
-        connection.release()
-      })
-    })
-  }
 }
+
 
 module.exports = pool
 module.exports.Tempandhums = Tempandhums
+module.exports.Worker = Worker
