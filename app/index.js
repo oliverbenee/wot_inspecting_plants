@@ -127,6 +127,7 @@ app.get('/data', (request, response, next) => {
     Tempandhums.all((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
+      response.end(JSON.stringify(data))
     })
   }
 })
@@ -137,6 +138,7 @@ app.get('/dataC', (request, response, next) => {
     Tempandhums.getLChart((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
+      response.end(JSON.stringify(data))
     })
   }
 })
@@ -155,6 +157,7 @@ app.get('/requestM', (request, response, next) => {
   Tempandhums.request(request.query.date, (err, data) => {
     if (err) return next(err)
     response.contentType('application/json')
+    response.end(JSON.stringify(data))
   })
 })
 
