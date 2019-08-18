@@ -172,7 +172,6 @@ app.get('/requestM', (request, response, next) => {
   Tempandhums.request(request.query.date, (err, data) => {
     if (err) return next(err)
     response.contentType('application/json')
-    response.end(JSON.stringify(data))
   })
 })
 
