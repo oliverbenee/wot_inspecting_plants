@@ -129,13 +129,6 @@ app.get('/data', (request, response, next) => {
       response.contentType('application/json')
     })
   }
-  if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Workers.all((err, data) => {
-      if (err) return next(err)
-      response.contentType('application/json')
-      response.end(JSON.stringify(data))
-    })
-  }
 })
 
 // Update chart
@@ -144,11 +137,6 @@ app.get('/dataC', (request, response, next) => {
     Tempandhums.getLChart((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
-    })
-    Workers.getLChart((err, data) => {
-      if (err) return next(err)
-      response.contentType('application/json')
-      response.end(JSON.stringify(data))
     })
   }
 })
@@ -159,11 +147,6 @@ app.get('/dataT', (request, response, next) => {
     Tempandhums.getLTable((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
-    })
-    Workers.getLTable((err, data) => {
-      if (err) return next(err)
-      response.contentType('application/json')
-      response.end(JSON.stringify(data))
     })
   }
 })
