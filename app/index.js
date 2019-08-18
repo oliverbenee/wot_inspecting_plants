@@ -52,7 +52,7 @@ app.post('/inspection', (request, response, next) => {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
     worker_name: request.body.worker_name,
-    state: thdata.temperature+thdata.humidity,
+    state: request.body.state,
     workers_assessment: request.body.workers_assessment
   };
   // Show data to be sent in terminal
