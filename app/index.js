@@ -4,6 +4,7 @@ const express = require('express') //Ensure, that express is available
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Tempandhums = require('../db/db').Tempandhums
+const Workers = require('../db/db').Workers
 const sensor = require('./sensor') //Allow sensor methods to be used.
 
 const app = express() // Define app using express
