@@ -138,7 +138,7 @@ function makeMyChart (data) {
           display: true,
           scaleLabel: {
             display: true,
-            labelString: 'Degrees and Percentages',
+            labelString: 'Temp:*Celsius, Humid: Percentage',
             fontColor: 'black'
           },
           gridLines: {
