@@ -32,10 +32,6 @@ pool.getConnection((err, connection) => {
   connection.release()
 })
 
-// worker_name TEXT NOT NULL, 
-// state VARCHAR(50) NOT NULL, 
-// workers_assessment TEXT NOT NULL
-
 /* Selects all from the table in reverse chronological order and has limit on 10 */
 class Tempandhums {
   static all(callback) {
@@ -72,12 +68,6 @@ class Tempandhums {
 
   /* Creates a function, where we can insert our measurements. If certain attributes contain no information, an error mesasage is produced. */
   static insert(tah, callback) { 
-    if (!tah.worker_name) {
-      return callback(new Error('Please type in a name.'))
-    }
-    if (!tah.workers_assessment) {
-      return callback(new Error('Please specify the state.'))
-    }
     pool.getConnection((err, connection) => {
       if (err) throw err
       // GØR DET RIGTIGE, HVIS DER KUN BRUGES ins.temperature og ins.humidity
@@ -139,14 +129,14 @@ class Worker {
     })
   }
 
-  /* Creates a new worker to be inserted into the database. */
+  /* Creates a new inspector to be inserted into the database. */
   static insertworker(worker, callback) {
     // Previously used callback as paramater, but that has been removed. 
     if (!worker.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
     if (!worker.workers_assessment) {
-      return callback(new Error('Please specify the state.'))
+      return callback(new Error('Please assess the plant.'))
     }
     pool.getConnection((err, connection) => {
       if (err) throw err
