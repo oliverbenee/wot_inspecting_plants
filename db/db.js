@@ -86,7 +86,7 @@ class Tempandhums {
       const sql = 'INSERT INTO tempandhums(temperature, humidity) VALUES (?, ?)'
       connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
         if (err) throw err
-        connection.release()
+        // connection.release()
       })
       console.log('Temperature and humidity was recorded.')
     })
