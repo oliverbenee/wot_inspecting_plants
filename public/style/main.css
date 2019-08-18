@@ -17,7 +17,10 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   font-family: Arial;
-  background-size: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /**
