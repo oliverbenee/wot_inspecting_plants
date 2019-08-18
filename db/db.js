@@ -8,7 +8,6 @@ const pool = mysql.createPool({
 })
 
 /* Creates a table called inspections if it doesn't exist in our database  */
-// Forces temperature and humidity to be 0.0 per default if no other value is specified. from 10.55am aug-13-2019
 // Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
 // gør det rigtige, hvis der kun bruges temperature, humidity og time
 pool.getConnection((err, connection) => {
@@ -18,13 +17,16 @@ pool.getConnection((err, connection) => {
       (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, 
         temperature FLOAT(4,2) NOT NULL, 
         humidity FLOAT(4,2) NOT NULL, 
-        worker_name TEXT NOT NULL, 
-        state VARCHAR(50) NOT NULL, 
-        workers_assessment TEXT NOT NULL)`, (err) => {
+        state INTEGER
+        )`, (err) => {
       if (err) throw err
     })
   connection.release()
 })
+
+// worker_name TEXT NOT NULL, 
+// state VARCHAR(50) NOT NULL, 
+// workers_assessment TEXT NOT NULL
 
 /* Selects all from the table in reverse chronological order and has limit on 10 */
 class Tempandhums {
