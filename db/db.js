@@ -23,8 +23,8 @@ pool.getConnection((err, connection) => {
   connection.query(
     `CREATE TABLE IF NOT EXISTS workers
       (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
-        worker_name TEXT NOT NULL
-        state TEXT NOT NULL
+        worker_name TEXT NOT NULL,
+        state TEXT NOT NULL,
         workers_assessment TEXT NOT NULL
         )`, (err) => {
       if (err) throw err
