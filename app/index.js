@@ -100,6 +100,7 @@ app.post('/inspection', (request, response, next) => {
     }
   });
   console.log('Finished inserting data. Now redirecting to inspection page...')
+  response.redirect('/inspection')
 });
 
 // If directed to /inspection, render inspection.hbs
