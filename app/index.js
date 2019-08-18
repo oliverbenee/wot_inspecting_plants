@@ -68,6 +68,7 @@ app.post('/inspection', (request, response, next) => {
   console.log('---------------------------------------------------------');
   // use insert method from db.js to enter data into the database.
   Tempandhums.insert(tempandhums, err => {
+    console.log('inserting data into Temperature and humidity table')
     // if the data is not posted, render the data, so the user may try again. 
     if (err) {
       response.render('data', {
