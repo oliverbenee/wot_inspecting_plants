@@ -13,10 +13,17 @@
     <textarea id="workers_assessment" name="workers_assessment" width=100%></textarea>
   </div>
   <div>
-    <label for="state">INT_STATE</label>
+    <label for="state">Rate the state of the plant</label>
   </div>
   <div>
-    <input type="number" id="state" name="state">
+    <select id="state" name="state">
+      <option disabled> -- Choose a value -- </option>
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=3>3</option>
+      <option value=4>4</option>
+      <option value=5>5</option>
+    </select>
   </div>
   <div>
     <input type="submit" value="Submit">
