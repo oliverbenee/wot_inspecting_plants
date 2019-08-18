@@ -27,7 +27,7 @@ fetch('/dataT', {
     'Accept': 'application/json'
   } }).then((response) => {
   response.json().then((data) => {
-    myTable.innerHTML = Handlebars.templates.data({ tempandhums: data, workers: data })
+    myTable.innerHTML = Handlebars.templates.data({ tempandhums: data })
   })
 })
 
