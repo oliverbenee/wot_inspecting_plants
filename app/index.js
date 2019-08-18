@@ -51,18 +51,20 @@ app.post('/inspection', (request, response, next) => {
   const tempandhums = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
+  };
+  const workers = {
     worker_name: request.body.worker_name,
     state: request.body.state,
     workers_assessment: request.body.workers_assessment
-  };
+  }
   // Show data to be sent in terminal
   console.log('---------------------------------------------------------');
   console.log('|trying to post the following data to the table:');
   console.log('|temperature: ' + tempandhums.temperature + 'C');
   console.log('|humidity: ' + tempandhums.humidity + '%');
-  console.log('|worker_name: ' + tempandhums.worker_name);
-  console.log('|state: ' + tempandhums.state);
-  console.log('|workers_assessment: ' + tempandhums.workers_assessment);
+  console.log('|worker_name: ' + workers.worker_name);
+  console.log('|state: ' + workers.state);
+  console.log('|workers_assessment: ' + workers.workers_assessment);
   console.log('---------------------------------------------------------');
   // use insert method from db.js to enter data into the database.
   Tempandhums.insert(tempandhums, err => {
@@ -71,15 +73,32 @@ app.post('/inspection', (request, response, next) => {
       response.render('data', {
         temperature: tempandhums.temperature,
         humidity: tempandhums.humidity,
-        worker_name: tempandhums.worker_name,
-        workers_assessment: tempandhums.workers_assessment,
-        state: tempandhums.state,
         errMessage: err.message
       });
-    } else {
+    } 
+    /**
+    else {
       // if data is successfully sent, redirect to inspection table. 
       response.redirect('/inspection');
     }
+    */
+  });
+  Tempandhums.insertworker(workers, err => {
+    // if the data is not posted, render the data, so the user may try again. 
+    if (err) {
+      response.render('data', {
+        worker_name: workers.worker_name,
+        workers_assessment: workers.workers_assessment,
+        state: workers.state,
+        errMessage: err.message
+      });
+    }
+    /**
+    else {
+      // if data is successfully sent, redirect to inspection table. 
+      response.redirect('/inspection');
+    }
+    */
   });
   console.log('Finished inserting data. Now redirecting to inspection page...')
   response.redirect('/inspection');

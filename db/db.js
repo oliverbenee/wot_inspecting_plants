@@ -17,7 +17,15 @@ pool.getConnection((err, connection) => {
       (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, 
         temperature FLOAT(4,2) NOT NULL, 
         humidity FLOAT(4,2) NOT NULL, 
-        state INTEGER
+        )`, (err) => {
+      if (err) throw err
+    })
+  connection.query(
+    `CREATE TABLE IF NOT EXISTS workers
+      (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
+        worker_name TEXT NOT NULL
+        state TEXT NOT NULL
+        workers_assessment TEXT NOT NULL
         )`, (err) => {
       if (err) throw err
     })
@@ -63,8 +71,7 @@ class Tempandhums {
   }
 
   /* Creates a function, where we can insert our measurements. If certain attributes contain no information, an error mesasage is produced. */
-  static insert(tah, callback) {
-    // Previously used callback as paramater, but that has been removed. 
+  static insert(tah, callback) { 
     if (!tah.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
@@ -76,12 +83,31 @@ class Tempandhums {
       // GØR DET RIGTIGE, HVIS DER KUN BRUGES ins.temperature og ins.humidity
       // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
       // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om name
-      const sql = 'INSERT INTO tempandhums(temperature, humidity, state) VALUES (?, ?, ?)'
-      connection.query(sql, [tah.temperature, tah.humidity, tah.state], (err, results, fields) => {
+      const sql = 'INSERT INTO tempandhums(temperature, humidity) VALUES (?, ?)'
+      connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
         if (err) throw err
         connection.release()
       })
-      console.log('Data was inserted into the mysql database!')
+      console.log('Temperature and humidity was recorded.')
+    })
+  }
+
+  static insertworker(worker, callback) {
+    // Previously used callback as paramater, but that has been removed. 
+    if (!tah.worker_name) {
+      return callback(new Error('Please type in a name.'))
+    }
+    if (!tah.workers_assessment) {
+      return callback(new Error('Please specify the state.'))
+    }
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      const sql = 'INSERT INTO workers(worker_name, state, workers_assessment) VALUES (?, ?, ?)'
+      connection.query(sql, [tah.worker_name, tah.state, tah.workers_assessment], (err, results, fields) => {
+        if (err) throw err
+        connection.release()
+      })
+      console.log('Worker name, state and workers assessment was recorded.')
     })
   }
 
