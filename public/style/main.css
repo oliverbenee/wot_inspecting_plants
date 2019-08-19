@@ -95,7 +95,7 @@ form {
     margin-bottom: 3.5%;
   }
 
-  .myChart {
+  #myChart {
     visibility: hidden;
   }
 
