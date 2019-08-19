@@ -6,12 +6,6 @@
   h1, h2 {
     text-align: center;
   }
-
-  canvas {
-    position: relative; 
-    height:40vh; 
-    width:80vw;
-  }
 }
 
 p {
