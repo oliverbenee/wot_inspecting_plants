@@ -76,6 +76,8 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0;
+  width: 100%;
 }
 
 /**
@@ -113,17 +115,9 @@ body {
   .tableheader {
     margin-left: 4.5%;
   }
+
   table {
     margin-left: 4.5%;
     margin-bottom: 3.5%;
-  }
-  
-  /**
-   * Background
-   */
-
-  body {
-    margin: 0;
-    width: 100%;
   }
 }
