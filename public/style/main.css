@@ -94,6 +94,10 @@ form {
     margin-right:auto;
     margin-bottom: 3.5%;
   }
+
+  #myChart {
+    visibility: hidden;
+  }
 }
 
 /**
