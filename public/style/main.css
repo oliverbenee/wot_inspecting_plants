@@ -81,7 +81,9 @@ form {
 }
 
 /**
- * On mobile devices: Align tables and headers in the center. Ensure, that there is some space between refresh button and measurement table.
+ * On mobile devices: Align tables and headers in the center. 
+ * Ensure, that there is some space between refresh button and measurement table.
+ * Hide chart, as it is not readable regardless.
  */
 
 @media only screen and (max-width: 768px) {
