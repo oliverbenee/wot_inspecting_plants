@@ -9,22 +9,6 @@ p {
 }
 
 /**
- * Background
- */
-
- body {
-  background-image: linear-gradient(#158000, #61ff06);
-  margin: 0;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-/**
  * Table
  */
 
@@ -81,6 +65,20 @@ form {
 }
 
 /**
+ * Background common settings.
+ */
+
+body {
+  background-image: linear-gradient(#158000, #61ff06);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/**
  * On mobile devices: Align tables and headers in the center. 
  * Ensure, that there is some space between refresh button and measurement table.
  * Hide chart, as it is not readable regardless.
@@ -104,20 +102,6 @@ form {
   .tableheader {
     visibility: hidden;
   }
-
-  /**
-   * Background
-   */
-
-  body {
-    background-image: linear-gradient(#158000, #61ff06);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
 }
 
 /**
@@ -139,14 +123,7 @@ form {
    */
 
   body {
-    background-image: linear-gradient(#158000, #61ff06);
     margin: 0;
     width: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
   }
 }
