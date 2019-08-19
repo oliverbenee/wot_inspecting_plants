@@ -104,6 +104,20 @@ form {
   .tableheader {
     visibility: hidden;
   }
+
+  /**
+   * Background
+   */
+
+  body {
+    background-image: linear-gradient(#158000, #61ff06);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 }
 
 /**
@@ -118,5 +132,21 @@ form {
   table {
     margin-left: 4.5%;
     margin-bottom: 3.5%;
+  }
+  
+  /**
+   * Background
+   */
+
+  body {
+    background-image: linear-gradient(#158000, #61ff06);
+    margin: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 }
