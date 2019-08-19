@@ -9,15 +9,15 @@ p {
 }
 
 /**
-  * Background
-  */
+ * Background
+ */
 
-body {
+ body {
   background-image: linear-gradient(#158000, #61ff06);
   margin: 0;
+  width: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: Arial;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
