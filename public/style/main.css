@@ -50,7 +50,7 @@ table, th, td {
   text-align: center;
 }
 
-.header-title {
+.header_title {
   text-align: center;
 }
 
@@ -58,8 +58,13 @@ table, th, td {
  * Navigation bar
  */
 
-ul {
+ .header_navbar {
+   text-align: center;
+ }
+
+ ul {
   margin: 0;
+  padding: 50px;
 }
 
 li {
