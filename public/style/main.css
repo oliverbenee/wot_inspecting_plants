@@ -81,7 +81,7 @@ form {
 }
 
 /**
- * On mobile devices: Align tables and headers in the center.
+ * On mobile devices: Align tables and headers in the center. Ensure, that there is some space between refresh button and measurement table.
  */
 
 @media only screen and (max-width: 768px) {
@@ -92,6 +92,7 @@ form {
   table {
     margin-left:auto; 
     margin-right:auto;
+    margin-bottom: 5%;
   }
 }
 
@@ -102,9 +103,10 @@ form {
 
 @media only screen and (min-width: 768px) {
   .tableheader {
-    margin-left: 5%;
+    margin-left: 4.5%;
   }
   table {
-    margin-left: 10%;
+    margin-left: 4.5%;
+    margin-bottom: 5%;
   }
 }
