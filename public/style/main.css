@@ -114,7 +114,7 @@ only screen and (max-width: 760px),
 
   /* for state select...*/
   select {
-    width: 90%;
+    width: 89%;
     /* Note, that padding also adds air above and below text. */
     padding-top: 4px;
     padding-bottom: 4px;
