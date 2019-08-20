@@ -8,8 +8,6 @@ const pool = mysql.createPool({
 })
 
 /* Creates a table called inspections if it doesn't exist in our database  */
-// Fungerede ikke med at have state VARCHAR(20). from 2.33 pm aug-13-2019 
-// gør det rigtige, hvis der kun bruges temperature, humidity og time
 pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
@@ -70,9 +68,6 @@ class Tempandhums {
   static insert(tah, callback) { 
     pool.getConnection((err, connection) => {
       if (err) throw err
-      // GØR DET RIGTIGE, HVIS DER KUN BRUGES ins.temperature og ins.humidity
-      // FØR COMMIT AUGUST 13, 2019 klokken 14:41 - brugte '' i stedet for backticks.
-      // commit d. 13. august 2019 klokken 13:50 brugte '' rundt om name
       const sql = 'INSERT INTO tempandhums(temperature, humidity) VALUES (?, ?)'
       connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
         if (err) throw err
@@ -91,19 +86,6 @@ class Tempandhums {
         callback(err, results)
         connection.release()
       })
-    })
-  }
-
-  /* remove all data from table */
-  static truncate (callback) {
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      const sql = 'TRUNCATE TABLE tempandhums'
-      connection.query(sql, (err, results, fields) => {
-        if (err) throw err
-        connection.release()
-      })
-      console.log('Table "tempandhums" has been emptied.')
     })
   }
 }
@@ -143,8 +125,7 @@ class Workers {
   }
 
   /* Creates a new inspector to be inserted into the database. */
-  static insertworker(worker, callback) {
-    // Previously used callback as paramater, but that has been removed. 
+  static insertworker(worker, callback) { 
     if (!worker.worker_name) {
       return callback(new Error('Please type in a name.'))
     }
@@ -159,19 +140,6 @@ class Workers {
         connection.release()
       })
       console.log('Worker name, state and workers assessment was recorded.')
-    })
-  }
-
-  /* remove all data from table */
-  static truncate (callback) {
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      const sql = 'TRUNCATE TABLE workers'
-      connection.query(sql, (err, results, fields) => {
-        if (err) throw err
-        connection.release()
-      })
-      console.log('Table "workers" has been emptied.')
     })
   }
 }
