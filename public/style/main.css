@@ -130,7 +130,7 @@ only screen and (max-width: 760px),
 	td { 
 		/* Behave  like a "row" */
 		border: none;
-		border-bottom: 2px solid; 
+		border-bottom: 3px solid; 
 		position: relative;
 		padding-left: 50%; 
 	}
