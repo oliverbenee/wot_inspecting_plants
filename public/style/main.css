@@ -191,6 +191,10 @@ only screen and (max-width: 760px),
  */
 
 @media only screen and (min-width: 768px) {
+  form {
+    margin: auto;
+  }
+
   .tableheader {
     margin-left: 4.5%;
   }
@@ -201,7 +205,6 @@ only screen and (max-width: 760px),
   }
 
   input[type=text] {
-    margin: auto;
     width: 33%;
     box-sizing: border-box;
   }
@@ -209,13 +212,11 @@ only screen and (max-width: 760px),
   textarea {
     height: 2em;
     width: 33%;
-    margin: auto;
     box-sizing: border-box;
   }
 
   select {
     width: 16.6%;
-    margin: auto;
     box-sizing: border-box;
   }
 }
