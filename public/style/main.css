@@ -190,7 +190,7 @@ only screen and (max-width: 760px),
  * there is some space from the edge of the screen to preserve readability.
  */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
   form {
     margin: auto;
   }
@@ -206,20 +206,20 @@ only screen and (max-width: 760px),
 
   input[type=text] {
     text-align: center;
-    width: 33%;
+    width: 100%;
     box-sizing: border-box;
   }
 
   textarea {
     text-align: center;
     height: 2em;
-    width: 33%;
+    width: 100%;
     box-sizing: border-box;
   }
 
   select {
     text-align: center;
-    width: 16.6%;
+    width: 50%;
     box-sizing: border-box;
   }
 }
