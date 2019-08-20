@@ -175,8 +175,17 @@ only screen and (max-width: 760px),
   }
 
   input {
-    width: 75%;
-    padding: 12px 20px;
-    box-sizing: border-box;
+    width: 100%;
+    padding: 3px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 3px;
+  }
+
+  select {
+    width: 100%;
+    padding: 3px;
   }
 }
