@@ -31,6 +31,15 @@ app.use((request, response, next) => {
 
 app.use(express.static(path.join(__dirname, '../public')))
 
+/**
+ * Creates current date and time.
+ */
+
+setInterval(function(){
+  var today = new Date();
+  document.getElementById('dtText').innerHTML=today;
+}, 1000);
+
 /* 
  * Retrieves the correct page to serve
  */
