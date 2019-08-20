@@ -101,14 +101,14 @@ only screen and (max-width: 760px),
   /* For worker name...*/
   input[type=text] {
     padding: 12px;
-    margin: 4px 0;
+    margin: 8px 0;
     box-sizing: border-box;
   }
 
   /* For workers assessment...*/
   textarea {
-    padding: 12px;
-    margin: 4px 0;
+    padding: 24px;
+    margin: 0px 0;
     box-sizing: border-box;
   }
 
