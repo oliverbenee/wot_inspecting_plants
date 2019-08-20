@@ -218,7 +218,7 @@ only screen and (max-width: 760px),
   }
 
   select {
-    padding: 20%
+    padding: 20%;
     width: 40%;
     box-sizing: border-box;
   }
