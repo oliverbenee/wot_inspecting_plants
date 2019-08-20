@@ -208,12 +208,14 @@ only screen and (max-width: 760px),
 
   textarea {
     height: 2em;
+    width: 33%;
     margin-left: 0 auto;
     margin-right: 0 auto;
     box-sizing: border-box;
   }
 
   select {
+    width: 16.6%;
     margin-left: 0 auto;
     margin-right: 0 auto;
     box-sizing: border-box;
