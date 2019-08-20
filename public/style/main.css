@@ -124,17 +124,17 @@ only screen and (max-width: 760px),
 
   /* Header for chart is removed */
   h4 {
-    visibility: hidden
+    display: none;
   }
 
   /* Chart can't be read on mobile anyway, so we just remove it.*/
   #myChart {
-    visibility: hidden;
+    display: none;
   }
 
   /* Table headers serve no use on mobile tables */
   .tableheader {
-    visibility: hidden;
+    display: none;
   }
 
 	/* Force table to not be like tables anymore */
