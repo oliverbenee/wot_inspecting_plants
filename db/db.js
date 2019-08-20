@@ -59,7 +59,7 @@ class Tempandhums {
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY tempandhums.time DESC LIMIT 5', (err, results, fields) => {
+      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY tempandhums.time DESC', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
