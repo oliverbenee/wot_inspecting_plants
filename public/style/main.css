@@ -97,6 +97,19 @@ only screen and (max-width: 760px),
     text-align: center;
   }
 
+  /* Align input fields in the center of the page */
+  input[type=text] {
+    padding: 12px 3px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
   /* Header for chart is removed */
   h4 {
     visibility: hidden
