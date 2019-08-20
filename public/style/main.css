@@ -201,7 +201,7 @@ only screen and (max-width: 760px),
   }
 
   input[type=text] {
-    margin: 0 auto;
+    margin: auto;
     width: 33%;
     box-sizing: border-box;
   }
@@ -209,15 +209,13 @@ only screen and (max-width: 760px),
   textarea {
     height: 2em;
     width: 33%;
-    margin-left: 0 auto;
-    margin-right: 0 auto;
+    margin: auto;
     box-sizing: border-box;
   }
 
   select {
-    width: 10em;
-    margin-left: 0 auto;
-    margin-right: 0 auto;
+    width: 16.6%;
+    margin: auto;
     box-sizing: border-box;
   }
 }
