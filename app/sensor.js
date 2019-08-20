@@ -46,20 +46,24 @@ exports.read = function read() {
   return tempandhumsData;
 }
 
+exports.readToPage = function readToPage() {
+  //  read the sensor values
+  let readoutToPage = sensorTH.read()
+  //  readout contains two values: temperature and humidity, which will be used
+  const tempandhumidtoPage = {
+    temperature: readout.temperature.toFixed(2),
+    humidity: readout.humidity.toFixed(2)
+  };
+  document.getElementById('currentTemperature').innerHTML=tempandhumidtoPage.temperature;
+  document.getElementById('currentHumidity').innerHTML=tempandhumidtoPage.humidity;
+}
+
+const interval = setInterval(() => { // #F
+  readToPage();
+}, 2000)
+
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
-  if (interval) {
-    clearTimeout(interval);
-  }
-  if (interval1) {
-    clearTimeout(interval1);
-  }
-  if (interval2) {
-    clearTimeout(interval2);
-  }
-  if (interval3) {
-    clearTimeout(interval3);
-  }
   console.log('Closing program. Returning to console.')
   process.exit()
 });

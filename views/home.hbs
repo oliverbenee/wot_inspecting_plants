@@ -8,11 +8,20 @@
 <h1> Commit plant inspection </h1>
 
 <form method="POST" action="/inspection">
+  <!-- The information in this div is not used in POST, because mysql can default to the current timestamp. -->
   <div>
     <center>
       <p> Current date and time is: </p>
       <span id="dtText"></span>
     </center>
+  </div>
+  <div>
+    <p> Current temperature is: </p>
+    <span id="currentTemperature"></span>
+  </div>
+  <div>
+    <p> Current humidity is: </p>
+    <span id="currentHumidity"></span>
   </div>
   <div>
     <label for="worker_name">Worker name</label>
