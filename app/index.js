@@ -42,9 +42,10 @@ function display_c(){
   
 function display_ct() {
   var x = new Date()
-  document.getElementById('ct').innerHTML = x;
-  display_c();
-}   
+  var x1=x.toUTCString();// changing the display to UTC string
+  document.getElementById('ct').innerHTML = x1;
+  tt=display_c();
+}
 
 /* 
  * Retrieves the correct page to serve
