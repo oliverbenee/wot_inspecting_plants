@@ -115,13 +115,12 @@ only screen and (max-width: 760px),
 
   /* for state select...*/
   select {
-    width: 89%;
+    width: 100%;
     /* Note, that padding also adds air above and below text. */
     padding-top: 4px;
     padding-bottom: 4px;
     /* Larger margin-right should make boxes align*/
     box-sizing: border-box;
-    display: table;
   }
 
   /* Header for chart is removed */
