@@ -101,14 +101,14 @@ only screen and (max-width: 760px),
   /* For worker name...*/
   input[type=text] {
     padding: 12px;
-    margin: 8px 0;
+    margin: 4px 0;
     box-sizing: border-box;
   }
 
   /* For workers assessment...*/
   textarea {
-    padding: 24px;
-    margin: 0px 0;
+    padding: 12px;
+    margin: 4px 0;
     box-sizing: border-box;
   }
 
@@ -205,13 +205,13 @@ only screen and (max-width: 760px),
   }
 
   input[type=text] {
-    text-align: center;
+    text-align: left;
     width: 80%;
     box-sizing: border-box;
   }
 
   textarea {
-    text-align: center;
+    text-align: left;
     height: 8em;
     width: 80%;
     box-sizing: border-box;
