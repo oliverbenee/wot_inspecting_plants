@@ -117,7 +117,7 @@ only screen and (max-width: 760px),
     /* Note, that padding also adds air above and below text. */
     padding: 8px;
     /* Larger margin-right should make boxes align*/
-    margin-right: 48px 0;
+    margin-right: 96px 0;
     box-sizing: border-box;
   }
 
