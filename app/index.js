@@ -110,17 +110,13 @@ app.get('/inspection', (request, response, next) => {
   })
 })
 
-/**
-app.get('/inspection', (request, response, next) => {
-  Tempandhums.all((err, tempandhums) => {
-    if (err) return next(err)
-    response.render('inspection', {
-      tempandhums: tempandhums
-    })
-  })
+// if directed to /truncate, empty the entire table and redirect to /inspection
+app.get('/truncate', (request, response, next) => {
+  Tempandhums.truncate()
+  Workers.truncate()
+  console.log('rendering inspection page...')
+  response.redirect('/inspection')
 })
-
-*/
 
 app.get('/data', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {

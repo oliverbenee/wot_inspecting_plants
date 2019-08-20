@@ -76,7 +76,7 @@ class Tempandhums {
       const sql = 'INSERT INTO tempandhums(temperature, humidity) VALUES (?, ?)'
       connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
         if (err) throw err
-        // connection.release()
+        connection.release()
       })
       console.log('Temperature and humidity was recorded.')
     })
@@ -91,6 +91,19 @@ class Tempandhums {
         callback(err, results)
         connection.release()
       })
+    })
+  }
+
+  /* remove all data from table */
+  static truncate (callback) {
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      const sql = 'TRUNCATE TABLE tempandhums'
+      connection.query(sql, (err, results, fields) => {
+        if (err) throw err
+        connection.release()
+      })
+      console.log('Table "tempandhums" has been emptied.')
     })
   }
 }
@@ -146,6 +159,19 @@ class Workers {
         connection.release()
       })
       console.log('Worker name, state and workers assessment was recorded.')
+    })
+  }
+
+  /* remove all data from table */
+  static truncate (callback) {
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      const sql = 'TRUNCATE TABLE workers'
+      connection.query(sql, (err, results, fields) => {
+        if (err) throw err
+        connection.release()
+      })
+      console.log('Table "workers" has been emptied.')
     })
   }
 }
