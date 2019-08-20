@@ -115,7 +115,7 @@ only screen and (max-width: 760px),
   /* for state select...*/
   select {
     padding: 36px;
-    margin-right: 8px 0;
+    margin-right: 12px 0;
     box-sizing: border-box;
   }
 
