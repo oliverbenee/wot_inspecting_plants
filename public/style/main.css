@@ -125,14 +125,14 @@ only screen and (max-width: 760px),
 	}
 	
 	tr { 
-    border: 1px solid; 
+    border: 30px solid; 
   }
 	
 	td { 
 		/* Behave  like a "row" */
     border: none;
-    border-top: 30px solid;
-		border-bottom: 3px solid; 
+    border-top: 1px solid;
+		border-bottom: 1px solid; 
 		position: relative;
 		padding-left: 50%; 
 	}
