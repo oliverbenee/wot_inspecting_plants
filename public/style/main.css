@@ -127,7 +127,7 @@ only screen and (max-width: 760px),
     display: none;
   }
 
-  /* Chart can't be read on mobile anyway, so we just remove it.*/
+  /* Chart can't be read on mobile anyway, so we just remove it. Since display tag is not available in chart.js, we use visibility. */
   #myChart {
     visibility: hidden;
   }
