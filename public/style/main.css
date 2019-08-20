@@ -207,8 +207,6 @@ only screen and (max-width: 760px),
 
   input[type=text] {
     text-align: left;
-    padding-left: 16%;
-    padding-right: 16%;
     width: 66%;
     box-sizing: border-box;
   }
