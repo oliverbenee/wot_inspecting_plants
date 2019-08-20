@@ -162,5 +162,6 @@ app.listen(port, (err) => {
   if (err) return console.error(`An error has occured: ${err}`)
   console.log(`Listening on http://localhost:${port}/`)
   console.log(`This program may be closed at any time by using the key combination "CTRL + C"`)
-  console.log(`Make sure to read temperature and humidity at least once before deployment.`)
+  console.log(`Now testing sensors to ensure, they function as intended...`)
+  sensor.read()
 })
