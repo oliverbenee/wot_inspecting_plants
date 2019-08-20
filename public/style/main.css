@@ -207,14 +207,14 @@ only screen and (max-width: 760px),
 
   input[type=text] {
     text-align: left;
-    width: 80%;
+    width: 100%;
     box-sizing: border-box;
   }
 
   textarea {
     text-align: left;
     height: 8em;
-    width: 80%;
+    width: 100%;
     box-sizing: border-box;
   }
 
