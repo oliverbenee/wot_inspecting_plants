@@ -58,7 +58,7 @@ form {
   /* Center the form onto the page itself */
   margin: 0 auto;
   /* Ensure, that the form fits all devices */
-  width: 66%;
+  width: 100%;
   /* Ensures the outline of the form is visible. */
   padding: 1em;
   background-color: rgba(2, 2, 2, 0.5);
@@ -169,6 +169,7 @@ only screen and (max-width: 760px),
     margin-left: 4.5%;
   }
 
+  /**
   table {
     margin-left: 4.5%;
     margin-bottom: 3.5%;
@@ -187,4 +188,5 @@ only screen and (max-width: 760px),
     width: 75%;
     padding: 3px;
   }
+  */
 }
