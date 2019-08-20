@@ -201,6 +201,8 @@ only screen and (max-width: 760px),
   }
 
   input[type=text] {
+    width: 66%;
+    align-self: center;
     padding: 12px 3px;
     margin: 8px 0;
     box-sizing: border-box;
