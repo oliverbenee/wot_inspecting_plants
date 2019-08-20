@@ -46,7 +46,7 @@ exports.read = function read() {
   return tempandhumsData;
 }
 
-exports.readToPage = function readToPage() {
+function readToPage() {
   //  read the sensor values
   let readoutToPage = sensorTH.read()
   //  readout contains two values: temperature and humidity, which will be used
