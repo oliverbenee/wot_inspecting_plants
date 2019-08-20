@@ -202,20 +202,23 @@ only screen and (max-width: 760px),
 
   input[type=text] {
     width: 66%;
-    margin: 0 auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
     padding: 12em 3em;
     box-sizing: border-box;
   }
 
   textarea {
     padding: 12em;
-    margin: 0 auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
     box-sizing: border-box;
   }
 
   select {
     padding: 16em;
-    margin: 0 auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
     box-sizing: border-box;
   }
 }
