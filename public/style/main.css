@@ -182,13 +182,14 @@ only screen and (max-width: 760px),
   }
 
   textarea {
-    padding: 3px;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
   }
 
   select {
-    padding: 3px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
   }
 }
