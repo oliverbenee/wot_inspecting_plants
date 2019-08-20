@@ -202,12 +202,13 @@ only screen and (max-width: 760px),
 
   input[type=text] {
     width: 50%;
-    margin-left: 0 auto;
-    margin-right: 0 auto;
+    margin-left: 10 auto;
+    margin-right: 10 auto;
     box-sizing: border-box;
   }
 
   textarea {
+    height: 2em;
     margin-left: 0 auto;
     margin-right: 0 auto;
     box-sizing: border-box;
