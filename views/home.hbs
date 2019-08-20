@@ -1,10 +1,13 @@
 <form id="currentdateandtime">
   <p>Today is currently: <span id="datetime"></span></p>
-
   <script>
-    var datetimerightnow = new Date();
-    document.getElementById("datetime").innerHTML = datetimerightnow.toLocaleString();
+    function updatedatetime{
+      var datetimerightnow = new Date();
+      document.getElementById("datetime").innerHTML = datetimerightnow.toLocaleString();
+    }
+    setTimeout(updatedatetime, 1000);
   </script>
+
   <script>
     'use strict'
     const sensorTH = require('node-dht-sensor')
