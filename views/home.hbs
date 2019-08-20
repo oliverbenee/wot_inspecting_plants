@@ -2,6 +2,10 @@
   <p>Today is currently: <span id="datetime"></span></p>
 
   <script>
+    var datetimerightnow = new Date();
+    document.getElementById("datetime").innerHTML = datetimerightnow.toLocaleString();
+  </script>
+  <script>
     'use strict'
     const sensorTH = require('node-dht-sensor')
     const Gpio = require('onoff').Gpio
@@ -36,8 +40,6 @@
       process.exit()
     });
 
-    var datetimerightnow = new Date();
-    document.getElementById("datetime").innerHTML = datetimerightnow.toLocaleString();
     const sensorTH = require('node-dht-sensor')
     sensorTH.initialize(11, 12)
     const interval = setInterval(() => {
