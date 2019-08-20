@@ -212,13 +212,13 @@ only screen and (max-width: 760px),
 
   textarea {
     text-align: center;
-    height: 2em;
+    height: 8em;
     width: 80%;
     box-sizing: border-box;
   }
 
   select {
-    padding: 20%;
+    padding: 2em;
     width: 40%;
     box-sizing: border-box;
   }
