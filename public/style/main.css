@@ -206,20 +206,20 @@ only screen and (max-width: 760px),
 
   input[type=text] {
     text-align: center;
-    width: 100%;
+    width: 80%;
     box-sizing: border-box;
   }
 
   textarea {
     text-align: center;
     height: 2em;
-    width: 100%;
+    width: 80%;
     box-sizing: border-box;
   }
 
   select {
-    text-align: center;
-    width: 50%;
+    padding: 20%
+    width: 40%;
     box-sizing: border-box;
   }
 }
