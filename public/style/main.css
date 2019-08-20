@@ -90,8 +90,7 @@ body {
  */
 
 @media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+only screen and (max-width: 760px)  {
 
   /* Align headers in the center for readability */
   h1, h2 {
@@ -186,11 +185,12 @@ only screen and (max-width: 760px),
 }
 
 /**
- * On larger devices: Let elements be aligned to the left, but ensure, 
+ * On ipads and computers: Let elements be aligned to the left, but ensure, 
  * there is some space from the edge of the screen to preserve readability.
  */
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
   form {
     margin: auto;
     width: 50%;
