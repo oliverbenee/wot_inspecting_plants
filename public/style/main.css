@@ -112,6 +112,13 @@ only screen and (max-width: 760px),
     box-sizing: border-box;
   }
 
+  /* for state select...*/
+  select {
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
   /* Header for chart is removed */
   h4 {
     visibility: hidden
