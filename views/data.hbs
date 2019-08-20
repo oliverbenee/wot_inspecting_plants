@@ -1,13 +1,15 @@
 {{#each Tempandhums}}
 <tr>
-  <td>{{temperature}}</td>
-  <td>{{humidity}}</td>
   <td>{{time}}</td>
-</tr>
 {{/each}}
 {{#each Workers}}
-<tr>
   <td>{{worker_name}}</td>
+{{/each}}
+{{#each Tempandhums}}
+  <td>{{temperature}}</td>
+  <td>{{humidity}}</td>
+{{/each}}
+{{#each Workers}}
   <td>{{state}}</td>
   <td>{{workers_assessment}}</td>
 </tr>
