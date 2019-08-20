@@ -1,7 +1,15 @@
+<form id="currentdateandtime">
+  <p>Today is currently: <span id="datetime"></span></p>
+
+  <script>
+    var datetimerightnow = new Date();
+    document.getElementById("datetime").innerHTML = datetimerightnow.toLocaleString();
+  </script>
+</form>
+
 <h1> Commit plant inspection </h1>
 
 <form method="POST" action="/inspection">
-
   <div>
     <label for="worker_name">Worker name</label>
   </div>
