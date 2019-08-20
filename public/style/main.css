@@ -115,9 +115,8 @@ only screen and (max-width: 760px),
   /* for state select...*/
   select {
     /* Note, that padding also adds air above and below text. */
-    padding: 8px;
+    padding-right: 16px;
     /* Larger margin-right should make boxes align*/
-    margin-right: 10000px 0;
     box-sizing: border-box;
   }
 
