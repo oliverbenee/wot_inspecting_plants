@@ -51,8 +51,8 @@ function readToPage() {
   let readoutToPage = sensorTH.read()
   //  readout contains two values: temperature and humidity, which will be used
   const tempandhumidtoPage = {
-    temperature: readout.temperature.toFixed(2),
-    humidity: readout.humidity.toFixed(2)
+    temperature: readoutToPage.temperature.toFixed(2),
+    humidity: readoutToPage.humidity.toFixed(2)
   };
   document.getElementById('currentTemperature').innerHTML=tempandhumidtoPage.temperature;
   document.getElementById('currentHumidity').innerHTML=tempandhumidtoPage.humidity;
