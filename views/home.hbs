@@ -1,9 +1,5 @@
 <h1> Commit plant inspection </h1>
 
-<p> Current time: </p>
-
-<span id="dtText"></span>
-
 <script>
   var today = new Date();
   document.getElementById('dtText').innerHTML=today;
@@ -14,6 +10,10 @@
 </script>
 
 <form method="POST" action="/inspection">
+  <div>
+      <p> Current time: </p>
+      <span id="dtText"></span>
+  </div>
   <div>
     <label for="worker_name">Worker name</label>
   </div>
