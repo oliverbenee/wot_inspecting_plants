@@ -42,8 +42,8 @@
     sensorTH.initialize(11, 12)
     const interval = setInterval(() => {
       let readout = sensorTH.read()
-      document.getElementById("temperature").innerHTML = readout.temperature.toFixed(2);
-      document.getElementById("humidity").innerHTML = readout.humidity.toFixed(2);
+      document.getElementById("temperature").innerHTML = tempandhumsData.temperature;
+      document.getElementById("humidity").innerHTML = tempandhumsData.humidity;
       console.log('Current temperature and humidity has been read for the web page.')
     }, 1000)
   </script>
