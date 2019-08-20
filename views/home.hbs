@@ -12,6 +12,7 @@
       let readout = sensorT.read()
       document.getElementById("temperature").innerHTML = readout.temperature.toFixed(2);
       document.getElementById("humidity").innerHTML = readout.humidity.toFixed(2);
+      console.log('Current temperature and humidity has been read for the web page.')
     }, 1000)
   </script>
 
