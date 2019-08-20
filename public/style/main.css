@@ -2,7 +2,7 @@
  * Fonts
  */
 
-p, h1, h2, a, label {
+p, h1, h2, a, label, span {
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
