@@ -4,7 +4,7 @@
  */
 
 //  Import needed package for the DHT sensor to function properly.
-const sensorTH = require('node-dht-sensor')
+const sensor = require('node-dht-sensor')
 //  Import needed package for GPIO to allow blinking LEDs. 
 const Gpio = require('onoff').Gpio
 
@@ -13,7 +13,7 @@ const Gpio = require('onoff').Gpio
  */
 
 //  The DHT sensor has the model number 11, and is connected to GPIO pin 12 on our Raspberry Pi.
-sensorTH.initialize(11, 12)
+sensor.initialize(11, 12)
 //  The LED added to our Raspberry Pi, and is connected to GPIO pin 4 on our Raspberry Pi.
 const led = new Gpio(4, 'out')
 
@@ -29,7 +29,7 @@ const led = new Gpio(4, 'out')
 
 exports.read = function read() {
   //  read the sensor values
-  let readout = sensorTH.read()
+  let readout = sensor.read()
   //  readout contains two values: temperature and humidity, which will be used
   const tempandhumsData = {
     temperature: readout.temperature.toFixed(2),
