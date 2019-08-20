@@ -31,22 +31,6 @@ app.use((request, response, next) => {
 
 app.use(express.static(path.join(__dirname, '../public')))
 
-/*
- * Updates time shown on home page
- */
-
-function display_c(){
-  var refresh=1000; // Refresh rate in milli seconds
-  mytime=setTimeout('display_ct()',refresh)
-}
-  
-function display_ct() {
-  var x = new Date()
-  var x1=x.toUTCString();// changing the display to UTC string
-  document.getElementById('ct').innerHTML = x1;
-  tt=display_c();
-}
-
 /* 
  * Retrieves the correct page to serve
  */
