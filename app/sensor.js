@@ -67,3 +67,5 @@ process.on('SIGINT', () => {
   console.log('Closing program. Returning to console.')
   process.exit()
 });
+
+module.exports.readToPage = readToPage();
