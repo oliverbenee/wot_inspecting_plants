@@ -119,8 +119,6 @@ only screen and (max-width: 760px),
     /* Note, that padding also adds air above and below text. */
     padding-top: 4px;
     padding-bottom: 4px;
-    /* Don't pad select to the left on mobile */
-    padding-left: 0;
     /* Larger margin-right should make boxes align*/
     box-sizing: border-box;
   }
@@ -222,7 +220,6 @@ only screen and (max-width: 760px),
   }
 
   select {
-    padding: 1em;
     width: 40%;
     box-sizing: border-box;
   }
