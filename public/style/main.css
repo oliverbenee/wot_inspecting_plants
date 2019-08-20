@@ -15,7 +15,8 @@ p, h1, h2, a {
 table, th, td {
   border: 2px solid black;
   border-collapse: collapse;
-  color: black
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /**
