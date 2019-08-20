@@ -103,6 +103,10 @@ app.post('/inspection', (request, response, next) => {
   response.redirect('/inspection')
 });
 
+// Show current date and time
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
 // If directed to /inspection, render inspection.hbs
 app.get('/inspection', (request, response, next) => {
   console.log('rendering inspection page...')
