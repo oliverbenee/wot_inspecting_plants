@@ -85,7 +85,7 @@ body {
 /**
  * On mobile devices: Align tables and headers in the center. 
  * Ensure, that there is some space between refresh button and measurement table.
- * Hide chart, as it is not readable regardless.
+ * Hide chart, as it is not readable on mobile devices.
  */
 
 @media 
@@ -176,16 +176,14 @@ only screen and (max-width: 760px),
   }
 
   input {
-    width: 75%;
     padding: 3px;
   }
 
   textarea {
-    width: 75%
+    padding: 3px;
   }
 
   select {
-    width: 75%;
     padding: 3px;
   }
 }
