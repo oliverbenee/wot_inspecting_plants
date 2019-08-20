@@ -5,32 +5,18 @@
     var datetimerightnow = new Date();
     document.getElementById("datetime").innerHTML = datetimerightnow.toLocaleString();
   </script>
+  <script>
+    const sensorT = require('node-dht-sensor')
+    sensorT.initialize(11, 12)
+    const interval = setInterval(() => {
+      let readout = sensorT.read()
+      document.getElementById("temperature").innerHTML = readout.temperature.toFixed(2);
+      document.getElementById("humidity").innerHTML = readout.humidity.toFixed(2);
+    }, 1000)
+  </script>
 
   <p>Currently, plant temperature is: <span id="temperature"></span></p>
   <p>Currently, plant humidity is: <span id="humidity"></span></p>
-
-  <script>
-    'use strict'
-    const interval = setInterval{
-      const sensorTH = require('node-dht-sensor')
-      const Gpio = require('onoff').Gpio
-      sensorTH.initialize(11, 12)
-      const led = new Gpio(4, 'out')
-      function read() {
-        let readout = sensorTH.read()
-        const thhtml = {
-          temperature: readout.temperature.toFixed(2),
-          humidity: readout.humidity.toFixed(2)
-        };
-        return thhtml;
-      }
-      const interval = setInterval{
-        read();
-      }, 1000);
-      document.getElementById("temperature").innerHTML = thhtml.temperature;
-      document.getElementById("humidity").innerHTML = thhtml.humidity
-    }, 2000);
-  </script>
 </form>
 
 <h1> Commit plant inspection </h1>
