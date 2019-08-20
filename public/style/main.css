@@ -193,6 +193,7 @@ only screen and (max-width: 760px),
 @media only screen and (min-width: 1024px) {
   form {
     margin: auto;
+    width: 50%;
   }
 
   .tableheader {
