@@ -108,7 +108,7 @@ only screen and (max-width: 760px),
 
   /* For workers assessment...*/
   textarea {
-    padding: 4px;
+    padding: 24px;
     margin: 0px 0;
     box-sizing: border-box;
   }
@@ -119,7 +119,6 @@ only screen and (max-width: 760px),
     /* Note, that padding also adds air above and below text. */
     padding-top: 4px;
     padding-bottom: 4px;
-    /* Larger margin-right should make boxes align*/
     box-sizing: border-box;
   }
 
