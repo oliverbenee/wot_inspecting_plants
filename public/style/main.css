@@ -129,7 +129,7 @@ only screen and (max-width: 760px),
 
   /* Chart can't be read on mobile anyway, so we just remove it.*/
   #myChart {
-    display: none;
+    visibility: hidden;
   }
 
   /* Table headers serve no use on mobile tables */
