@@ -9,8 +9,10 @@
   setInterval(function() {
   sensoronpage.initialize(11, 12)
   let readtosite = sensoronpage.read()
-  document.getElementById("temperaturetext").innerHTML = readtosite.temperature.toFixed(2);
-  document.getElementById("humiditytext").innerHTML = readtosite.temperature.toFixed(2);
+  if(document != null) {
+    document.getElementById("temperaturetext").innerHTML = readtosite.temperature.toFixed(2);
+    document.getElementById("humiditytext").innerHTML = readtosite.temperature.toFixed(2);
+  }
   })
 </script>
 
