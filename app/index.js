@@ -49,7 +49,7 @@ app.get('/home', (request, response, next) => {
 app.post('/inspection', (request, response, next) => {
   const thdata = sensor.read();
   // data to be posted to server.
-  const dhdata = {
+  const dhtdata = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
   };
