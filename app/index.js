@@ -158,24 +158,3 @@ app.listen(port, (err) => {
   console.log(`This program may be closed at any time by using the key combination "CTRL + C"`)
   console.log(`Please make sure to read from sensors at least once before deployment.`)
 })
-
-/* Code for current data - MAY NEED TO BE DELETED */
-
-setInterval(function(){
-  console.log('doing a read of current temperature')
-  let readRightNow = sensor.read()
-  if(document != null){
-    document.getElementById('currentTemperature').innerHTML=readRightNow.temperature;
-  }
-
-  /* Update table and chart */
-  fetch('/dataT', {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json'
-    } }).then((response) => {
-    response.json().then((data) => {
-      currentTemperature.innerHTML = Handlebars.templates.data({ dhtdata: temperature })
-    })
-  })
-}, 10000);
