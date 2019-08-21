@@ -156,6 +156,7 @@ function makeMyChart (data) {
 /* Code for current data - MAY NEED TO BE DELETED */
 
 setInterval(function(){
+  console.log('doing a read of current temperature')
   let readRightNow = sensor.read()
   document.getElementById('currentTemperature').innerHTML=readRightNow.temperature;
 
