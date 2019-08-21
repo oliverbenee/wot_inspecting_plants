@@ -107,7 +107,7 @@ only screen and (max-width: 760px)  {
 
   /* For workers assessment...*/
   textarea {
-    padding: 24px;
+    padding: 12px;
     margin: 0px 0;
     box-sizing: border-box;
   }
