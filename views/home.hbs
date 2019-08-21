@@ -3,6 +3,12 @@
 	  var today = new Date();
 	  document.getElementById('dtText').innerHTML=today;
   }, 1000);
+
+  const sensoronpage = require('node-dht-sensor')
+  let readtosite = sensoronpage.read()
+  sensoronpage.initialize(11, 12)
+  document.getElementById("temperaturetext").innerHTML = readtosite.temperature.toFixed(2);
+  document.getElementById("humiditytext").innerHTML = readtosite.temperature.toFixed(2);
 </script>
 
 <h1> Commit plant inspection </h1>
