@@ -1,3 +1,18 @@
+<script>
+  'use strict'
+  const sensoronpage = require('node-dht-sensor')
+  sensoronpage.initialize(11, 12)
+
+  setInterval(function(){
+	  var today = new Date()
+	  document.getElementById('dtText').innerHTML=today
+    console.log('starting to read to site')
+    let readtosite = sensoronpage.read()
+    document.getElementById('tText').innerHTML = readtosite.temperature.toFixed(2);
+    document.getElementById('hText').innerHTML = readtosite.temperature.toFixed(2);
+  }, 1000);
+</script>
+
 <h1> Commit plant inspection </h1>
 
 <form method="POST" action="/inspection">
@@ -44,17 +59,3 @@
   <p style="color: rgb(255, 0, 0); text-align: center">Error: {{ errMessage }}</p>
   {{/if}}
 </form>
-
-<script>
-  setInterval(function(){
-	  var today = new Date();
-	  document.getElementById('dtText').innerHTML=today;
-    
-    console.log('starting to read to site')
-    const sensoronpage = require('node-dht-sensor')
-    sensoronpage.initialize(11, 12)
-    let readtosite = sensoronpage.read()
-    document.getElementById('tText').innerHTML = readtosite.temperature.toFixed(2);
-    document.getElementById('hText').innerHTML = readtosite.temperature.toFixed(2);
-  }, 1000);
-</script>
