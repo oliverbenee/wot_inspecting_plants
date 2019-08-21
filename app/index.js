@@ -178,4 +178,4 @@ setInterval(function(){
       currentTemperature.innerHTML = Handlebars.templates.data({ dhtdata: temperature })
     })
   })
-}, 1000);
+}, 10000);
