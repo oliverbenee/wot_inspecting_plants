@@ -11,7 +11,7 @@ const pool = mysql.createPool({
 pool.getConnection((err, connection) => {
   if (err) throw err
   connection.query(
-    `CREATE TABLE IF NOT EXISTS tempandhums
+    `CREATE TABLE IF NOT EXISTS dhtdata
       (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY, 
         temperature FLOAT(4,2) NOT NULL, 
         humidity FLOAT(4,2) NOT NULL
@@ -31,11 +31,11 @@ pool.getConnection((err, connection) => {
 })
 
 /* Selects all from the table in reverse chronological order and has limit on 10 */
-class Tempandhums {
+class Dhtdata {
   static all(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY tempandhums.time DESC LIMIT 10', (err, results, fields) => {
+      connection.query('SELECT * FROM dhtdata JOIN workers ON dhtdata.time=workers.time ORDER BY dhtdata.time DESC LIMIT 10', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -46,7 +46,7 @@ class Tempandhums {
   static getLChart(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY tempandhums.time DESC LIMIT 1', (err, results, fields) => {
+      connection.query('SELECT * FROM dhtdata JOIN workers ON dhtdata.time=workers.time ORDER BY dhtdata.time DESC LIMIT 1', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -57,7 +57,7 @@ class Tempandhums {
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums JOIN workers ON tempandhums.time=workers.time ORDER BY tempandhums.time DESC', (err, results, fields) => {
+      connection.query('SELECT * FROM dhtdata JOIN workers ON dhtdata.time=workers.time ORDER BY dhtdata.time DESC', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -68,7 +68,7 @@ class Tempandhums {
   static insert(tah, callback) { 
     pool.getConnection((err, connection) => {
       if (err) throw err
-      const sql = 'INSERT INTO tempandhums(temperature, humidity) VALUES (?, ?)'
+      const sql = 'INSERT INTO dhtdata(temperature, humidity) VALUES (?, ?)'
       connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
         if (err) throw err
         connection.release()
@@ -82,7 +82,7 @@ class Tempandhums {
     let requestM = moment(date).format('YYYY-MM-DD HH:mm:ss')
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM tempandhums WHERE time >= ?', [requestM], (err, results, fields) => {
+      connection.query('SELECT * FROM dhtdata WHERE time >= ?', [requestM], (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
@@ -149,5 +149,5 @@ class Workers {
 
 
 module.exports = pool
-module.exports.Tempandhums = Tempandhums
+module.exports.Dhtdata = Dhtdata
 module.exports.Workers = Workers

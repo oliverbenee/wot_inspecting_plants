@@ -3,7 +3,7 @@ const path = require('path')
 const express = require('express') //Ensure, that express is available
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
-const Tempandhums = require('../db/db').Tempandhums
+const Dhtdata = require('../db/db').Dhtdata
 const Workers = require('../db/db').Workers
 const sensor = require('./sensor') //Allow sensor methods to be used.
 
@@ -49,7 +49,7 @@ app.get('/home', (request, response, next) => {
 app.post('/inspection', (request, response, next) => {
   const thdata = sensor.read();
   // data to be posted to server.
-  const tempandhums = {
+  const dhdata = {
     temperature: thdata.temperature,
     humidity: thdata.humidity,
   };
@@ -61,19 +61,19 @@ app.post('/inspection', (request, response, next) => {
   // Show data to be sent in terminal
   console.log('---------------------------------------------------------');
   console.log('|trying to post the following data to the table:');
-  console.log('|temperature: ' + tempandhums.temperature + 'C');
-  console.log('|humidity: ' + tempandhums.humidity + '%');
+  console.log('|temperature: ' + dhtdata.temperature + 'C');
+  console.log('|humidity: ' + dhtdata.humidity + '%');
   console.log('|worker_name: ' + workers.worker_name);
   console.log('|state: ' + workers.state);
   console.log('|workers_assessment: ' + workers.workers_assessment);
   console.log('---------------------------------------------------------');
   // use insert method from db.js to enter data into the database.
-  Tempandhums.insert(tempandhums, err => {
+  Dhtdata.insert(dhtdata, err => {
     // if the data is not posted, render the data, so the user may try again. 
     if (err) {
       response.render('data', {
-        temperature: tempandhums.temperature,
-        humidity: tempandhums.humidity,
+        temperature: dhtdata.temperature,
+        humidity: dhtdata.humidity,
         errMessage: err.message
       });
     } 
@@ -106,7 +106,7 @@ app.get('/inspection', (request, response, next) => {
 
 app.get('/data', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Tempandhums.all((err, data) => {
+    Dhtdata.all((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))
@@ -117,7 +117,7 @@ app.get('/data', (request, response, next) => {
 // Update chart
 app.get('/dataC', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Tempandhums.getLChart((err, data) => {
+    Dhtdata.getLChart((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))
@@ -128,7 +128,7 @@ app.get('/dataC', (request, response, next) => {
 // Update table
 app.get('/dataT', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Tempandhums.getLTable((err, data) => {
+    Dhtdata.getLTable((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))
@@ -137,7 +137,7 @@ app.get('/dataT', (request, response, next) => {
 })
 
 app.get('/requestM', (request, response, next) => {
-  Tempandhums.request(request.query.date, (err, data) => {
+  Dhtdata.request(request.query.date, (err, data) => {
     if (err) return next(err)
     response.contentType('application/json')
     response.end(JSON.stringify(data))

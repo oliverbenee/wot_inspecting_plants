@@ -22,7 +22,7 @@ const led = new Gpio(4, 'out')
     - temperature
     - humidity
   
-  Temperature and humidity is stored as a constant "tempandhumsData".
+  Temperature and humidity is stored as a constant "dhtData".
   Values are printed to the terminal to be read.
   For confirmation, an LED connected to the RPI blinks twice. This LED is connected to pin 4.
 */
@@ -31,7 +31,7 @@ exports.read = function read() {
   //  read the sensor values
   let readout = sensor.read()
   //  readout contains two values: temperature and humidity, which will be used
-  const tempandhumsData = {
+  const dhtData = {
     temperature: readout.temperature.toFixed(2),
     humidity: readout.humidity.toFixed(2)
   };
@@ -43,7 +43,7 @@ exports.read = function read() {
     setTimeout(function(){ led.writeSync(1); }, 3000);
     setTimeout(function(){ led.writeSync(0); }, 4000);
   console.log('LED blinks twice to signal, that data has been stored.');
-  return tempandhumsData;
+  return dhtData;
 }
 
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
