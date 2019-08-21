@@ -7,8 +7,8 @@
     const sensoronpage = require('node-dht-sensor')
     sensoronpage.initialize(11, 12)
     let readtosite = sensoronpage.read()
-    document.getElementById('temperaturetext').innerHTML = readtosite.temperature.toFixed(2);
-    document.getElementById('humiditytext').innerHTML = readtosite.temperature.toFixed(2);
+    document.getElementById('tText').innerHTML = readtosite.temperature.toFixed(2);
+    document.getElementById('hText').innerHTML = readtosite.temperature.toFixed(2);
   }, 1000);
 </script>
 
@@ -21,9 +21,9 @@
       <p> Current date and time is: </p>
       <span id="dtText"></span>
       <p> Current temperature is: </p>
-      <span id="temperaturetext"></span>
+      <span id="tText"></span>
       <p> Current humidity is: </p>
-      <span id="humiditytext"></span>
+      <span id="hText"></span>
     </center>
   </div>
   <div>
