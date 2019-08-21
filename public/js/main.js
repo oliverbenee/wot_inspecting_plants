@@ -154,21 +154,30 @@ function makeMyChart (data) {
 
 /* Code for current data - MAY NEED TO BE DELETED */
 
-setInterval(function(){
-  console.log('doing a read of current temperature')
-  let readRightNow = sensor.read()
-  if(document != null){
-    document.getElementById('currentTemperature').innerHTML=readRightNow.temperature;
-  }
-
-  /* Update table and chart */
-  fetch('/dataT', {
-    method: 'get',
-    headers: {
-      'Accept': 'application/json'
-    } }).then((response) => {
-    response.json().then((data) => {
-      currentTemperature.innerHTML = Handlebars.templates.data({ dhtdata: temperature })
+const sensor = require('./sensor') //Allow sensor methods to be used.
+fetch('/dataCu', {
+  method: 'get',
+  headers: {
+    'Accept': 'application/json'
+  } }).then((response) => {
+  response.json().then((data) => {
+    console.log('doing a read of current temperature')
+    let readRightNow = sensor.read()
+    if(document != null){
+      document.getElementById('currentTemperature').innerHTML=readRightNow.temperature;
+    }
+  
+    /* Update table and chart */
+    fetch('/dataT', {
+      method: 'get',
+      headers: {
+        'Accept': 'application/json'
+      } }).then((response) => {
+      response.json().then((data) => {
+        currentTemperature.innerHTML = Handlebars.templates.data({ dhtdata: temperature })
+      })
     })
+
   })
-}, 10000);
+}, 10000)
+
