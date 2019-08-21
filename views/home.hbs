@@ -1,20 +1,15 @@
 <script>
   setInterval(function(){
+    const sensor = require('../app/sensor')
+    var readoutOnSite = sensor.read()
+
 	  var today = new Date();
 	  document.getElementById('dtText').innerHTML=today;
     var readoutOnSite = "hello!"
+    
     document.getElementById('teText').innerHTML= readoutOnSite;
 
-    exports.readOnSite = function readOnSite() {
-      console.log('sensor is being required')
-      const sensor = require('../app/sensor')
-      //  read the sensor values
-      console.log('sensor is being read')
-      let readoutOnite = sensor.read()
-      //  readout contains two values: temperature and humidity, which will be used
     };
-    console.log('data is being written to site...')
-
   }, 1000);
 </script>
 
