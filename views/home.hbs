@@ -4,6 +4,7 @@
 	  document.getElementById('dtText').innerHTML=today;
   }, 1000);
 
+  console.log('starting to read to site')
   const sensoronpage = require('node-dht-sensor')
   setInterval(function() {
   let readtosite = sensoronpage.read()
