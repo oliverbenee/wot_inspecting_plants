@@ -17,8 +17,7 @@
     console.log('data is being written to site...')
     return dhtDataOnSite;
     }
-    const currentthdata = sensor.readOnSite();
-    Document.getElementById('temponsite') = currentthdata.dhtDataOnSite.temperature;
+    Document.getElementById('temponsite') = dhtDataOnSite.temperature;
   }, 1000);
 </script>
 
