@@ -4,6 +4,25 @@
 	  document.getElementById('dtText').innerHTML=today;
   }, 1000);
 </script>
+<script>
+exports.readOnSite = function readOnSite() {
+  const sensor = require('../app/sensor')
+  //  read the sensor values
+  let readoutOnSite = sensor.read()
+  //  readout contains two values: temperature and humidity, which will be used
+  const dhtDataOnSite = {
+    temperature: readoutOnSite.temperature.toFixed(2),
+    humidity: readoutOnSite.humidity.toFixed(2)
+  };
+  return dhtDataOnSite;
+}
+
+
+  const intervalSite = setInterval(
+    const currentthdata = sensor.readOnSite(); , 
+    2000);
+  Document.getElementById('temponsite') = currentthdata.dhtDataOnSite.temperature;
+</script>
 
 <h1> Commit plant inspection </h1>
 
@@ -13,6 +32,8 @@
     <center>
       <p> Current date and time is: </p>
       <span id="dtText"></span>
+      <p> Current temperature is: </p>
+      <span id="temponsite"></span>
     </center>
   </div>
   <div>
