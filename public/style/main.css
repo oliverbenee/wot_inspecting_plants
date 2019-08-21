@@ -100,6 +100,7 @@ only screen and (max-width: 760px)  {
   /* Align input fields in the center of the page */
   /* For worker name...*/
   input[type=text] {
+    width: 89%;
     padding: 12px;
     margin: 8px 0;
     box-sizing: border-box;
