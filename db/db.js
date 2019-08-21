@@ -76,18 +76,6 @@ class Dhtdata {
       console.log('Temperature and humidity was recorded.')
     })
   }
-
-  /* Creates a function, where we request our measurements */
-  static request(date, callback) {
-    let requestM = moment(date).format('YYYY-MM-DD HH:mm:ss')
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      connection.query('SELECT * FROM dhtdata WHERE time >= ?', [requestM], (err, results, fields) => {
-        callback(err, results)
-        connection.release()
-      })
-    })
-  }
 }
 
 class Workers {

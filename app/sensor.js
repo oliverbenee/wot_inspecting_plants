@@ -30,7 +30,7 @@ const led = new Gpio(4, 'out')
 exports.read = function read() {
   //  read the sensor values
   let readout = sensor.read()
-  //  readout contains two values: temperature and humidity, which will be used
+  //  readout contains two values: temperature and humidity, which are stored in a value dhtData.
   const dhtData = {
     temperature: readout.temperature.toFixed(2),
     humidity: readout.humidity.toFixed(2)
