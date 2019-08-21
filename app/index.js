@@ -136,6 +136,19 @@ app.get('/dataT', (request, response, next) => {
   }
 })
 
+setInterval(() => {
+  fetch('/dataT', {
+    method: 'get',
+    headers: {
+      'Accept': 'application/json'
+    } }).then((response) => {
+    response.json().then((data) => {
+      currentdata.innerHTML = Handlebars.templates.data({ tempandhums: data })
+    })
+  })
+}, 1000)
+
+
 app.get('/requestM', (request, response, next) => {
   Dhtdata.request(request.query.date, (err, data) => {
     if (err) return next(err)
