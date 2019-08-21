@@ -91,7 +91,7 @@ class Dhtdata {
 }
 
 class Workers {
-  /** Selects all from workers in reverse chronological order and has limit on 10 */
+  /* Selects all from workers in reverse chronological order and has limit on 10 */
   static all(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
