@@ -164,7 +164,9 @@ app.listen(port, (err) => {
 setInterval(function(){
   console.log('doing a read of current temperature')
   let readRightNow = sensor.read()
-  document.getElementById('currentTemperature').innerHTML=readRightNow.temperature;
+  if(document != null){
+    document.getElementById('currentTemperature').innerHTML=readRightNow.temperature;
+  }
 
   /* Update table and chart */
   fetch('/dataT', {
