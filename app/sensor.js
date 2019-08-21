@@ -46,12 +46,6 @@ exports.read = function read() {
   return dhtData;
 }
 
-setInterval(function(){
-  let readtosite = sensor.read()
-  document.getElementById("temperaturetext").innerHTML = readtosite.temperature.toFixed(2);
-  document.getElementById("humiditytext").innerHTML = readtosite.temperature.toFixed(2);
-}, 1000);
-
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
   console.log('Closing program. Returning to console.')
