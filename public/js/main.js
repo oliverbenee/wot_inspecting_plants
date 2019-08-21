@@ -8,6 +8,7 @@ const time = []
 const worker_name = []
 const state = []
 const workers_assessment = []
+const sensor = require('../../app/sensor') //Allow sensor methods to be used.
 
 /* Fetches all the data for the chart */
 fetch('/data', {
@@ -151,3 +152,22 @@ function makeMyChart (data) {
   })
   window.myChartTH = myChart
 }
+
+/* Code for current data - MAY NEED TO BE DELETED */
+
+setInterval(function(){
+  let readRightNow = sensor.read()
+  document.getElementById('currentTemperature').innerHTML=readRightNow.temperature;
+
+  /* Update table and chart */
+  fetch('/dataT', {
+    method: 'get',
+    headers: {
+      'Accept': 'application/json'
+    } }).then((response) => {
+    response.json().then((data) => {
+      currentTemperature.innerHTML = Handlebars.templates.data({ dhtdata: temperature })
+    })
+  })
+}, 1000);
+
