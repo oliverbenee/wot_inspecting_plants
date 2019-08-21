@@ -132,6 +132,9 @@ class Workers {
     if (!worker.workers_assessment) {
       return callback(new Error('Please assess the plant.'))
     }
+    if (!worker.state) {
+      return callback(new Error('Please specify the plant´s state.'))
+    }
     pool.getConnection((err, connection) => {
       if (err) throw err
       const sql = 'INSERT INTO workers(worker_name, state, workers_assessment) VALUES (?, ?, ?)'
