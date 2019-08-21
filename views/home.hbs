@@ -4,20 +4,15 @@
 	  document.getElementById('dtText').innerHTML=today;
     console.log('date is stored. ')
     exports.readOnSite = function readOnSite() {
-    console.log('sensor is being required')
-    const sensor = require('../app/sensor')
-    //  read the sensor values
-    console.log('sensor is being read')
-    let readoutOnSite = sensor.read()
-    //  readout contains two values: temperature and humidity, which will be used
-    const dhtDataOnSite = {
-      temperature: readoutOnSite.temperature.toFixed(2),
-      humidity: readoutOnSite.humidity.toFixed(2)
+      console.log('sensor is being required')
+      const sensor = require('../app/sensor')
+      //  read the sensor values
+      console.log('sensor is being read')
+      let readoutOnSite = sensor.read()
+      //  readout contains two values: temperature and humidity, which will be used
     };
     console.log('data is being written to site...')
-    return dhtDataOnSite;
-    }
-    Document.getElementById('temponsite') = dhtDataOnSite.temperature;
+    Document.getElementById('temponsite') = readoutOnSite.temperature;
   }, 1000);
 </script>
 
