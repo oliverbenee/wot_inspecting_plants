@@ -77,12 +77,6 @@ app.post('/inspection', (request, response, next) => {
         errMessage: err.message
       });
     } 
-    /**
-    else {
-      // if data is successfully sent, redirect to inspection table. 
-      response.redirect('/inspection');
-    }
-    */
   });
   Workers.insertworker(workers, err => {
     // if the data is not posted, render the data, so the user may try again. 
