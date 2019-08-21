@@ -1,7 +1,6 @@
 'use strict'
 /* global fetch Handlebars */
 const myTable = document.querySelector('#myTable')
-const currentdata = document.querySelector('#currentdata')
 const myChartCtx = document.querySelector('#myChart')
 const temperature = []
 const humidity = []
@@ -21,17 +20,6 @@ fetch('/data', {
   })
 })
 
-
-/* Update table with current temperature and humidity and chart */
-fetch('/dataH', {
-  method: 'get',
-  headers: {
-    'Accept': 'application/json'
-  } }).then((response) => {
-  response.json().then((data) => {
-    currentdata.innerHTML = Handlebars.templates.data({ dhtdata: data })
-  })
-})
 
 /* Update table and chart */
 fetch('/dataT', {
@@ -65,15 +53,6 @@ function makeMyData (data) {
     workers_assessment.push(c.workers_assessment)
   }
   return { temperature, humidity, time, worker_name, state, workers_assessment }
-}
-
-/* code for the table with current data */
-function makeMyCurrentData (data) {
-  for (let c of data) {
-    temperature.push(c.temperature)
-    humidity.push(c.humidity)
-  }
-  return { temperature, humidity }
 }
 
 function updateMyChart (data) {
