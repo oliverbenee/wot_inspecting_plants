@@ -2,6 +2,7 @@
   setInterval(function(){
 	  var today = new Date();
 	  document.getElementById('dtText').innerHTML=today;
+        document.getElementById('teText').innerHTML= "hello!";
 
     exports.readOnSite = function readOnSite() {
       console.log('sensor is being required')
@@ -12,7 +13,7 @@
       //  readout contains two values: temperature and humidity, which will be used
     };
     console.log('data is being written to site...')
-    document.getElementById('teText').innerHTML= "hello!";
+
   }, 1000);
 </script>
 
