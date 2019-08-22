@@ -59,8 +59,8 @@ exports.readNow = function readNow() {
   console.log('current temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
     ' current humidity: ' + readout.humidity.toFixed(2) + '%')
   Thnow.insert(dhtDataNow)
-  return dhtDataNow;
   document.getElementById('nowdata').innerHTML = dhtDataNow
+  return dhtDataNow;
 }
 setInterval(() => {
   this.readNow()
