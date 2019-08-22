@@ -153,6 +153,7 @@ class Thnow {
         connection.release()
       })
     })
+    console.log('table values fetched')
   }
   /* Creates a function, where we can insert our measurements. If certain attributes contain no information, an error mesasage is produced. */
   static insert(tah, callback) { 
