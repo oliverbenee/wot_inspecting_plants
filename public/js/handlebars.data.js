@@ -7,7 +7,7 @@
     // IF THIS ONE IS CHANGED FROM TEMPERATURE TO TEMPERATURENOW, HOMEPAGE WORKS BUT INSPECTION DOESN'T
     alias4(((helper = (helper = helpers.temperaturenow || (depth0 != null ? depth0.temperaturenow : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'temperaturenow', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
-    // Serves temperature
+    // Serves temperature 
     alias4(((helper = (helper = helpers.temperature || (depth0 != null ? depth0.temperature : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'temperature', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
     // IF THIS ONE IS CHANGED FROM HUMIDITY TO HUMIDITYNOW, HOMEPAGE WORKS, BUT INSPECTION DOESN'T
