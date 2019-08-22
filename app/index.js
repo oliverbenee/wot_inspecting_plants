@@ -139,6 +139,7 @@ app.get('/dataT', (request, response, next) => {
 })
 
 // Update table
+sensor.readNow() // Start reading data
 app.get('/dataTN', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     Thnow.getLTable((err, data) => {

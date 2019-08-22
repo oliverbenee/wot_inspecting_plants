@@ -57,8 +57,8 @@ exports.readNow = function readNow() {
     temperature: readout.temperature.toFixed(2),
     humidity: readout.humidity.toFixed(2)
   };
-  console.log('temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
-    'humidity: ' + readout.humidity.toFixed(2) + '%')
+  console.log('current temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
+    ' current humidity: ' + readout.humidity.toFixed(2) + '%')
   Thnow.insert(dhtDataNow)
   return dhtDataNow;
 }
