@@ -158,7 +158,7 @@ class Thnow {
   static insert(tah, callback) { 
     pool.getConnection((err, connection) => {
       if (err) throw err
-      const sql = 'INSERT INTO thnow(temperature, humidity) VALUES (?, ?)'
+      const sql = 'INSERT INTO thnow(temperaturenow, humiditynow) VALUES (?, ?)'
       connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
         if (err) throw err
         connection.release()
