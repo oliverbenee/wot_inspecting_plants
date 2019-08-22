@@ -30,6 +30,7 @@ fetch('/dataT', {
   } }).then((response) => {
   response.json().then((data) => {
     myTable.innerHTML = Handlebars.templates.data({ dhtdata: data })
+    thnow.innerHTML = Handlebars.templates.data({ dhtdata: data })
   })
 })
 
@@ -55,7 +56,7 @@ setInterval(() => {
       // dhtdata: data only shows time, and 5 columns
     })
   })
-}, 10000)
+}, 20000)
 
 /* Create the data to be shown in the chart */
 function makeMyData (data) {
