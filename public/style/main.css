@@ -16,6 +16,7 @@ table, th, td {
   border: 2px solid black;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
+  empty-cells: hide;
 }
 
 /**
@@ -134,7 +135,6 @@ only screen and (max-width: 760px)  {
     word-wrap:break-word; 
   }
   
-  /* hide empty cells */
   table, th, td {
     empty-cells: hide;
   }
@@ -206,7 +206,7 @@ only screen and (max-width: 760px)  {
   }
 
   table, th, td {
-   /* empty-cells: hide; */
+    empty-cells: hide;
   }
 
   input[type=text] {
