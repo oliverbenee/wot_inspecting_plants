@@ -1,10 +1,7 @@
+{{#each Workers}}
 <tr>
-  <td>temperaturenow</td>
-  <td>humiditynow</td>
-</tr>
-{{#each Thnow}}
-<tr>
-  <td>{{temperaturenow}}</td>
-  <td>{{humiditynow}}</td>
+  <td>{{worker_name}}</td>
+  <td>{{state}}</td>
+  <td>{{workers_assessment}}</td>
 </tr>
 {{/each}}
