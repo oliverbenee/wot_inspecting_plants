@@ -29,7 +29,7 @@ pool.getConnection((err, connection) => {
     })
    connection.query(
     `CREATE TABLE IF NOT EXISTS thnow
-      (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
+      (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         temperaturenow FLOAT(4,2) NOT NULL,
         humiditynow FLOAT(4,2) NOT NULL
         )`, (err) => {
