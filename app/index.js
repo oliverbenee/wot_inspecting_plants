@@ -142,7 +142,7 @@ app.get('/dataT', (request, response, next) => {
 app.get('/dataTN', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     console.log('fetch table for thnow')
-    Thnow.getLTable((err, data) => {
+    Thnow.now((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))

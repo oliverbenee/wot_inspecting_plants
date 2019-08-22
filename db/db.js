@@ -145,7 +145,7 @@ class Workers {
 
 class Thnow {
     /* Selects all from the table in reverse chronological order and has limit on 1 */
-  static getLTable(callback) {
+  static now(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
       connection.query('SELECT * FROM thnow ORDER BY time DESC LIMIT 1', (err, results, fields) => {
