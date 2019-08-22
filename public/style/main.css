@@ -85,7 +85,6 @@ body {
 /**
  * On mobile devices: Align tables and headers in the center. 
  * Ensure, that there is some space between refresh button and measurement table.
- * Hide chart, as it is not readable on mobile devices.
  */
 
 @media 
@@ -122,16 +121,6 @@ only screen and (max-width: 760px)  {
     padding-top: 4px;
     padding-bottom: 4px;
     box-sizing: border-box;
-  }
-
-  /* Header for chart is removed */
-  h4 {
-    display: none;
-  }
-
-  /* Chart can't be read on mobile anyway, so we just remove it. Since display tag is not available in chart.js, we use visibility. */
-  #myChart {
-    visibility: hidden;
   }
 
   /* Table headers serve no use on mobile tables */

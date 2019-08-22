@@ -12,7 +12,6 @@
   "description": "Assignment 5",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "chart.js": "^2.7.3",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "moment": "^2.24.0",

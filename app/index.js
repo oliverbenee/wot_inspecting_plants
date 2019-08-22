@@ -116,17 +116,6 @@ app.get('/data', (request, response, next) => {
   }
 })
 
-// Update chart
-app.get('/dataC', (request, response, next) => {
-  if (request.accepts('application/json') && !request.accepts('text/html')) {
-    Dhtdata.getLChart((err, data) => {
-      if (err) return next(err)
-      response.contentType('application/json')
-      response.end(JSON.stringify(data))
-    })
-  }
-})
-
 // Update table
 app.get('/dataT', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
