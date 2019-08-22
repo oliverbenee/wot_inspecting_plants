@@ -159,3 +159,4 @@ class Thnow {
 module.exports = pool
 module.exports.Dhtdata = Dhtdata
 module.exports.Workers = Workers
+module.exports.Thnow = Thnow
