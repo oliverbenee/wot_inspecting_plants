@@ -52,7 +52,6 @@ setInterval(() => {
     } }).then((response) => {
     response.json().then((nowdata) => {
       thnow.innerHTML = Handlebars.templates.data({ dhtdata: nowdata })
-      // dhtdata: data only shows time, and 5 columns
     })
   })
 }, 10000)
