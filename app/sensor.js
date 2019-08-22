@@ -7,6 +7,8 @@
 const sensor = require('node-dht-sensor')
 //  Import needed package for GPIO to allow blinking LEDs. 
 const Gpio = require('onoff').Gpio
+//  Import the database used for temperature and humidity as is
+const Thnow = require('../db/db').Thnow
 
 /**
  * Set pins and functionality of sensors.
@@ -57,6 +59,7 @@ exports.readNow = function readNow() {
   };
   console.log('temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
     'humidity: ' + readout.humidity.toFixed(2) + '%')
+  Thnow.insert(dhtDataNow)
   return dhtDataNow;
 }
 }, 10000)
