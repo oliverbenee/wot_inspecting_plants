@@ -138,7 +138,7 @@ app.get('/dataT', (request, response, next) => {
   }
 })
 
-// Update table
+// Update table with temp and humid as is now
 sensor.readNow() // Start reading data
 app.get('/dataTN', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {

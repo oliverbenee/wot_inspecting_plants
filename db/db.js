@@ -163,7 +163,6 @@ class Thnow {
         if (err) throw err
         connection.release()
       })
-      console.log('Temperature and humidity was recorded.')
     })
   }
 }
