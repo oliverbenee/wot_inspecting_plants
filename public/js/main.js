@@ -31,4 +31,4 @@ setInterval(() => {
       thnow.innerHTML = Handlebars.templates.data({ dhtdata: nowdata })
     })
   })
-}, 10000)
+}, 1000)
