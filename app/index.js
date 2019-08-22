@@ -151,7 +151,4 @@ app.listen(port, (err) => {
   if (err) return console.error(`An error has occured: ${err}`)
   console.log(`Listening on http://localhost:${port}/`)
   console.log(`This program may be closed at any time by using the key combination "CTRL + C"`)
-  console.log(`Make sure, that a DHT-sensor is connected to GPIO pin 12`)
-  console.log(`Make sure, that an LED is connected to GPIO pin 4`)
-  console.log(`Please make sure to read from sensors at least once before deployment.`)
 })
