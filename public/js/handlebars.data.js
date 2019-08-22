@@ -2,7 +2,6 @@
   var template = Handlebars.template; var templates = Handlebars.templates = Handlebars.templates || {}
   templates['data'] = template({ '1': function (container, depth0, helpers, partials, data) {
     var helper; var alias1 = depth0 != null ? depth0 : (container.nullContext || {}); var alias2 = helpers.helperMissing; var alias3 = 'function'; var alias4 = container.escapeExpression
-
     return '   <tr>\r\n <td>' +
     // IF THIS ONE IS CHANGED FROM TEMPERATURE TO TEMPERATURENOW, HOMEPAGE WORKS BUT INSPECTION DOESN'T
     alias4(((helper = (helper = helpers.temperaturenow || (depth0 != null ? depth0.temperaturenow : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'temperaturenow', 'hash': {}, 'data': data }) : helper))) +
@@ -31,10 +30,11 @@
     return ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}), (depth0 != null ? depth0.dhtdata : depth0), { 'name': 'each', 'hash': {}, 'fn': container.program(1, data, 0), 'inverse': container.noop, 'data': data })) != null ? stack1 : '')
   },
   'useData': true })
+})()
 
+(function (){
   templates['dataTN'] = template({ '2': function (container, depth0, helpers, partials, data) {
     var helper; var alias1 = depth0 != null ? depth0 : (container.nullContext || {}); var alias2 = helpers.helperMissing; var alias3 = 'function'; var alias4 = container.escapeExpression
-
     return '   <tr>\r\n <td>' +
     alias4(((helper = (helper = helpers.temperaturenow || (depth0 != null ? depth0.temperaturenow : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'temperaturenow', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
