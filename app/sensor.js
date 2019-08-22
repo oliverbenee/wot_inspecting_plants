@@ -12,7 +12,7 @@ const Thnow = require('../db/db').Thnow
 
 const intervalN = setInterval(() => {
   this.readNow()
-}, 2000)
+}, 3000)
 
 
 /**
