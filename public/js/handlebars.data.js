@@ -5,15 +5,15 @@
 
     return '   <tr>\r\n <td>' +
     // IF THIS ONE IS CHANGED FROM TEMPERATURE TO TEMPERATURENOW, HOMEPAGE WORKS BUT INSPECTION DOESN'T
-    // alias4(((helper = (helper = helpers.temperaturenow || (depth0 != null ? depth0.temperaturenow : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'temperaturenow', 'hash': {}, 'data': data }) : helper))) +
-    //'</td>\r\n <td>' +
+    alias4(((helper = (helper = helpers.temperaturenow || (depth0 != null ? depth0.temperaturenow : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'temperaturenow', 'hash': {}, 'data': data }) : helper))) +
+    '</td>\r\n <td>' +
     // Serves temperature 
     alias4(((helper = (helper = helpers.temperature || (depth0 != null ? depth0.temperature : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'temperature', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
     // IF THIS ONE IS CHANGED FROM HUMIDITY TO HUMIDITYNOW, HOMEPAGE WORKS, BUT INSPECTION DOESN'T
-     alias4(((helper = (helper = helpers.humiditynow || (depth0 != null ? depth0.humiditynow : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'humiditynow', 'hash': {}, 'data': data }) : helper))) +
-    // '</td>\r\n <td>' +
-    //alias4(((helper = (helper = helpers.humidity || (depth0 != null ? depth0.humidity : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'humidity', 'hash': {}, 'data': data }) : helper))) +
+    alias4(((helper = (helper = helpers.humiditynow || (depth0 != null ? depth0.humiditynow : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'humiditynow', 'hash': {}, 'data': data }) : helper))) +
+     '</td>\r\n <td>' +
+    alias4(((helper = (helper = helpers.humidity || (depth0 != null ? depth0.humidity : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'humidity', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
     alias4(((helper = (helper = helpers.time || (depth0 != null ? depth0.time : depth0)) != null ? helper : alias2), (typeof helper === alias3 ? helper.call(alias1, { 'name': 'time', 'hash': {}, 'data': data }) : helper))) +
     '</td>\r\n <td>' +
