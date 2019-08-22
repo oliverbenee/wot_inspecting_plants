@@ -53,7 +53,7 @@ setInterval(() => {
       'Accept': 'application/json'
     } }).then((response) => {
     response.json().then((data) => {
-      thnow.innerHTML = Handlebars.templates.data({ dhtdata: data, humiditynow, temperaturenow })
+      thnow.innerHTML = Handlebars.templates.data({humidity: data.humiditynow })
       // dhtdata: data only shows time, and 5 columns
     })
   })
