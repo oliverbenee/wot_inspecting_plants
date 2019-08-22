@@ -147,7 +147,7 @@ class Thnow {
   static now(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT temperaturenow FROM thnow ORDER BY time DESC LIMIT 1', (err, results, fields) => {
+      connection.query('SELECT * FROM thnow ORDER BY time DESC LIMIT 1', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
