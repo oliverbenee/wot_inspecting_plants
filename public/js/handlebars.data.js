@@ -32,8 +32,6 @@
   },
   'useData': true })
 
-
-
   templates['datanow'] = template({ '1': function (container, depth0, helpers, partials, data) {
     var helper; var alias1 = depth0 != null ? depth0 : (container.nullContext || {}); var alias2 = helpers.helperMissing; var alias3 = 'function'; var alias4 = container.escapeExpression
 
