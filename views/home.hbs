@@ -21,7 +21,14 @@
             <th>Time</th>
           </tr>
         </thead>
-        <tbody id="nowdata"></tbody>
+        <tbody id="nowdata">
+          {{#each Thnow}}
+            <tr>
+              <td>{{temperature}}</td>
+              <td>{{humidity}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
       </table>     
     </center>
   </div>
