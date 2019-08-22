@@ -20,6 +20,14 @@ table, th, td {
 }
 
 /**
+ * Hide empty table cells
+ */
+
+table {
+  empty-cells: hide;
+}
+
+/**
  *  Header
  */
 
