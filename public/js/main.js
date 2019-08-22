@@ -54,7 +54,7 @@ setInterval(() => {
       currentdata.innerHTML = Handlebars.templates.data({ thnow: data })
     })
   })
-  }, 10000)
+}, 10000)
 
 /* code for the table data */
 function makeMyData (data) {
