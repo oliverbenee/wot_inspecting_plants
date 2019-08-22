@@ -140,7 +140,6 @@ app.get('/dataT', (request, response, next) => {
 
 // Update table with temp and humid as is now
 app.get('/dataTN', (request, response, next) => {
-  sensor.readNow() // Start reading data
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     console.log('fetch table for thnow')
     Thnow.getLTable((err, data) => {
