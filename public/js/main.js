@@ -51,7 +51,7 @@ setInterval(() => {
       'Accept': 'application/json'
     } }).then((response) => {
     response.json().then((data) => {
-      nowdata.innerHTML = Handlebars.templates.nowdata({ nowdata: data })
+      nowdata.innerHTML = Handlebars.templates.nowdata({ nowdata: "data" })
     })
   })
 }, 10000)
