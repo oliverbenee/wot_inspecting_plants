@@ -20,13 +20,6 @@ table, th, td {
 }
 
 /**
- * For table with live data
- */
-#livetable {
-  border-bottom: 17px solid black;
-}
-
-/**
  *  Header
  */
 
@@ -184,7 +177,14 @@ only screen and (max-width: 760px)  {
 	td:nth-of-type(5):before { content: "Time"; }
 	td:nth-of-type(6):before { content: "Worker name"; }
 	td:nth-of-type(7):before { content: "Plant state"; }
-	td:nth-of-type(8):before { content: "Assessment"; }
+  td:nth-of-type(8):before { content: "Assessment"; }
+  
+  /**
+   * Cover up table rows
+   */
+  #livetable {
+    border-bottom: 17px solid black;
+  }
 }
 
 /**
