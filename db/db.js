@@ -165,6 +165,7 @@ class Thnow {
         connection.release()
       })
     })
+    console.log('thnow data is stored!')
   }
 }
 
