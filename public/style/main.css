@@ -133,6 +133,7 @@ only screen and (max-width: 760px)  {
 	table, thead, tbody, th, td, tr { 
     display: block; 
     word-wrap:break-word; 
+    empty-cells: hide;
   }
   
   table, th, td {
