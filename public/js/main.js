@@ -2,7 +2,7 @@
 /* global fetch Handlebars */
 const myTable = document.querySelector('#myTable')
 const myChartCtx = document.querySelector('#myChart')
-const nowdata = document.getElementById('#nowdata')
+const nowdata = document.querySelector('#nowdata')
 const temperature = []
 const humidity = []
 const time = []
