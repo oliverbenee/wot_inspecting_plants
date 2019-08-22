@@ -144,8 +144,11 @@ only screen and (max-width: 760px)  {
 	table, thead, tbody, th, td, tr { 
     display: block; 
     word-wrap:break-word; 
+  }
+  
+  table, th, td {
     empty-cells: hide;
-	}
+  }
 	
 	/* Hide table headers on mobile (but not display: none, as this gives bugs in css) */
 	thead tr { 
@@ -211,6 +214,9 @@ only screen and (max-width: 760px)  {
   table {
     margin-left: 4.5%;
     margin-bottom: 3.5%;
+  }
+
+  table, th, td {
     empty-cells: hide;
   }
 
