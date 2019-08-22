@@ -154,6 +154,18 @@ class Thnow {
       })
     })
   }
+  /* Creates a function, where we can insert our measurements. If certain attributes contain no information, an error mesasage is produced. */
+  static insert(tah, callback) { 
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      const sql = 'INSERT INTO thnow(temperature, humidity) VALUES (?, ?)'
+      connection.query(sql, [tah.temperature, tah.humidity], (err, results, fields) => {
+        if (err) throw err
+        connection.release()
+      })
+      console.log('Temperature and humidity was recorded.')
+    })
+  }
 }
 
 module.exports = pool
