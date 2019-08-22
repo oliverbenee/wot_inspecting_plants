@@ -116,7 +116,7 @@ app.get('/data', (request, response, next) => {
   }
 })
 
-// Update table
+// Update table with new inspections
 app.get('/dataT', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     Dhtdata.getLTable((err, data) => {

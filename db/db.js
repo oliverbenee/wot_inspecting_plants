@@ -50,17 +50,6 @@ class Dhtdata {
     })
   }
 
-  /* Selects all from the table in reverse chronological order and has limit on 1 */
-  static getLChart(callback) {
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      connection.query('SELECT * FROM dhtdata JOIN workers ON dhtdata.time=workers.time ORDER BY dhtdata.time DESC LIMIT 1', (err, results, fields) => {
-        callback(err, results)
-        connection.release()
-      })
-    })
-  }
-
   /* Selects all from the table in reverse chronological order and has limit on 5 */
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
@@ -92,17 +81,6 @@ class Workers {
     pool.getConnection((err, connection) => {
       if (err) throw err
       connection.query('SELECT * FROM workers ORDER BY time DESC LIMIT 10', (err, results, fields) => {
-        callback(err, results)
-        connection.release()
-      })
-    })
-  }
-
-  /* Selects all from the table in reverse chronological order and has limit on 1 */
-  static getLChart(callback) {
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      connection.query('SELECT * FROM workers ORDER BY time DESC LIMIT 1', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
