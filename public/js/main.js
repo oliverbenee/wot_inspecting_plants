@@ -20,7 +20,7 @@ fetch('/dataT', {
   })
 })
 
-// Update table with current data
+// Update table with current data every second
 setInterval(() => {
   fetch('/dataTN', {
     method: 'get',
@@ -31,4 +31,4 @@ setInterval(() => {
       thnow.innerHTML = Handlebars.templates.data({ dhtdata: nowdata })
     })
   })
-}, 10000)
+}, 1000)
