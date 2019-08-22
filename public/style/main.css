@@ -134,10 +134,6 @@ only screen and (max-width: 760px)  {
     display: block; 
     word-wrap:break-word; 
   }
-
-  table, th, td {
-    empty-cells: hide;
-  }
   
 	/* Hide table headers on mobile (but not display: none, as this gives bugs in css) */
 	thead tr { 
@@ -158,6 +154,7 @@ only screen and (max-width: 760px)  {
 		border-bottom: 1px solid; 
 		position: relative;
     padding-left: 50%; 
+    empty-cells: hide;
 	}
 	
 	td:before { 
@@ -169,6 +166,7 @@ only screen and (max-width: 760px)  {
 		width: 45%; 
 		padding-right: 10px; 
     white-space: normal;
+    empty-cells: hide;
 	}
 	
 	/*
