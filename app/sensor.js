@@ -48,7 +48,6 @@ exports.read = function read() {
   return dhtData;
 }
 
-setInterval(() => {
 exports.readNow = function readNow() {
   //  read the sensor values
   let readout = sensor.read()
@@ -62,6 +61,8 @@ exports.readNow = function readNow() {
   Thnow.insert(dhtDataNow)
   return dhtDataNow;
 }
+setInterval(() => {
+  this.readNow()
 }, 10000)
 
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
