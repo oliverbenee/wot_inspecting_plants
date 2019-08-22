@@ -51,7 +51,7 @@ setInterval(() => {
       'Accept': 'application/json'
     } }).then((response) => {
     response.json().then((data) => {
-      thnow.innerHTML = Handlebars.templates.data({ thnow: data })
+      thnow.innerHTML = Handlebars.templates.data({ dhtdata.temperature: data })
     })
   })
 }, 10000)
