@@ -9,14 +9,13 @@ p, h1, h2, a, label, span {
 }
 
 /**
- * Table design on pc and hide empty table cells
+ * Table design on pc
  */
 
 table, th, td {
   border: 2px solid black;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
-  empty-cells: hide;
 }
 
 /**
@@ -146,6 +145,7 @@ only screen and (max-width: 760px)  {
     word-wrap:break-word; 
   }
   
+  /*
   table, th, td {
     empty-cells: hide;
   }
