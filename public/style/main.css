@@ -20,6 +20,13 @@ table, th, td {
 }
 
 /**
+ * For table with live data
+ */
+#livetable {
+  border-bottom: 17px solid black;
+}
+
+/**
  *  Header
  */
 
