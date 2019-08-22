@@ -2,7 +2,7 @@
 /* global fetch Handlebars */
 const myTable = document.querySelector('#myTable')
 const myChartCtx = document.querySelector('#myChart')
-const nowdata = document.querySelector('#nowdata')
+const thnow = document.querySelector('#thnow')
 const temperature = []
 const humidity = []
 const time = []
@@ -51,7 +51,7 @@ setInterval(() => {
       'Accept': 'application/json'
     } }).then((response) => {
     response.json().then((data) => {
-      nowdata.innerHTML = Handlebars.templates.data({ nowdata: data })
+      thnow.innerHTML = Handlebars.templates.data({ dhtdata: data })
     })
   })
 }, 10000)
