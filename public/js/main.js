@@ -9,8 +9,8 @@ const time = []
 const worker_name = []
 const state = []
 const workers_assessment = []
-const temperaturenow = [] // Added to be used for showing current temperature
-const humiditynow = [] // Added to be used for showing current humidity
+const temperaturenow = [3, 4] // Added to be used for showing current temperature
+const humiditynow = [5, 6] // Added to be used for showing current humidity
 
 /* Fetches all the data for the chart */
 fetch('/data', {
@@ -53,7 +53,7 @@ setInterval(() => {
       'Accept': 'application/json'
     } }).then((response) => {
     response.json().then((data) => {
-      thnow.innerHTML = Handlebars.templates.data({ dhtdata: data })
+      thnow.innerHTML = Handlebars.templates.data({ dhtdata: data, humiditynow, temperaturenow })
       // dhtdata: data only shows time, and 5 columns
     })
   })
