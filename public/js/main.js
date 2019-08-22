@@ -9,6 +9,8 @@ const time = []
 const worker_name = []
 const state = []
 const workers_assessment = []
+const temperaturenow = []
+const humiditynow = []
 
 /* Fetches all the data for the chart */
 fetch('/data', {
