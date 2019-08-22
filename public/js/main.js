@@ -56,7 +56,7 @@ setInterval(() => {
   })
 }, 10000)
 
-/* code for the table data */
+/* Create the data to be shown in the chart */
 function makeMyData (data) {
   for (let c of data) {
     temperature.push(c.temperature)
