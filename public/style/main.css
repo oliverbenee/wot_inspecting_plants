@@ -17,7 +17,6 @@ table, th, td {
   color: black;
   font-family: Arial, Helvetica, sans-serif;
   empty-cells: hide;
-  border-bottom: 17px solid black;
 }
 
 /**
