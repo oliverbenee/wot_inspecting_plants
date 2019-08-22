@@ -59,12 +59,8 @@ exports.readNow = function readNow() {
   console.log('current temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
     ' current humidity: ' + readout.humidity.toFixed(2) + '%')
   Thnow.insert(dhtDataNow)
-  document.getElementById('nowdata').innerHTML = dhtDataNow
   return dhtDataNow;
 }
-setInterval(() => {
-  this.readNow()
-}, 10000)
 
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
