@@ -7,3 +7,4 @@ Also, make sure, that the following is set up properly:
 - All dependencies are installed.
 - mysql server is set up with a user 'pi' with password 'foobar' and a database 'itwot' has been created.
 
+Note, that it may be necessary to conduct at least ONE reading before deploying the system, as it may give a value of 0 from the sensors.
