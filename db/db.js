@@ -29,8 +29,7 @@ pool.getConnection((err, connection) => {
     })
    connection.query(
     `CREATE TABLE IF NOT EXISTS thnow
-      (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        temperaturenow FLOAT(4,2) NOT NULL,
+      ( temperaturenow FLOAT(4,2) NOT NULL,
         humiditynow FLOAT(4,2) NOT NULL
         )`, (err) => {
       if (err) throw err
@@ -148,7 +147,7 @@ class Thnow {
   static now(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
-      connection.query('SELECT * FROM thnow ORDER BY time DESC LIMIT 1', (err, results, fields) => {
+      connection.query('SELECT temperature FROM thnow ORDER BY time DESC LIMIT 1', (err, results, fields) => {
         callback(err, results)
         connection.release()
       })
