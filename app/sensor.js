@@ -10,6 +10,11 @@ const Gpio = require('onoff').Gpio
 //  Import the database used for temperature and humidity as is
 const Thnow = require('../db/db').Thnow
 
+const intervalN = setInterval(() => {
+  this.readNow()
+}, 10000)
+
+
 /**
  * Set pins and functionality of sensors.
  */
