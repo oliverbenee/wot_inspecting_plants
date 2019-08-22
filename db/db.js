@@ -27,6 +27,14 @@ pool.getConnection((err, connection) => {
         )`, (err) => {
       if (err) throw err
     })
+   connection.query(
+    `CREATE TABLE IF NOT EXISTS thnow
+      (time TIMESTAMP DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
+        temperaturenow FLOAT(4,2) NOT NULL,
+        humiditynow FLOAT(4,2) NOT NULL
+        )`, (err) => {
+      if (err) throw err
+    })
   connection.release()
 })
 
@@ -135,6 +143,18 @@ class Workers {
   }
 }
 
+class Thnow {
+    /* Selects all from the table in reverse chronological order and has limit on 1 */
+  static getLChart(callback) {
+    pool.getConnection((err, connection) => {
+      if (err) throw err
+      connection.query('SELECT * FROM thnow ORDER BY time DESC LIMIT 1', (err, results, fields) => {
+        callback(err, results)
+        connection.release()
+      })
+    })
+  }
+}
 
 module.exports = pool
 module.exports.Dhtdata = Dhtdata

@@ -42,6 +42,19 @@ fetch('/dataC', {
   })
 })
 
+// Update table with current data
+setInterval(() => {
+  fetch('/dataTN', {
+    method: 'get',
+    headers: {
+      'Accept': 'application/json'
+    } }).then((response) => {
+    response.json().then((data) => {
+      currentdata.innerHTML = Handlebars.templates.data({ tempandhums: data })
+    })
+  })
+  }, 10000)
+
 /* code for the table data */
 function makeMyData (data) {
   for (let c of data) {

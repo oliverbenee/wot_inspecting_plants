@@ -46,6 +46,21 @@ exports.read = function read() {
   return dhtData;
 }
 
+setInterval(() => {
+exports.readNow = function readNow() {
+  //  read the sensor values
+  let readout = sensor.read()
+  //  readout contains two values: temperature and humidity, which are stored in a value dhtDataNow (to avoid confusion with other values).
+  const dhtDataNow = {
+    temperature: readout.temperature.toFixed(2),
+    humidity: readout.humidity.toFixed(2)
+  };
+  console.log('temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
+    'humidity: ' + readout.humidity.toFixed(2) + '%')
+  return dhtDataNow;
+}
+}, 10000)
+
 // Listen to the event triggered on CTRL+C, if it get triggered, Cleanly close the GPIO pin before exiting
 process.on('SIGINT', () => {
   console.log('Closing program. Returning to console.')

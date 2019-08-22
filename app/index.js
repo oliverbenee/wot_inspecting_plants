@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars')      // Ensure, that express-handle
 const bodyParser = require('body-parser')         // Ensure, that data put in forms can be parsed in code. 
 const Dhtdata = require('../db/db').Dhtdata       // Import table with dht data
 const Workers = require('../db/db').Workers       // Import table with workers.
+const Thnow = require('../db/db').Thnow
 const sensor = require('./sensor')                //Allow sensor methods to be used.
 
 const app = express()                             // Define app using express
@@ -130,6 +131,17 @@ app.get('/dataC', (request, response, next) => {
 app.get('/dataT', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
     Dhtdata.getLTable((err, data) => {
+      if (err) return next(err)
+      response.contentType('application/json')
+      response.end(JSON.stringify(data))
+    })
+  }
+})
+
+// Update table
+app.get('/dataTN', (request, response, next) => {
+  if (request.accepts('application/json') && !request.accepts('text/html')) {
+    Thnow.getLTable((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
       response.end(JSON.stringify(data))
