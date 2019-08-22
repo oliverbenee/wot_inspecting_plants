@@ -156,7 +156,7 @@ only screen and (max-width: 760px)  {
   
   /* Each inspection is encapsulated as a table row. */
 	tr { 
-    border: 10px solid; 
+    border: 30px solid; 
   }
 	
 	td { 
