@@ -133,6 +133,7 @@ only screen and (max-width: 760px)  {
 	table, thead, tbody, th, td, tr { 
     display: block; 
     word-wrap:break-word; 
+    empty-cells: hide;
   }
   
 	/* Hide table headers on mobile (but not display: none, as this gives bugs in css) */
