@@ -9,8 +9,8 @@ const time = []
 const worker_name = []
 const state = []
 const workers_assessment = []
-const temperaturenow = [3, 4] // Added to be used for showing current temperature
-const humiditynow = [5, 6] // Added to be used for showing current humidity
+const temperaturenow = [] // Added to be used for showing current temperature
+const humiditynow = [] // Added to be used for showing current humidity
 
 /* Fetches all the data for the chart */
 fetch('/data', {
