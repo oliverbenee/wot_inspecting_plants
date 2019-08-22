@@ -142,6 +142,7 @@ app.get('/dataT', (request, response, next) => {
 sensor.readNow() // Start reading data
 app.get('/dataTN', (request, response, next) => {
   if (request.accepts('application/json') && !request.accepts('text/html')) {
+    console.log('fetch table for thnow')
     Thnow.getLTable((err, data) => {
       if (err) return next(err)
       response.contentType('application/json')
