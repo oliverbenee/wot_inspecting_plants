@@ -50,7 +50,7 @@ setInterval(() => {
     headers: {
       'Accept': 'application/json'
     } }).then((response) => {
-    response.json().then((data) => {
+    response.json().then((nowdata) => {
       thnow.innerHTML = Handlebars.templates.data({ dhtdata: nowdata })
       // dhtdata: data only shows time, and 5 columns
     })
