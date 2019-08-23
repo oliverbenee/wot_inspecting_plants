@@ -50,7 +50,7 @@ class Dhtdata {
     })
   }
 
-  /* Selects all from the table in reverse chronological order and has limit on 5 */
+  /* Selects all from the table in reverse chronological order */
   static getLTable(callback) {
     pool.getConnection((err, connection) => {
       if (err) throw err
