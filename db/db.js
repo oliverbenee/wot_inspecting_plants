@@ -75,18 +75,7 @@ class Dhtdata {
   }
 }
 
-class Workers {
-  /* Selects all from workers in reverse chronological order and has limit on 10 */
-  static all(callback) {
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      connection.query('SELECT * FROM workers ORDER BY time DESC LIMIT 10', (err, results, fields) => {
-        callback(err, results)
-        connection.release()
-      })
-    })
-  }
-  
+class Workers { 
   /* Creates a new inspector to be inserted into the database. */
   static insertworker(worker, callback) { 
     if (!worker.worker_name) {
