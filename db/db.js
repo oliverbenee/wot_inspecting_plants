@@ -86,18 +86,7 @@ class Workers {
       })
     })
   }
-
-  /* Selects all from the table in reverse chronological order and has limit on 5 */
-  static getLTable(callback) {
-    pool.getConnection((err, connection) => {
-      if (err) throw err
-      connection.query('SELECT * FROM workers ORDER BY time DESC LIMIT 5', (err, results, fields) => {
-        callback(err, results)
-        connection.release()
-      })
-    })
-  }
-
+  
   /* Creates a new inspector to be inserted into the database. */
   static insertworker(worker, callback) { 
     if (!worker.worker_name) {
